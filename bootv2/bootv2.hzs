@@ -1,0 +1,77 @@
+<!DOCTYPE CrossStudio_for_ARM_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints/>
+ <ExecutionProfileWindow/>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="0x07FFFFF0" numColumns="8" sizeText="0x1000" dataSize="1" radix="16" name="" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="0x08008000" numColumns="8" sizeText="0x1000" dataSize="1" radix="16" name="" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="bootv2" name="unnamed" />
+  <ProjectSessionItem path="bootv2;bootv2" name="unnamed" />
+  <ProjectSessionItem path="bootv2;bootv2;Source Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="0" update="Never" />
+ </Watch1>
+ <Watch2>
+  <Watches active="1" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="2" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/main.c" y="22" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/main.c" left="0" selected="0" name="unnamed" top="12" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="44" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h" y="41" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h" left="0" selected="1" name="unnamed" top="14" />
+ </Files>
+ <ARMCrossStudioWindow activeProject="bootv2" autoConnectTarget="ST-LINK" debugSearchFileMap="C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\__int64_divmod.s
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\__int64_lsl.s
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\__int64_udivmod.s
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\memcpy.asm
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\memset.asm
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\strcmp.asm
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\strcpy.asm
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\strlen.asm
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libm_fast\arm\__float64_cmp.s
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libm_fast\arm\__float64_to_int32.s
+
+C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libm_fast\arm\fabs.s
+" fileDialogInitialDirectory="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/memory" fileDialogDefaultFilter="*.c" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Release" />
+</session>
