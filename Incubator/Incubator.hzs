@@ -1,0 +1,67 @@
+<!DOCTYPE CrossStudio_for_ARM_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints/>
+ <ExecutionProfileWindow/>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="Incubator" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="Incubator" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="Incubator" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="Incubator" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="Incubator" name="unnamed" />
+  <ProjectSessionItem path="Incubator;Incubator" name="unnamed" />
+  <ProjectSessionItem path="Incubator;Incubator;Source Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="Incubator" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="Incubator" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="Incubator" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="Incubator" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never" />
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/main.c" y="5" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/main.c" left="0" selected="1" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmy_profile.h" y="48" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmy_profile.h" left="0" selected="0" name="unnamed" top="45" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_rtc.c" y="50" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_rtc.c" left="0" selected="0" name="unnamed" top="47" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/cpu/stm/stm32/stm32f100.h" y="0" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/cpu/stm/stm32/stm32f100.h" left="0" selected="0" name="unnamed" top="509" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/cpu/stm/stm32_xtal.h" y="385" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/cpu/stm/stm32_xtal.h" left="0" selected="0" name="unnamed" top="380" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/cpu/stm/stm32_watchdog.h" y="63" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/cpu/stm/stm32_watchdog.h" left="0" selected="0" name="unnamed" top="53" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_com.c" y="1077" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_com.c" left="0" selected="0" name="unnamed" top="1074" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/profiles/sensors/si7020.c" y="22" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/profiles/sensors/si7020.c" left="0" selected="0" name="unnamed" top="12" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/Library/Rowley Associates Limited/CrossWorks for ARM/packages/targets/STM32/STM32_Startup.s" y="86" path="/Users/warrengreenway/Library/Rowley Associates Limited/CrossWorks for ARM/packages/targets/STM32/STM32_Startup.s" left="0" selected="0" name="unnamed" top="74" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_string.c" y="1051" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_string.c" left="0" selected="0" name="unnamed" top="1040" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_string.h" y="77" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_string.h" left="0" selected="0" name="unnamed" top="74" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_fpec.h" y="59" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/pygmyos/core/pygmy_fpec.h" left="0" selected="0" name="unnamed" top="37" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/Incubator/si7020.h" y="7" path="/Users/warrengreenway/pygmy/CrossWorks/Incubator/si7020.h" left="0" selected="0" name="unnamed" top="0" />
+ </Files>
+ <ARMCrossStudioWindow activeProject="Incubator" autoConnectTarget="ST-LINK/V2" debugSearchFileMap="" fileDialogInitialDirectory="/Users/warrengreenway/pygmy/CrossWorks/Incubator" fileDialogDefaultFilter="*.h" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Debug" />
+</session>

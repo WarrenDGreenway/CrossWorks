@@ -1,24 +1,16 @@
 THUMB\ Debug/sst25vf.o: \
- C:/Users/MightyDubster/Documents/CrossWorks\ Projects/bootv2/../../Projects/pygmyos/profiles/memory/sst25vf.c \
- C:/Users/MightyDubster/Documents/CrossWorks\ Projects/bootv2/pygmy_profile.h \
- ../../Projects/pygmyos/profiles/nebula/pygmy_nebula_hp.h \
- ../../Projects/pygmyos/core/pygmy_sys.h \
- C:/Program\ Files\ (x86)/Rowley\ Associates\ Limited/CrossWorks\ for\ ARM\ 2.2/include/stdint.h \
- ../../Projects/pygmyos/core/pygmy_xmodem.h \
- ../../Projects/pygmyos/core/pygmy_type.h \
- C:/Program\ Files\ (x86)/Rowley\ Associates\ Limited/CrossWorks\ for\ ARM\ 2.2/include/stdarg.h \
- C:/Program\ Files\ (x86)/Rowley\ Associates\ Limited/CrossWorks\ for\ ARM\ 2.2/include/__crossworks.h \
- ../../Projects/pygmyos/core/pygmy_pfat.h \
- ../../Projects/pygmyos/core/pygmy_type.h \
- ../../Projects/pygmyos/core/pygmy_port.h \
- ../../Projects/pygmyos/core/pygmy_sys.h \
- ../../Projects/pygmyos/core/pygmy_com.h \
- ../../Projects/pygmyos/core/pygmy_rf.h \
- ../../Projects/pygmyos/core/pygmy_adc.h \
- ../../Projects/pygmyos/core/pygmy_pfat.h \
- ../../Projects/pygmyos/core/pygmy_nvic.h \
- ../../Projects/pygmyos/core/pygmy_rtc.h \
- ../../Projects/pygmyos/core/pygmy_string.h \
- ../../Projects/pygmyos/core/pygmy_fpec.h \
- ../../Projects/pygmyos/profiles/memory/sst25vf.h \
- C:/Program\ Files\ (x86)/Rowley\ Associates\ Limited/CrossWorks\ for\ ARM\ 2.2/include/stdlib.h
+ /Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/memory/sst25vf.c \
+ /Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h \
+ pygmyos/profiles/gomex/gomex_v1.h pygmyos/core/pygmy_sys.h \
+ /Applications/CrossWorks\ for\ ARM\ 2.3/include/stdint.h \
+ pygmyos/core/pygmy_xmodem.h pygmyos/core/pygmy_type.h \
+ /Applications/CrossWorks\ for\ ARM\ 2.3/include/stdarg.h \
+ /Applications/CrossWorks\ for\ ARM\ 2.3/include/__crossworks.h \
+ pygmyos/core/pygmy_pfat.h pygmyos/core/pygmy_type.h \
+ pygmyos/core/pygmy_port.h pygmyos/core/pygmy_sys.h \
+ pygmyos/core/pygmy_com.h pygmyos/core/pygmy_rf.h \
+ pygmyos/core/pygmy_adc.h pygmyos/core/pygmy_pfat.h \
+ pygmyos/core/pygmy_nvic.h pygmyos/core/pygmy_rtc.h \
+ pygmyos/core/pygmy_string.h pygmyos/core/pygmy_fpec.h \
+ pygmyos/profiles/memory/sst25vf.h \
+ /Applications/CrossWorks\ for\ ARM\ 2.3/include/stdlib.h

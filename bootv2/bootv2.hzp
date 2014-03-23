@@ -19,6 +19,9 @@
       <file file_name="pygmyos/core/pygmy_sys.c"/>
       <file file_name="pygmyos/core/pygmy_xmodem.c"/>
       <file file_name="pygmyos/profiles/memory/sst25vf.c"/>
+      <file file_name="pygmyos/core/pygmy_xml.c"/>
+      <file file_name="pygmyos/core/pygmy_xml.h.c"/>
+      <file file_name="pygmyos/profiles/gomex/gomex_v1.h"/>
     </folder>
     <folder Name="System Files">
       <file file_name="$(StudioDir)/source/thumb_crt0.s"/>
@@ -27,7 +30,9 @@
         <configuration Name="Common" file_type="Reset Script"/>
       </file>
     </folder>
-    <configuration Name="THUMB Debug" arm_linker_stack_size="4096"/>
+    <configuration Name="THUMB Debug" arm_linker_stack_size="4096" linker_section_placement_file="$(ProjectDir)/bootloader_placement.xml"/>
+    <file file_name="bootloader.xml"/>
+    <file file_name="gomex.xml"/>
   </project>
   <configuration Name="THUMB Debug" arm_architecture="v7M" arm_core_type="Cortex-M3" arm_interwork="Yes" arm_library_optimization="Small" arm_linker_heap_size="65535" arm_linker_process_stack_size="256" build_treat_warnings_as_errors="Yes" inherited_configurations="THUMB;Debug"/>
   <configuration Name="THUMB" Platform="ARM" arm_instruction_set="THUMB" arm_library_instruction_set="THUMB" c_preprocessor_definitions="__THUMB" hidden="Yes"/>

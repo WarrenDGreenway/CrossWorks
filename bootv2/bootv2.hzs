@@ -4,16 +4,16 @@
  <Breakpoints/>
  <ExecutionProfileWindow/>
  <Memory1>
-  <MemoryWindow autoEvaluate="0" addressText="0x07FFFFF0" numColumns="8" sizeText="0x1000" dataSize="1" radix="16" name="" addressSpace="" />
+  <MemoryWindow autoEvaluate="0" addressText="0x07FFFFF0" numColumns="8" sizeText="0x1000" dataSize="1" radix="16" name="bootv2" addressSpace="" />
  </Memory1>
  <Memory2>
-  <MemoryWindow autoEvaluate="0" addressText="0x08008000" numColumns="8" sizeText="0x1000" dataSize="1" radix="16" name="" addressSpace="" />
+  <MemoryWindow autoEvaluate="0" addressText="0x08008000" numColumns="8" sizeText="0x1000" dataSize="1" radix="16" name="bootv2" addressSpace="" />
  </Memory2>
  <Memory3>
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="" addressSpace="" />
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="bootv2" addressSpace="" />
  </Memory3>
  <Memory4>
-  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="" addressSpace="" />
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="bootv2" addressSpace="" />
  </Memory4>
  <Project>
   <ProjectSessionItem path="bootv2" name="unnamed" />
@@ -21,16 +21,16 @@
   <ProjectSessionItem path="bootv2;bootv2;Source Files" name="unnamed" />
  </Project>
  <Register1>
-  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+  <RegisterWindow openNodes="CPU" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU" decimalNodes="" octalNodes="" asciiNodes="" name="bootv2" />
  </Register1>
  <Register2>
-  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="bootv2" />
  </Register2>
  <Register3>
-  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="bootv2" />
  </Register3>
  <Register4>
-  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="" />
+  <RegisterWindow openNodes="" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="" decimalNodes="" octalNodes="" asciiNodes="" name="bootv2" />
  </Register4>
  <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
  <TraceWindow>
@@ -49,10 +49,34 @@
   <Watches active="0" update="Never" />
  </Watch4>
  <Files>
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="2" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/main.c" y="22" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/main.c" left="0" selected="0" name="unnamed" top="12" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="44" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h" y="41" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h" left="0" selected="1" name="unnamed" top="14" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/main.c" y="267" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/main.c" left="0" selected="1" name="unnamed" top="401" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h" y="26" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmy_profile.h" left="0" selected="0" name="unnamed" top="24" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_sys.c" y="58" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_sys.c" left="0" selected="0" name="unnamed" top="46" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_string.c" y="1011" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_string.c" left="0" selected="0" name="unnamed" top="993" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_pfat.c" y="3233" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_pfat.c" left="0" selected="0" name="unnamed" top="3227" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_com.c" y="1483" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_com.c" left="0" selected="0" name="unnamed" top="1470" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/bootloader.xml" y="6" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/bootloader.xml" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/bootloader_placement.xml" y="4" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/bootloader_placement.xml" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_port.c" y="62" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_port.c" left="0" selected="0" name="unnamed" top="59" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_string.h" y="82" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_string.h" left="0" selected="0" name="unnamed" top="55" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_port.h" y="730" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_port.h" left="0" selected="0" name="unnamed" top="724" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_cmd.h" y="0" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_cmd.h" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_type.h" y="30" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_type.h" left="0" selected="0" name="unnamed" top="24" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_adc.c" y="221" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_adc.c" left="0" selected="0" name="unnamed" top="180" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/nebula/pygmy_nebula_hp.h" y="230" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/nebula/pygmy_nebula_hp.h" left="0" selected="0" name="unnamed" top="227" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_adc.h" y="43" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_adc.h" left="0" selected="0" name="unnamed" top="40" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_sys.h" y="1270" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_sys.h" left="0" selected="0" name="unnamed" top="1267" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_xml.c" y="36" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_xml.c" left="0" selected="0" name="unnamed" top="33" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_xml.h" y="30" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_xml.h" left="0" selected="0" name="unnamed" top="24" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_pfat.h" y="73" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_pfat.h" left="0" selected="0" name="unnamed" top="64" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/gomex.xml" y="7" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/gomex.xml" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/gomex/gomex_v1.h" y="73" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/gomex/gomex_v1.h" left="0" selected="0" name="unnamed" top="15" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_fpec.c" y="336" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_fpec.c" left="0" selected="0" name="unnamed" top="327" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_socket.c" y="420" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_socket.c" left="0" selected="0" name="unnamed" top="409" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_xmodem.c" y="191" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/core/pygmy_xmodem.c" left="0" selected="0" name="unnamed" top="188" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/memory/sst25vf.c" y="302" path="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/memory/sst25vf.c" left="0" selected="0" name="unnamed" top="291" />
  </Files>
- <ARMCrossStudioWindow activeProject="bootv2" autoConnectTarget="ST-LINK" debugSearchFileMap="C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\__int64_divmod.s
+ <ARMCrossStudioWindow activeProject="bootv2" autoConnectTarget="ST-LINK/V2" debugSearchFileMap="C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\__int64_divmod.s
 
 C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libc\arm\__int64_lsl.s
 
@@ -73,5 +97,5 @@ C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libm_fast\arm
 C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libm_fast\arm\__float64_to_int32.s
 
 C:\Users\products\build\crossworks\arm\crossworks_v2\shared\target\libm_fast\arm\fabs.s
-" fileDialogInitialDirectory="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/memory" fileDialogDefaultFilter="*.c" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Release" />
+" fileDialogInitialDirectory="/Users/warrengreenway/pygmy/CrossWorks/bootv2/pygmyos/profiles/nebula" fileDialogDefaultFilter="*.h" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Debug" />
 </session>

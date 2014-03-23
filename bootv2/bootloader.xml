@@ -1,0 +1,12 @@
+<Root name="Flash Section Placement" >
+  <MemorySegment name="FLASH" name="FLASH" start="0x10000000" size="0x10000">
+    <ProgramSection name=".vectors" load="Yes" />
+    <ProgramSection name=".commands" load="Yes" />
+    <ProgramSection name=".text" load="Yes" />
+    <ProgramSection name=".data_load" load="Yes" runin="data_run" />
+  </MemorySegment>
+  <MemorySegment name="SRAM" name="SRAM" start="0x20000000" size="0x1000">
+    <ProgramSection name=".data_run" load="No" />
+    <ProgramSection name=".stack" load="No" />
+  </MemorySegment>
+</Root>

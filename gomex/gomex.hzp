@@ -1,0 +1,37 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="gomex" target="8" version="2">
+  <project Name="gomex">
+    <configuration Name="Common" Placement="Flash" Target="STM32F103ZG" arm_architecture="v7M" arm_core_type="Cortex-M3" arm_fpu_type="None" arm_gcc_target="arm-unknown-eabi" arm_linker_heap_size="65535" arm_linker_jtag_pad_pre_dr="1" arm_linker_jtag_pad_pre_ir="5" arm_linker_process_stack_size="512" arm_linker_stack_size="2048" arm_simulator_memory_simulation_filename="$(TargetsDir)/STM32/STM32SimulatorMemory.dll" arm_simulator_memory_simulation_parameter="STM32F103ZG;0x100000;0x18000" arm_target_connect_with_reset="Yes" arm_target_debug_interface_type="ADIv5" arm_target_interface_type="Default" arm_target_loader_applicable_loaders="Flash" arm_target_loader_default_loader="Flash" arm_target_restrict_memory_accesses="Yes" c_user_include_directories="$(TargetsDir)/STM32/include;$(TargetsDir)/CMSIS_3/CMSIS/Include" gcc_optimization_level="Optimize For Size" linker_memory_map_file="$(TargetsDir)/STM32/STM32F103ZG_MemoryMap.xml" linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml" project_directory="" project_type="Executable" property_groups_file_path="$(TargetsDir)/STM32/propertyGroups.xml" target_get_partname_script="GetPartName()" target_match_partname_script="MatchPartName(&quot;$(Target)&quot;)" target_reset_script="Reset()" target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)"/>
+    <configuration Name="Flash" arm_target_flash_loader_file_path="$(TargetsDir)/STM32/Release/Loader_rpc.elf" arm_target_flash_loader_type="LIBMEM RPC Loader" arm_target_loader_can_erase_all="Yes" arm_target_loader_can_lock_all="No" arm_target_loader_can_lock_range="No" arm_target_loader_can_unlock_all="No" arm_target_loader_can_unlock_range="No" target_reset_script="FLASHReset()"/>
+    <folder Name="Source Files" file_name="">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc"/>
+      <file file_name="main.c"/>
+      <file file_name="pygmyos/core/pygmy_adc.c"/>
+      <file file_name="pygmyos/core/pygmy_com.c"/>
+      <file file_name="pygmyos/core/pygmy_fpec.c"/>
+      <file file_name="pygmyos/core/pygmy_nvic.c"/>
+      <file file_name="pygmyos/core/pygmy_pfat.c"/>
+      <file file_name="pygmyos/core/pygmy_port.c"/>
+      <file file_name="pygmyos/core/pygmy_sys.c"/>
+      <file file_name="pygmyos/core/pygmy_string.c"/>
+      <file file_name="pygmyos/core/pygmy_rtc.c"/>
+      <file file_name="pygmyos/core/pygmy_xmodem.c"/>
+      <file file_name="pygmyos/profiles/memory/sst25vf.c"/>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="$(StudioDir)/source/thumb_crt0.s"/>
+      <file file_name="$(TargetsDir)/STM32/STM32_Startup.s"/>
+      <file file_name="$(TargetsDir)/STM32/STM32_Target.js">
+        <configuration Name="Common" file_type="Reset Script"/>
+      </file>
+    </folder>
+    <configuration Name="Debug" arm_architecture="v7M" arm_core_type="Cortex-M3" c_user_include_directories="pygmyos;pygmyos/core;."/>
+    <configuration Name="Release" arm_architecture="v7M" arm_core_type="Cortex-M3" arm_instruction_set="Thumb" c_user_include_directories="pygmyos;pygmyos/core;."/>
+    <configuration Name="THUMB" arm_architecture="v7M" arm_core_type="Cortex-M3"/>
+  </project>
+  <configuration Name="THUMB Debug" inherited_configurations="THUMB;Debug"/>
+  <configuration Name="THUMB" Platform="ARM" arm_instruction_set="THUMB" arm_library_instruction_set="THUMB" c_preprocessor_definitions="__THUMB" hidden="Yes"/>
+  <configuration Name="Debug" c_preprocessor_definitions="DEBUG" gcc_debugging_level="Level 2" gcc_optimization_level="Optimize For Size" hidden="Yes"/>
+  <configuration Name="THUMB Release" inherited_configurations="THUMB;Release"/>
+  <configuration Name="Release" c_preprocessor_definitions="NDEBUG" gcc_debugging_level="Level 1" gcc_optimization_level="Optimize For Size" hidden="Yes"/>
+</solution>

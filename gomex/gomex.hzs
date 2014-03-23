@@ -1,0 +1,71 @@
+<!DOCTYPE CrossStudio_for_ARM_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints/>
+ <ExecutionProfileWindow/>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="gomex" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="gomex" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="gomex" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" numColumns="8" sizeText="" dataSize="1" radix="16" name="gomex" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="gomex" name="unnamed" />
+  <ProjectSessionItem path="gomex;gomex" name="unnamed" />
+  <ProjectSessionItem path="gomex;gomex;Source Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="gomex" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="gomex" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="gomex" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" hiddenNodes="" unsignedNodes="" visibleGroups="CPU - Current Context;CPU" decimalNodes="" octalNodes="" asciiNodes="" name="gomex" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never" />
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="3" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/main.c" y="517" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/main.c" left="0" selected="1" name="unnamed" top="224" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmy_profile.h" y="26" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmy_profile.h" left="0" selected="0" name="unnamed" top="20" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/gomex_v1.h" y="28" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/gomex_v1.h" left="0" selected="0" name="unnamed" top="68" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_port.c" y="60" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_port.c" left="0" selected="0" name="unnamed" top="57" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="3" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_com.c" y="1234" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_com.c" left="0" selected="0" name="unnamed" top="1222" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_com.h" y="379" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_com.h" left="0" selected="0" name="unnamed" top="376" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_nvic.c" y="58" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_nvic.c" left="0" selected="0" name="unnamed" top="45" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_nvic.h" y="193" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_nvic.h" left="0" selected="0" name="unnamed" top="167" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/Library/Rowley Associates Limited/CrossWorks for ARM/packages/targets/STM32/STM32_Startup.s" y="142" path="/Users/warrengreenway/Library/Rowley Associates Limited/CrossWorks for ARM/packages/targets/STM32/STM32_Startup.s" left="0" selected="0" name="unnamed" top="116" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_string.c" y="115" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_string.c" left="0" selected="0" name="unnamed" top="112" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_sys.c" y="58" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_sys.c" left="0" selected="0" name="unnamed" top="55" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_adc.c" y="214" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_adc.c" left="0" selected="0" name="unnamed" top="211" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_rtc.c" y="91" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_rtc.c" left="0" selected="0" name="unnamed" top="80" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_fpec.c" y="330" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_fpec.c" left="0" selected="0" name="unnamed" top="319" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_sys.h" y="0" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_sys.h" left="0" selected="0" name="unnamed" top="261" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_string.h" y="54" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_string.h" left="0" selected="0" name="unnamed" top="48" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Latin1" x="0" debugPath="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_type.h" y="94" path="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core/pygmy_type.h" left="0" selected="0" name="unnamed" top="122" />
+ </Files>
+ <ARMCrossStudioWindow activeProject="gomex" autoConnectTarget="ST-LINK/V2" debugSearchFileMap="" fileDialogInitialDirectory="/Users/warrengreenway/pygmy/CrossWorks/gomex/pygmyos/core" fileDialogDefaultFilter="*.h" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Debug" />
+</session>

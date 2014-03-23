@@ -1,0 +1,9 @@
+#include "pygmy_profile.h"
+
+void lcdWriteCommand( u8 cmd );
+void lcdWriteData( u8 dat );
+void lcdInit( void );
+void lcdWriteAddress( u8 column, u8 row );
+u8 putsLCD( u8 *Buffer );
+u8 putcLCD( u8 c );
+

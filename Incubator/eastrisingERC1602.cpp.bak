@@ -1,0 +1,82 @@
+#include "pygmy_profile.h"
+
+#define LCD_CLEAR                   0x01
+#define LCD_HOME                    0x02
+#define LCD_ENTRYMODE               0x04
+#define LCD_ONOFF                   0x08
+#define LCD_ONOFF_DISPLAY           0x04
+#define LCD_ONOFF_CURSOR            0x02
+#define LCD_ONOFF_CURSORPOS         0x01
+#define LCD_SHIFT                   0x10
+#define LCD_SHIFT_CURSOR            0x08
+#define LCD_SHIFT_DIRECTION         0x04
+#define LCD_FUNCTION                0x20
+#define LCD_FUNCTION_BITS           0x10
+#define LCD_FUNCTION_LINE           0x08
+#define LCD_CGRAM                   0x40
+#define LCD_DDRAM                   0x80
+#define LCD_READBUSY                0x80
+
+PYGMYI2CPORT pygmyLCDPort;
+
+u8 putsLCD( u8 *Buffer )
+{
+    
+}
+
+void lcdInit( void )
+{
+    pinConfig( LCD_RS, OUT );
+    pinSet( LCD_RS, HIGH );
+    pinConfig( LCD_CS, OUT );
+    pinConfig( LCD_PSB, OUT );
+    pinConfig( LCD_PSI2B, OUT );
+    pinConfig( LCD_BL, OUT );
+    pinSet( LCD_BL, LOW );
+    pinSet( LCD_PSB, HIGH );
+    pinSet( LCD_P2ISB, LOW ); 
+
+    i2cConfig( &pygmyLCDPort, LCD_SCL, LCD_SDA, 0x3E, I2CSPEEDFAST );
+
+    pinSet( LCD_RS, LOW );
+    delayms( 50 );
+    pinSet( LCD_RS, HIGH );
+    
+}
+
+void lcdWriteAddress( u8 column, u8 row )
+{
+    
+}
+
+void lcdWriteCommand( u8 command )
+{
+    i2cWriteByte( pygmyLCDPort, command )
+}
+
+void lcdWriteData( u8 data )
+{
+    i2cWriteByte( pygmyLCDPORT, data )
+}
+
+void lcdBacklight( u8 state )
+{
+    if( state == ON ){
+        pinSet( LCD_BL, HIGH );
+    } else{
+        pinSet( LCD_BL, LOW );
+    } // else
+}
+
+u16 lcdGetWidth( void )
+{
+    // This is an alphanumeric display, so the return is in characters
+    return( 16 );
+}
+
+u16 lcdGetHeight( void )
+{
+    // This is an alphanumeric display, so the return is in characters
+    return( 2 );
+}
+

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<root>
+  <node>Tag Payload</node>
+  <node name="node2">
+    Tag Payload
+  </node>
+  <node name="node3"/>
+</root>

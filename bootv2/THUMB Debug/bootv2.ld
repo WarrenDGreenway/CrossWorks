@@ -4,8 +4,22 @@ MEMORY
   FLASH_BANK2 (rx) : ORIGIN = 0x08080000, LENGTH = 0x00080000
   FLASH_BANK1 (rx) : ORIGIN = 0x08000000, LENGTH = 0x00080000
   FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 0x00100000
+  SYSTEM (wx) : ORIGIN = 0x1fffe000, LENGTH = 0x00001800
+  OPTION (wx) : ORIGIN = 0x1ffff800, LENGTH = 0x00000010
   RAM (wx) : ORIGIN = 0x20000000, LENGTH = 0x00018000
-  USB_CAN_RAM (wx) : ORIGIN = 0x40006000, LENGTH = 0x00000200
+  APB1 (wx) : ORIGIN = 0x40000000, LENGTH = 0x00010000
+  APB2 (wx) : ORIGIN = 0x40010000, LENGTH = 0x00008000
+  SDIO (wx) : ORIGIN = 0x40018000, LENGTH = 0x00000400
+  AHB (wx) : ORIGIN = 0x40020000, LENGTH = 0x00003400
+  FSMC (wx) : ORIGIN = 0xa0000000, LENGTH = 0x00001000
+  PCCARD (wx) : ORIGIN = 0x90000000, LENGTH = 0x00000000
+  NAND2 (wx) : ORIGIN = 0x80000000, LENGTH = 0x00000000
+  NAND1 (wx) : ORIGIN = 0x70000000, LENGTH = 0x00000000
+  NOR_PSRAM4 (wx) : ORIGIN = 0x6c000000, LENGTH = 0x00000000
+  NOR_PSRAM3 (wx) : ORIGIN = 0x68000000, LENGTH = 0x00000000
+  NOR_PSRAM2 (wx) : ORIGIN = 0x64000000, LENGTH = 0x00000000
+  NOR_PSRAM1 (wx) : ORIGIN = 0x60000000, LENGTH = 0x00000000
+  PPB (wx) : ORIGIN = 0xe0000000, LENGTH = 0x00100000
   CM3_System_Control_Space (wx) : ORIGIN = 0xe000e000, LENGTH = 0x00001000
 }
 
@@ -18,10 +32,38 @@ SECTIONS
   __FLASH_BANK1_segment_end__ = 0x08080000;
   __FLASH_segment_start__ = 0x08000000;
   __FLASH_segment_end__ = 0x08100000;
+  __SYSTEM_segment_start__ = 0x1fffe000;
+  __SYSTEM_segment_end__ = 0x1ffff800;
+  __OPTION_segment_start__ = 0x1ffff800;
+  __OPTION_segment_end__ = 0x1ffff810;
   __RAM_segment_start__ = 0x20000000;
   __RAM_segment_end__ = 0x20018000;
-  __USB_CAN_RAM_segment_start__ = 0x40006000;
-  __USB_CAN_RAM_segment_end__ = 0x40006200;
+  __APB1_segment_start__ = 0x40000000;
+  __APB1_segment_end__ = 0x40010000;
+  __APB2_segment_start__ = 0x40010000;
+  __APB2_segment_end__ = 0x40018000;
+  __SDIO_segment_start__ = 0x40018000;
+  __SDIO_segment_end__ = 0x40018400;
+  __AHB_segment_start__ = 0x40020000;
+  __AHB_segment_end__ = 0x40023400;
+  __FSMC_segment_start__ = 0xa0000000;
+  __FSMC_segment_end__ = 0xa0001000;
+  __PCCARD_segment_start__ = 0x90000000;
+  __PCCARD_segment_end__ = 0x90000000;
+  __NAND2_segment_start__ = 0x80000000;
+  __NAND2_segment_end__ = 0x80000000;
+  __NAND1_segment_start__ = 0x70000000;
+  __NAND1_segment_end__ = 0x70000000;
+  __NOR_PSRAM4_segment_start__ = 0x6c000000;
+  __NOR_PSRAM4_segment_end__ = 0x6c000000;
+  __NOR_PSRAM3_segment_start__ = 0x68000000;
+  __NOR_PSRAM3_segment_end__ = 0x68000000;
+  __NOR_PSRAM2_segment_start__ = 0x64000000;
+  __NOR_PSRAM2_segment_end__ = 0x64000000;
+  __NOR_PSRAM1_segment_start__ = 0x60000000;
+  __NOR_PSRAM1_segment_end__ = 0x60000000;
+  __PPB_segment_start__ = 0xe0000000;
+  __PPB_segment_end__ = 0xe0100000;
   __CM3_System_Control_Space_segment_start__ = 0xe000e000;
   __CM3_System_Control_Space_segment_end__ = 0xe000f000;
 
@@ -58,8 +100,21 @@ SECTIONS
 
   . = ASSERT(__vectors_end__ >= __FLASH_segment_start__ && __vectors_end__ <= __FLASH_segment_end__ , "error: .vectors is too large to fit in FLASH memory segment");
 
-  __init_load_start__ = ALIGN(__vectors_end__ , 4);
-  .init ALIGN(__vectors_end__ , 4) : AT(ALIGN(__vectors_end__ , 4))
+  __commands_load_start__ = ALIGN(__vectors_end__ , 4);
+  .commands ALIGN(__vectors_end__ , 4) : AT(ALIGN(__vectors_end__ , 4))
+  {
+    __commands_start__ = .;
+    *(.commands .commands.*)
+    . = ALIGN(MAX(__commands_start__ + 0x0F00 , .), 4);
+  }
+  __commands_end__ = __commands_start__ + SIZEOF(.commands);
+
+  __commands_load_end__ = __commands_end__;
+
+  . = ASSERT(__commands_end__ >= __FLASH_segment_start__ && __commands_end__ <= __FLASH_segment_end__ , "error: .commands is too large to fit in FLASH memory segment");
+
+  __init_load_start__ = ALIGN(__commands_end__ , 4);
+  .init ALIGN(__commands_end__ , 4) : AT(ALIGN(__commands_end__ , 4))
   {
     __init_start__ = .;
     *(.init .init.*)

@@ -1,0 +1,2010 @@
+Archive member included because of file (symbol)
+
+/Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+                              THUMB Debug/si7020.o (__aeabi_i2f)
+/Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+                              THUMB Debug/pygmy_string.o (modf)
+/Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+                              /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o) (fabs)
+/Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+                              THUMB Debug/pygmy_string.o (__aeabi_ldivmod)
+/Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+                              THUMB Debug/pygmy_string.o (malloc)
+/Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+                              /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o) (memcpy)
+/Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+                              (__do_debug_operation_mempoll)
+/Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+                              /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o) (__errno)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 THUMB Debug/main.o
+ .data          0x00000000        0x0 THUMB Debug/main.o
+ .bss           0x00000000        0x0 THUMB Debug/main.o
+ .text.delayms  0x00000000        0xa THUMB Debug/main.o
+ .bss.globalXTAL
+                0x00000000        0x4 THUMB Debug/main.o
+ .bss.globalPLL
+                0x00000000        0x4 THUMB Debug/main.o
+ .bss.globalID  0x00000000        0x4 THUMB Debug/main.o
+ .bss.globalFreq
+                0x00000000        0x4 THUMB Debug/main.o
+ .text          0x00000000        0x0 THUMB Debug/pygmy_com.o
+ .data          0x00000000        0x0 THUMB Debug/pygmy_com.o
+ .bss           0x00000000        0x0 THUMB Debug/pygmy_com.o
+ .text.TaskException_Handler
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.comOpen  0x00000000       0x70 THUMB Debug/pygmy_com.o
+ .text.comDisable
+                0x00000000       0x40 THUMB Debug/pygmy_com.o
+ .text.comEnable
+                0x00000000       0x4c THUMB Debug/pygmy_com.o
+ .text.comGenerateBaud
+                0x00000000       0x20 THUMB Debug/pygmy_com.o
+ .text.comConfig
+                0x00000000       0x60 THUMB Debug/pygmy_com.o
+ .text.parallelConfig
+                0x00000000       0xf8 THUMB Debug/pygmy_com.o
+ .text.parallelWrite
+                0x00000000       0x3a THUMB Debug/pygmy_com.o
+ .text.parallelRead
+                0x00000000       0x12 THUMB Debug/pygmy_com.o
+ .text.spiWriteByte
+                0x00000000       0x28 THUMB Debug/pygmy_com.o
+ .text.spiWriteLong
+                0x00000000       0x2c THUMB Debug/pygmy_com.o
+ .text.spiWriteAddress
+                0x00000000       0x40 THUMB Debug/pygmy_com.o
+ .text.spiPutCommand
+                0x00000000       0x16 THUMB Debug/pygmy_com.o
+ .text.spiReadByte
+                0x00000000       0x2c THUMB Debug/pygmy_com.o
+ .text.spiGetBuffer
+                0x00000000       0x3c THUMB Debug/pygmy_com.o
+ .text.spiGetLong
+                0x00000000       0x4e THUMB Debug/pygmy_com.o
+ .text.spiGetWord
+                0x00000000       0x3a THUMB Debug/pygmy_com.o
+ .text.spiGetChar
+                0x00000000       0x2c THUMB Debug/pygmy_com.o
+ .text.spiPutBuffer
+                0x00000000       0x3c THUMB Debug/pygmy_com.o
+ .text.spiPutLong
+                0x00000000       0x4c THUMB Debug/pygmy_com.o
+ .text.spiPutWord
+                0x00000000       0x38 THUMB Debug/pygmy_com.o
+ .text.spiPutChar
+                0x00000000       0x30 THUMB Debug/pygmy_com.o
+ .text.spiReadBuffer
+                0x00000000       0x2a THUMB Debug/pygmy_com.o
+ .text.spiWriteBuffer
+                0x00000000       0x2a THUMB Debug/pygmy_com.o
+ .text.spiConfig
+                0x00000000       0x9e THUMB Debug/pygmy_com.o
+ .text.i2cInit  0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.i2cSetAddress
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.i2cReset
+                0x00000000       0x10 THUMB Debug/pygmy_com.o
+ .text.I2C2_EV_IRQHandler
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.I2C2_ER_IRQHandler
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.I2C3_EV_IRQHandler
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.I2C3_ER_IRQHandler
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.i2cDelay
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .text.i2cGetChar
+                0x00000000       0x64 THUMB Debug/pygmy_com.o
+ .text.i2cGetBuffer
+                0x00000000       0x28 THUMB Debug/pygmy_com.o
+ .text.i2cPollAck
+                0x00000000       0x2a THUMB Debug/pygmy_com.o
+ .text.i2cPutChar
+                0x00000000       0x74 THUMB Debug/pygmy_com.o
+ .text.i2cPutBuffer
+                0x00000000       0x28 THUMB Debug/pygmy_com.o
+ .text.i2cPutString
+                0x00000000       0x24 THUMB Debug/pygmy_com.o
+ .text.streamReset
+                0x00000000       0x38 THUMB Debug/pygmy_com.o
+ .text.streamInit
+                0x00000000        0x6 THUMB Debug/pygmy_com.o
+ .text.streamGetSTDIO
+                0x00000000        0xc THUMB Debug/pygmy_com.o
+ .text.streamSetSTDIO
+                0x00000000       0x50 THUMB Debug/pygmy_com.o
+ .text.streamResetRX
+                0x00000000       0x10 THUMB Debug/pygmy_com.o
+ .text.streamResetTX
+                0x00000000       0x10 THUMB Debug/pygmy_com.o
+ .text.streamTXChar
+                0x00000000       0x38 THUMB Debug/pygmy_com.o
+ .text.streamEchoChar
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamGetChar
+                0x00000000       0x2c THUMB Debug/pygmy_com.o
+ .text.streamPutChar
+                0x00000000       0x34 THUMB Debug/pygmy_com.o
+ .text.streamFIFOToString
+                0x00000000       0x28 THUMB Debug/pygmy_com.o
+ .text.streamIsEmpty
+                0x00000000       0x18 THUMB Debug/pygmy_com.o
+ .text.streamPopChar
+                0x00000000       0x2c THUMB Debug/pygmy_com.o
+ .text.streamPeekChar
+                0x00000000       0x28 THUMB Debug/pygmy_com.o
+ .text.streamPushChar
+                0x00000000       0x2c THUMB Debug/pygmy_com.o
+ .text.streamSetPut
+                0x00000000       0x14 THUMB Debug/pygmy_com.o
+ .text.streamSetPutc
+                0x00000000       0x14 THUMB Debug/pygmy_com.o
+ .text.streamSetGet
+                0x00000000       0x14 THUMB Debug/pygmy_com.o
+ .text.streamSetRXBuffer
+                0x00000000       0x14 THUMB Debug/pygmy_com.o
+ .text.streamSetTXBuffer
+                0x00000000       0x14 THUMB Debug/pygmy_com.o
+ .text.streamSetActionChars
+                0x00000000       0x10 THUMB Debug/pygmy_com.o
+ .text.streamDisableDefaultGet
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamEnableDefaultGet
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamGetEcho
+                0x00000000       0x18 THUMB Debug/pygmy_com.o
+ .text.streamEnableEcho
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamDisableEcho
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamEnableActionChars
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamDisableActionChars
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamEnableBackspace
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamDisableBackspace
+                0x00000000       0x1c THUMB Debug/pygmy_com.o
+ .text.streamHandler
+                0x00000000       0x7c THUMB Debug/pygmy_com.o
+ .bss.globalStreams
+                0x00000000       0x28 THUMB Debug/pygmy_com.o
+ .rodata.str1.1
+                0x00000000        0x2 THUMB Debug/pygmy_com.o
+ .bss.globalSTDIO
+                0x00000000        0x1 THUMB Debug/pygmy_com.o
+ .bss.globalStreamEcho
+                0x00000000        0x1 THUMB Debug/pygmy_com.o
+ .text          0x00000000        0x0 THUMB Debug/pygmy_nvic.o
+ .data          0x00000000        0x0 THUMB Debug/pygmy_nvic.o
+ .bss           0x00000000        0x0 THUMB Debug/pygmy_nvic.o
+ .text.interruptGetTimerVector
+                0x00000000       0x20 THUMB Debug/pygmy_nvic.o
+ .text.interruptEnable
+                0x00000000       0x30 THUMB Debug/pygmy_nvic.o
+ .text.interruptDisable
+                0x00000000       0x34 THUMB Debug/pygmy_nvic.o
+ .text.interruptSetPriority
+                0x00000000       0xbc THUMB Debug/pygmy_nvic.o
+ .rodata.PYGMY_TIMERVECTORS_L15X
+                0x00000000       0x12 THUMB Debug/pygmy_nvic.o
+ .rodata.PYGMY_TIMERVECTORS
+                0x00000000       0x12 THUMB Debug/pygmy_nvic.o
+ .debug_frame   0x00000000       0x6c THUMB Debug/pygmy_nvic.o
+ .debug_info    0x00000000      0x3c5 THUMB Debug/pygmy_nvic.o
+ .debug_abbrev  0x00000000      0x14b THUMB Debug/pygmy_nvic.o
+ .debug_loc     0x00000000      0x204 THUMB Debug/pygmy_nvic.o
+ .debug_aranges
+                0x00000000       0x38 THUMB Debug/pygmy_nvic.o
+ .debug_ranges  0x00000000       0x28 THUMB Debug/pygmy_nvic.o
+ .debug_line    0x00000000       0xfd THUMB Debug/pygmy_nvic.o
+ .debug_str     0x00000000      0x294 THUMB Debug/pygmy_nvic.o
+ .comment       0x00000000       0x4f THUMB Debug/pygmy_nvic.o
+ .ARM.attributes
+                0x00000000       0x33 THUMB Debug/pygmy_nvic.o
+ .text          0x00000000        0x0 THUMB Debug/pygmy_port.o
+ .data          0x00000000        0x0 THUMB Debug/pygmy_port.o
+ .bss           0x00000000        0x0 THUMB Debug/pygmy_port.o
+ .text.pinGetIsRising
+                0x00000000        0x2 THUMB Debug/pygmy_port.o
+ .text.pinGetIRQPR
+                0x00000000        0xc THUMB Debug/pygmy_port.o
+ .text.pinGetIRQPin
+                0x00000000        0xc THUMB Debug/pygmy_port.o
+ .text.pinAnalog
+                0x00000000       0x18 THUMB Debug/pygmy_port.o
+ .text.pinInterrupt
+                0x00000000       0xec THUMB Debug/pygmy_port.o
+ .text.pinGet   0x00000000       0x54 THUMB Debug/pygmy_port.o
+ .text.pinGetTimer
+                0x00000000       0x50 THUMB Debug/pygmy_port.o
+ .text.pinGetChannel
+                0x00000000       0x2c THUMB Debug/pygmy_port.o
+ .text.pinCounter
+                0x00000000        0x2 THUMB Debug/pygmy_port.o
+ .text.pinSetSoftPWMFreq
+                0x00000000        0xc THUMB Debug/pygmy_port.o
+ .text.pinGetSoftPWMFreq
+                0x00000000        0xc THUMB Debug/pygmy_port.o
+ .text.pinInitSoftPWM
+                0x00000000       0x74 THUMB Debug/pygmy_port.o
+ .text.pinPulseLow
+                0x00000000       0x78 THUMB Debug/pygmy_port.o
+ .text.pinPulseHigh
+                0x00000000       0x7c THUMB Debug/pygmy_port.o
+ .text.pinRemoveSoftPWM
+                0x00000000       0x24 THUMB Debug/pygmy_port.o
+ .text.pinAddSoftPWM
+                0x00000000       0xd0 THUMB Debug/pygmy_port.o
+ .text.pinToggle
+                0x00000000        0x6 THUMB Debug/pygmy_port.o
+ .text.pinPWM   0x00000000      0x240 THUMB Debug/pygmy_port.o
+ .text.pinProcessSoftPWM
+                0x00000000       0x4c THUMB Debug/pygmy_port.o
+ .text.TIM1_UP_IRQHandler
+                0x00000000       0x10 THUMB Debug/pygmy_port.o
+ .rodata.PYGMY_TIMERPINS
+                0x00000000       0x10 THUMB Debug/pygmy_port.o
+ .data.PYGMY_TIMERS
+                0x00000000       0x48 THUMB Debug/pygmy_port.o
+ .bss.globalIRQPins
+                0x00000000       0x10 THUMB Debug/pygmy_port.o
+ .bss.globalPygmyPWMFreq
+                0x00000000        0x4 THUMB Debug/pygmy_port.o
+ .bss.globalPygmyPWM
+                0x00000000       0x80 THUMB Debug/pygmy_port.o
+ .bss.globalPygmyPWMCR
+                0x00000000        0x4 THUMB Debug/pygmy_port.o
+ .text          0x00000000        0x0 THUMB Debug/si7020.o
+ .data          0x00000000        0x0 THUMB Debug/si7020.o
+ .bss           0x00000000        0x0 THUMB Debug/si7020.o
+ .text.si7020GetTemperature
+                0x00000000       0xb8 THUMB Debug/si7020.o
+ .text.si7020GetRH
+                0x00000000       0x94 THUMB Debug/si7020.o
+ .text          0x00000000        0x0 THUMB Debug/tsl2671x.o
+ .data          0x00000000        0x0 THUMB Debug/tsl2671x.o
+ .bss           0x00000000        0x0 THUMB Debug/tsl2671x.o
+ .text.tsl2671xPowerOn
+                0x00000000        0x2 THUMB Debug/tsl2671x.o
+ .text.tsl2671xPowerOff
+                0x00000000        0x2 THUMB Debug/tsl2671x.o
+ .text.tsl2671xEnableProximityInterrupt
+                0x00000000        0x2 THUMB Debug/tsl2671x.o
+ .text.tsl2671xEnableProximity
+                0x00000000        0x2 THUMB Debug/tsl2671x.o
+ .text.tsl2671xEnableWait
+                0x00000000        0x2 THUMB Debug/tsl2671x.o
+ .debug_frame   0x00000000       0x60 THUMB Debug/tsl2671x.o
+ .debug_info    0x00000000      0x299 THUMB Debug/tsl2671x.o
+ .debug_abbrev  0x00000000       0xbb THUMB Debug/tsl2671x.o
+ .debug_loc     0x00000000       0xa5 THUMB Debug/tsl2671x.o
+ .debug_aranges
+                0x00000000       0x40 THUMB Debug/tsl2671x.o
+ .debug_ranges  0x00000000       0x30 THUMB Debug/tsl2671x.o
+ .debug_line    0x00000000      0x102 THUMB Debug/tsl2671x.o
+ .debug_str     0x00000000      0x20f THUMB Debug/tsl2671x.o
+ .comment       0x00000000       0x4f THUMB Debug/tsl2671x.o
+ .ARM.attributes
+                0x00000000       0x33 THUMB Debug/tsl2671x.o
+ .text          0x00000000        0x0 THUMB Debug/eastrisingERC1602.o
+ .data          0x00000000        0x0 THUMB Debug/eastrisingERC1602.o
+ .bss           0x00000000        0x0 THUMB Debug/eastrisingERC1602.o
+ .text.putcLCD  0x00000000        0x8 THUMB Debug/eastrisingERC1602.o
+ .text          0x00000000        0x0 THUMB Debug/pygmy_rtc.o
+ .data          0x00000000        0x0 THUMB Debug/pygmy_rtc.o
+ .bss           0x00000000        0x0 THUMB Debug/pygmy_rtc.o
+ .text.resetBackupDomain
+                0x00000000       0x10 THUMB Debug/pygmy_rtc.o
+ .text.timeInit
+                0x00000000       0xa0 THUMB Debug/pygmy_rtc.o
+ .text.rtcClearFlags
+                0x00000000       0x40 THUMB Debug/pygmy_rtc.o
+ .text.timeSet  0x00000000       0x3c THUMB Debug/pygmy_rtc.o
+ .text.timeGet  0x00000000       0x14 THUMB Debug/pygmy_rtc.o
+ .text.convertSystemTimeToSeconds
+                0x00000000       0x9c THUMB Debug/pygmy_rtc.o
+ .text.convertSecondsToSystemTime
+                0x00000000       0xc8 THUMB Debug/pygmy_rtc.o
+ .text.setSysTick
+                0x00000000       0x1c THUMB Debug/pygmy_rtc.o
+ .text.enableSysTick
+                0x00000000        0xc THUMB Debug/pygmy_rtc.o
+ .text.disableSysTick
+                0x00000000        0xc THUMB Debug/pygmy_rtc.o
+ .rodata.PYGMY_DAYSINMONTH
+                0x00000000        0xc THUMB Debug/pygmy_rtc.o
+ .debug_frame   0x00000000       0xd0 THUMB Debug/pygmy_rtc.o
+ .debug_info    0x00000000      0x556 THUMB Debug/pygmy_rtc.o
+ .debug_abbrev  0x00000000      0x198 THUMB Debug/pygmy_rtc.o
+ .debug_loc     0x00000000      0x2a5 THUMB Debug/pygmy_rtc.o
+ .debug_aranges
+                0x00000000       0x68 THUMB Debug/pygmy_rtc.o
+ .debug_ranges  0x00000000       0x58 THUMB Debug/pygmy_rtc.o
+ .debug_line    0x00000000      0x233 THUMB Debug/pygmy_rtc.o
+ .debug_str     0x00000000      0x363 THUMB Debug/pygmy_rtc.o
+ .comment       0x00000000       0x4f THUMB Debug/pygmy_rtc.o
+ .ARM.attributes
+                0x00000000       0x33 THUMB Debug/pygmy_rtc.o
+ .text          0x00000000        0x0 THUMB Debug/pygmy_string.o
+ .data          0x00000000        0x0 THUMB Debug/pygmy_string.o
+ .bss           0x00000000        0x0 THUMB Debug/pygmy_string.o
+ .text.convertStateToString
+                0x00000000       0x1c THUMB Debug/pygmy_string.o
+ .text.convertModeToString
+                0x00000000       0x4c THUMB Debug/pygmy_string.o
+ .text.convertPinToString
+                0x00000000        0x8 THUMB Debug/pygmy_string.o
+ .text.copyBuffer
+                0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.convertU16ToBuffer
+                0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.convertU32ToBuffer
+                0x00000000       0x22 THUMB Debug/pygmy_string.o
+ .text.convertBufferToU16
+                0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.convertBufferToU32
+                0x00000000       0x2c THUMB Debug/pygmy_string.o
+ .text.countCharInString
+                0x00000000       0x16 THUMB Debug/pygmy_string.o
+ .text.removeLeadingWhitespace
+                0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.convertStringToPort
+                0x00000000        0xa THUMB Debug/pygmy_string.o
+ .text.isPrintable
+                0x00000000        0xc THUMB Debug/pygmy_string.o
+ .text.isCharInString
+                0x00000000       0x16 THUMB Debug/pygmy_string.o
+ .text.stripLeadingChars
+                0x00000000       0x1c THUMB Debug/pygmy_string.o
+ .text.isAlpha  0x00000000       0x18 THUMB Debug/pygmy_string.o
+ .text.isHex    0x00000000       0x18 THUMB Debug/pygmy_string.o
+ .text.isBinary
+                0x00000000        0xc THUMB Debug/pygmy_string.o
+ .text.isOctal  0x00000000        0xc THUMB Debug/pygmy_string.o
+ .text.isNewline
+                0x00000000       0x16 THUMB Debug/pygmy_string.o
+ .text.isWhitespace
+                0x00000000        0xc THUMB Debug/pygmy_string.o
+ .text.isQuote  0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.isMath   0x00000000       0x14 THUMB Debug/pygmy_string.o
+ .text.isFileSeparator
+                0x00000000        0xa THUMB Debug/pygmy_string.o
+ .text.isSeparator
+                0x00000000       0x14 THUMB Debug/pygmy_string.o
+ .text.isPunctuation
+                0x00000000       0x14 THUMB Debug/pygmy_string.o
+ .text.splitString
+                0x00000000       0x44 THUMB Debug/pygmy_string.o
+ .text.convertCharToUpper
+                0x00000000        0xe THUMB Debug/pygmy_string.o
+ .text.convertCharToLower
+                0x00000000        0xe THUMB Debug/pygmy_string.o
+ .text.isCharSameIgnoreCase
+                0x00000000       0x1e THUMB Debug/pygmy_string.o
+ .text.isStringSameIgnoreCase
+                0x00000000       0x32 THUMB Debug/pygmy_string.o
+ .text.convertStringToMode
+                0x00000000       0x70 THUMB Debug/pygmy_string.o
+ .text.isStringSame
+                0x00000000       0x2e THUMB Debug/pygmy_string.o
+ .text.convertStringToState
+                0x00000000       0x90 THUMB Debug/pygmy_string.o
+ .text.getAllParameters
+                0x00000000      0x1d2 THUMB Debug/pygmy_string.o
+ .text.freeParameterList
+                0x00000000        0x2 THUMB Debug/pygmy_string.o
+ .text.convertIntToChar
+                0x00000000        0x2 THUMB Debug/pygmy_string.o
+ .text.seekChar
+                0x00000000        0x4 THUMB Debug/pygmy_string.o
+ .text.seekStringInStringIgnoreCase
+                0x00000000       0x5a THUMB Debug/pygmy_string.o
+ .text.convertMonthStringToInt
+                0x00000000       0x28 THUMB Debug/pygmy_string.o
+ .text.seekString
+                0x00000000       0x50 THUMB Debug/pygmy_string.o
+ .text.seekStringInBuffer
+                0x00000000        0x4 THUMB Debug/pygmy_string.o
+ .text.getLastChar
+                0x00000000       0x10 THUMB Debug/pygmy_string.o
+ .text.replaceLastChar
+                0x00000000       0x20 THUMB Debug/pygmy_string.o
+ .text.appendString
+                0x00000000       0x42 THUMB Debug/pygmy_string.o
+ .text.copyString
+                0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.getNextSubString
+                0x00000000      0x16c THUMB Debug/pygmy_string.o
+ .text.getAllSubStrings
+                0x00000000       0x3e THUMB Debug/pygmy_string.o
+ .text.convertStringToFloat
+                0x00000000       0xd0 THUMB Debug/pygmy_string.o
+ .text.convertDateStringToSeconds
+                0x00000000       0x88 THUMB Debug/pygmy_string.o
+ .text.convertStringToPin
+                0x00000000       0x9c THUMB Debug/pygmy_string.o
+ .text.convertBase64ToCode
+                0x00000000       0x42 THUMB Debug/pygmy_string.o
+ .text.convertHexCharToInteger
+                0x00000000       0x1c THUMB Debug/pygmy_string.o
+ .text.convertHexEncodedStringToBuffer
+                0x00000000       0x2e THUMB Debug/pygmy_string.o
+ .text.convertBase64ToBuffer
+                0x00000000       0x7c THUMB Debug/pygmy_string.o
+ .text.convertBase64ToString
+                0x00000000       0x6c THUMB Debug/pygmy_string.o
+ .text.convertStringToBase64
+                0x00000000       0x80 THUMB Debug/pygmy_string.o
+ .rodata.PYGMYBASE64CHARS
+                0x00000000       0x42 THUMB Debug/pygmy_string.o
+ .data.PYGMYMONTHABBREVIATIONS
+                0x00000000       0x30 THUMB Debug/pygmy_string.o
+ .bss.ucBufferCopy.5562
+                0x00000000        0x4 THUMB Debug/pygmy_string.o
+ .bss.ucIndex.5561
+                0x00000000        0x4 THUMB Debug/pygmy_string.o
+ .text          0x00000000        0x0 THUMB Debug/thumb_crt0.o
+ .data          0x00000000        0x0 THUMB Debug/thumb_crt0.o
+ .bss           0x00000000        0x0 THUMB Debug/thumb_crt0.o
+ .stack         0x00000000        0x0 THUMB Debug/thumb_crt0.o
+ .stack_process
+                0x00000000        0x0 THUMB Debug/thumb_crt0.o
+ .heap          0x00000000        0x0 THUMB Debug/thumb_crt0.o
+ .text          0x00000000        0x0 THUMB Debug/STM32_Startup.o
+ .data          0x00000000        0x0 THUMB Debug/STM32_Startup.o
+ .bss           0x00000000        0x0 THUMB Debug/STM32_Startup.o
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .data.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .bss.libc      0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__int32_to_float32
+                0x00000000       0x30 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__int32_to_float64
+                0x00000000       0x30 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__uint32_to_float32
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__uint32_to_float64
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__int64_to_float32
+                0x00000000       0x94 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__int64_to_float64
+                0x00000000       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__uint64_to_float32
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__uint64_to_float64
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_to_int32
+                0x00000000       0x44 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_to_int64
+                0x00000000       0x80 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_to_uint32
+                0x00000000       0x2c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_to_uint64
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_to_int64
+                0x00000000       0x84 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_to_uint32
+                0x00000000       0x34 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_to_uint64
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_to_float64
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_to_float32
+                0x00000000       0x78 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_add
+                0x00000000      0x140 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_mul
+                0x00000000       0xe4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_div
+                0x00000000      0x1f8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_cmp
+                0x00000000       0x48 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_fcmpeq
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_fcmplt
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_fcmple
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_fcmpge
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_fcmpgt
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_mul
+                0x00000000      0x180 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_div
+                0x00000000      0x260 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_dcmplt
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_dcmple
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_dcmpge
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__aeabi_dcmpgt
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_signbit
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_signbit
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_isinf
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_isinf
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_isnan
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_isnan
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_isfinite
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_isfinite
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_isnormal
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_isnormal
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float32_classify
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text.libc.__float64_classify
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .rodata.libc.__float32_infinity
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .rodata.libc.__float32_nan
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .rodata.libc.__float64_infinity
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .rodata.libc.__float64_nan
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .text          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .data          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .bss           0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.logf.part.5
+                0x00000000      0x14c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.exp.part.3
+                0x00000000      0x1b0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sqrt.part.6
+                0x00000000      0x1c8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.log.part.4
+                0x00000000      0x278 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__asinacos
+                0x00000000      0x2f0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__asinacosf
+                0x00000000      0x294 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__poly1_eval
+                0x00000000       0xa4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__poly1_evalf
+                0x00000000       0x88 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__poly_eval
+                0x00000000       0x9c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__poly_evalf
+                0x00000000       0x7c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__sincos
+                0x00000000      0x228 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.__sincosf
+                0x00000000      0x140 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.acos
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.acosf
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.acosh
+                0x00000000      0x228 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.acoshf
+                0x00000000      0x2ac /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.asin
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.asinf
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.asinh
+                0x00000000      0x238 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.asinhf
+                0x00000000      0x29c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.atan
+                0x00000000      0x248 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.atan2
+                0x00000000      0x120 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.atanf
+                0x00000000      0x184 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.atan2f
+                0x00000000       0xcc /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.atanh
+                0x00000000      0x164 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.atanhf
+                0x00000000       0xe8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.ceil
+                0x00000000       0xa8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.cos
+                0x00000000      0x1c0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.cosf
+                0x00000000      0x170 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.cosh
+                0x00000000      0x1e0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.coshf
+                0x00000000      0x308 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.exp
+                0x00000000       0x80 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.expf
+                0x00000000      0x140 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.fmax
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.fmaxf
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.fmin
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.fminf
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.frexp
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.hypot
+                0x00000000      0x238 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.hypotf
+                0x00000000      0x1fc /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.ldexp
+                0x00000000       0x64 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.log10
+                0x00000000       0x68 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.log10f
+                0x00000000       0x54 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.log
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.logf
+                0x00000000       0x48 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.modff
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.pow
+                0x00000000      0x1d0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.powf
+                0x00000000      0x240 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.scalbn
+                0x00000000       0x64 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.scalbnf
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sin
+                0x00000000      0x1a8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sinf
+                0x00000000      0x194 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sinh
+                0x00000000      0x280 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sinhf
+                0x00000000      0x1ec /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.tan
+                0x00000000      0x278 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.tanf
+                0x00000000      0x174 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.tanh
+                0x00000000      0x270 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.tanhf
+                0x00000000      0x290 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sqrt
+                0x00000000       0x48 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.sqrtf
+                0x00000000       0xbc /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.cbrtf
+                0x00000000      0x108 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.cbrt
+                0x00000000      0x2a0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.floor
+                0x00000000       0xa8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.fmodf
+                0x00000000       0xe4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc.fmod
+                0x00000000      0x174 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .rodata.libc.__asinacosf_a
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .rodata.libc.__asinacosf_b
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .rodata.libc.atanf_a
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .rodata.libc.__asinacos_a
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .rodata.libc.__asinacos_b
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .rodata.libc.atan_a
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .data.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .bss.libc      0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc.fabs
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .debug_frame   0x00000000       0xc0 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc.fabsf
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc.ceilf
+                0x00000000       0x64 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc.floorf
+                0x00000000       0x60 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc.ldexpf
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc.frexpf
+                0x00000000       0x2c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .ARM.attributes
+                0x00000000       0x1d /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2_asm.o)
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .data.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .bss.libc      0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r4
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r1
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r2
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r3
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r0
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r5
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_sp
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r7
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r8
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r9
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_sl
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_r6
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_lr
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_ip
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc._call_via_fp
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_umod
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_asr
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_div
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_lsl
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_lsr
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_mod
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_cmp
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int64_ucmp
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.muldi3
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int32_umod
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int32_div
+                0x00000000       0x7c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .rodata.libc.__aeabi_uidiv
+                0x00000000       0x40 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__int32_mod
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__aeabi_uidivmod
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__aeabi_idivmod
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.ctl_count_leading_zeros_32
+                0x00000000       0x40 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.ctl_count_leading_zeros_16
+                0x00000000       0x34 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__gnu_thumb1_case_shi
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__gnu_thumb1_case_si
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__gnu_thumb1_case_sqi
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__gnu_thumb1_case_uhi
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text.libc.__gnu_thumb1_case_uqi
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .text          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .data          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss           0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.twodigit
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.put_ch
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.put_str
+                0x00000000       0x16 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.put_twodigit
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.put_twodigit2
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.put_twodigits_leading_blank
+                0x00000000       0x26 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.put_formatted
+                0x00000000      0x32c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__digit
+                0x00000000       0x32 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__getc
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__RAL_pow10
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__stdin_ungetc
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__putc
+                0x00000000       0x34 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__print_padding
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__pre_padding
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__xlltoa
+                0x00000000       0x78 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__xltoa
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__xtoa
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.abs
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.asctime_r
+                0x00000000       0xb0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.asctime
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.atexit
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc._execute_at_exit_fns
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.bsearch
+                0x00000000       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ctl_is_exact_power_of_two
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ctl_round_power_of_two
+                0x00000000       0x1a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ctl_count_leading_zeroes
+                0x00000000       0x3a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ctl_ilogb
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.buddy_alloc
+                0x00000000       0xbc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.buddy_free
+                0x00000000       0xb4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.buddy_heap_init
+                0x00000000       0x8a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isalpha
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isupper
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.islower
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isdigit
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isxdigit
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isspace
+                0x00000000       0x16 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__strtoull
+                0x00000000      0x11a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.__strtoul
+                0x00000000       0xba /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ispunct
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isalnum
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isprint
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isgraph
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.iscntrl
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.tolower
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.toupper
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.isblank
+                0x00000000       0x16 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.div
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.itoa
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.labs
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ldiv
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.linked_heap_init
+                0x00000000       0x4e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.linked_heap_alloc
+                0x00000000       0x90 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.linked_heap_free
+                0x00000000       0x9c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.linked_heap_realloc
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.llabs
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.lldiv
+                0x00000000       0x56 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.lltoa
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.localeconv
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.setlocale
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ltoa
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.malloc
+                0x00000000       0x68 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.calloc
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.free
+                0x00000000       0x80 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.realloc
+                0x00000000       0x2c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.memccpy
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.mempcpy
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.memchr
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.memcmp
+                0x00000000       0x2a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.memmove
+                0x00000000       0x34 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.qsort
+                0x00000000      0x1d0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.rand
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.snprintf
+                0x00000000       0x26 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.sprintf
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.srand
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.sscanf
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strcasecmp
+                0x00000000       0x2a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strcasestr
+                0x00000000       0x54 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strchr
+                0x00000000       0x1a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strcspn
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strdup
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strftime
+                0x00000000       0x26 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strncasecmp
+                0x00000000       0x4e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strncasestr
+                0x00000000       0x54 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strncat
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strlcat
+                0x00000000       0x48 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strnchr
+                0x00000000       0x1e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strncmp
+                0x00000000       0x2e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strncpy
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strlcpy
+                0x00000000       0x3a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strnlen
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strndup
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strnstr
+                0x00000000       0x48 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strpbrk
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strrchr
+                0x00000000       0x30 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strsep
+                0x00000000       0x3a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strspn
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strstr
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtod
+                0x00000000      0x184 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtof
+                0x00000000      0x150 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtok
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtok_r
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtol
+                0x00000000       0x70 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.atol
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.atoi
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.atof
+                0x00000000      0x100 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtoll
+                0x00000000       0x8a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.atoll
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtoul
+                0x00000000       0x86 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.strtoull
+                0x00000000       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.localtime_r
+                0x00000000      0x108 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.difftime
+                0x00000000        0xa /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.checktm
+                0x00000000      0x194 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.mktime
+                0x00000000      0x110 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ctime
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ctime_r
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.gmtime
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.gmtime_r
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.localtime
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.gettimeofday
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.settimeofday
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ulltoa
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.ultoa
+                0x00000000        0x6 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.utoa
+                0x00000000        0x6 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.vsnprintf
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.vsprintf
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.vsscanf
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcscat
+                0x00000000       0x1a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcschr
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcscmp
+                0x00000000       0x26 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcscpy
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcscspn
+                0x00000000       0x22 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcslen
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsdup
+                0x00000000       0x1e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsncat
+                0x00000000       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsnchr
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsncmp
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsncpy
+                0x00000000       0x26 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsnlen
+                0x00000000       0x1a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsnstr
+                0x00000000       0x4a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcspbrk
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsrchr
+                0x00000000       0x2c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcssep
+                0x00000000       0x36 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsspn
+                0x00000000       0x22 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcsstr
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcstok
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wcstok_r
+                0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmemcpy
+                0x00000000       0x16 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmemccpy
+                0x00000000       0x1e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmempcpy
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmemmove
+                0x00000000       0x34 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmemcmp
+                0x00000000       0x26 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmemchr
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc.wmemset
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .data.libc.heap
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.__hex_lc
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.__crt_get_time_of_day
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.year_lengths
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.mon_name
+                0x00000000       0x30 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.__atexitfns
+                0x00000000       0x80 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.str1.1
+                0x00000000      0x102 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.__format_extender
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.invalid
+                0x00000000        0xa /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .data.libc.__RAL_rand_next
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.power
+                0x00000000       0x48 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.__RAL_mon_lengths
+                0x00000000       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.last.5990
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.last.5518
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.day_name
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.month_names
+                0x00000000       0x34 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.asctime_buf
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.__ctype
+                0x00000000      0x101 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.__crt_set_time_of_day
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc.atexitfn_count
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .data.libc.__ungot
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .data.libc._lconv
+                0x00000000       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.__hex_uc
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .bss.libc._tm  0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .rodata.libc.day_names
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .data.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .bss.libc      0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.longjmp
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.memcpy
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.memcpy_fast
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.memcpy_small
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.memset
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.__aeabi_memset
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.setjmp
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.strcpy
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text.libc.strcmp
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .text          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .data          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .bss           0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio
+                0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.__do_nvdebug_operation
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_abort
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fopen
+                0x00000000       0x16 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fgets
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fputc
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fputs
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fread
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fwrite
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fseek
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_ftell
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_gets
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fflush
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fclose
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fgetc
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getchar
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_putchar
+                0x00000000       0x18 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_puts
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_rewind
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_clearerr
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_feof
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_ferror
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getch
+                0x00000000       0x10 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_time
+                0x00000000       0x1c /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_vprintf
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_vfprintf
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_ungetc
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fgetpos
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_fsetpos
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_freopen
+                0x00000000       0x16 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_perror
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_remove
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_rename
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_tmpfile
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_tmpnam
+                0x00000000       0x24 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getenv
+                0x00000000       0x20 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_system
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_vfscanf
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_vscanf
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_exit
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_enabled
+                0x00000000        0xc /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_kbhit
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_ioctl
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_runtime_error
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_break
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getargs
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_geti
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getu
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getl
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getul
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getf
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getd
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getll
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_getull
+                0x00000000       0x12 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_filesize
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_accept
+                0x00000000       0x14 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_bind
+                0x00000000       0x1a /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_listen
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_shutdown
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_socket
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_htons
+                0x00000000        0xa /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_htonl
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_loadsymbols
+                0x00000000        0xe /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text.libdebugio.debug_unloadsymbols
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .bss.libdebugio.getenv_buffer
+                0x00000000      0x400 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .bss.libdebugio.__dbgEnabled
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .bss.libdebugio.tmpnam_buffer
+                0x00000000      0x100 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .text          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .data          0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .bss           0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc     0x00000000        0x0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__errno
+                0x00000000        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__heap_lock
+                0x00000000        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__heap_unlock
+                0x00000000        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__printf_lock
+                0x00000000        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__printf_unlock
+                0x00000000        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__scanf_lock
+                0x00000000        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .text.libc.__scanf_unlock
+                0x00000000        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+ .bss.libc.errno
+                0x00000000        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+UNPLACED_SECTIONS 0xffffffff         0x00000000         xw
+FLASH            0x08000000         0x00004000         xr
+SYSTEM           0x1ffff000         0x00000800         xw
+OPTION           0x1ffff800         0x00000010         xw
+RAM              0x20000000         0x00001000         xw
+APB1             0x40000000         0x00010000         xw
+APB2             0x40010000         0x00020000         xw
+AHB              0x40020000         0x00003400         xw
+PPB              0xe0000000         0x00100000         xw
+DBG              0xe0042000         0x00000010         xw
+CM3_System_Control_Space 0xe000e000         0x00001000         xw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08001760                __do_debug_operation = __do_debug_operation_mempoll
+                0x08000000                __FLASH_segment_start__ = 0x8000000
+                0x08004000                __FLASH_segment_end__ = 0x8004000
+                0x1ffff000                __SYSTEM_segment_start__ = 0x1ffff000
+                0x1ffff800                __SYSTEM_segment_end__ = 0x1ffff800
+                0x1ffff800                __OPTION_segment_start__ = 0x1ffff800
+                0x1ffff810                __OPTION_segment_end__ = 0x1ffff810
+                0x20000000                __RAM_segment_start__ = 0x20000000
+                0x20001000                __RAM_segment_end__ = 0x20001000
+                0x40000000                __APB1_segment_start__ = 0x40000000
+                0x40010000                __APB1_segment_end__ = 0x40010000
+                0x40010000                __APB2_segment_start__ = 0x40010000
+                0x40030000                __APB2_segment_end__ = 0x40030000
+                0x40020000                __AHB_segment_start__ = 0x40020000
+                0x40023400                __AHB_segment_end__ = 0x40023400
+                0xe0000000                __PPB_segment_start__ = 0xe0000000
+                0xe0100000                __PPB_segment_end__ = 0xe0100000
+                0xe0042000                __DBG_segment_start__ = 0xe0042000
+                0xe0042010                __DBG_segment_end__ = 0xe0042010
+                0xe000e000                __CM3_System_Control_Space_segment_start__ = 0xe000e000
+                0xe000f000                __CM3_System_Control_Space_segment_end__ = 0xe000f000
+                0x00000100                __STACKSIZE__ = 0x100
+                0x00000000                __STACKSIZE_PROCESS__ = 0x0
+                0x00000000                __STACKSIZE_IRQ__ = 0x0
+                0x00000000                __STACKSIZE_FIQ__ = 0x0
+                0x00000000                __STACKSIZE_SVC__ = 0x0
+                0x00000000                __STACKSIZE_ABT__ = 0x0
+                0x00000000                __STACKSIZE_UND__ = 0x0
+                0x00000080                __HEAPSIZE__ = 0x80
+                0x20000000                __vectors_ram_load_start__ = ALIGN (__RAM_segment_start__, 0x100)
+
+.vectors_ram    0x20000000        0x0
+                0x20000000                __vectors_ram_start__ = .
+ *(.vectors_ram .vectors_ram.*)
+                0x20000000                __vectors_ram_end__ = (__vectors_ram_start__ + SIZEOF (.vectors_ram))
+                0x20000000                __vectors_ram_load_end__ = __vectors_ram_end__
+                0x00000001                . = ASSERT (((__vectors_ram_end__ >= __RAM_segment_start__) && (__vectors_ram_end__ <= __RAM_segment_end__)), error: .vectors_ram is too large to fit in RAM memory segment)
+                0x08000000                __vectors_load_start__ = ALIGN (__FLASH_segment_start__, 0x100)
+
+.vectors        0x08000000      0x120
+                0x08000000                __vectors_start__ = .
+ *(.vectors .vectors.*)
+ .vectors       0x08000000      0x120 THUMB Debug/STM32_Startup.o
+                0x08000000                _vectors
+                0x08000120                __vectors_end__ = (__vectors_start__ + SIZEOF (.vectors))
+                0x08000120                __vectors_load_end__ = __vectors_end__
+                0x00000001                . = ASSERT (((__vectors_end__ >= __FLASH_segment_start__) && (__vectors_end__ <= __FLASH_segment_end__)), error: .vectors is too large to fit in FLASH memory segment)
+                0x08000120                __init_load_start__ = ALIGN (__vectors_end__, 0x4)
+
+.init           0x08000120      0x1a8
+                0x08000120                __init_start__ = .
+ *(.init .init.*)
+ .init          0x08000120      0x12c THUMB Debug/thumb_crt0.o
+                0x08000120                _start
+                0x080001b8                exit
+                0x080001dc                __putchar
+                0x080001dc                __getchar
+ .init          0x0800024c       0x7c THUMB Debug/STM32_Startup.o
+                0x0800024c                NMI_Handler
+                0x0800024e                HardFault_Handler
+                0x08000250                MemManage_Handler
+                0x08000252                BusFault_Handler
+                0x08000254                UsageFault_Handler
+                0x08000256                SVC_Handler
+                0x08000258                DebugMon_Handler
+                0x0800025a                PendSV_Handler
+                0x0800025e                WWDG_IRQHandler
+                0x08000260                PVD_IRQHandler
+                0x08000262                TAMPER_IRQHandler
+                0x08000264                RTC_IRQHandler
+                0x08000266                FLASH_IRQHandler
+                0x08000268                RCC_IRQHandler
+                0x08000274                DMA1_Channel1_IRQHandler
+                0x08000276                DMA1_Channel2_IRQHandler
+                0x08000278                DMA1_Channel3_IRQHandler
+                0x0800027a                DMA1_Channel4_IRQHandler
+                0x0800027c                DMA1_Channel5_IRQHandler
+                0x0800027e                DMA1_Channel6_IRQHandler
+                0x08000280                DMA1_Channel7_IRQHandler
+                0x08000282                ADC1_IRQHandler
+                0x08000286                TIM1_BRK_TIM15_IRQHandler
+                0x08000288                TIM1_UP_TIM16_IRQHandler
+                0x0800028a                TIM1_TRG_COM_TIM17_IRQHandler
+                0x0800028c                TIM1_CC_IRQHandler
+                0x0800028e                TIM2_IRQHandler
+                0x08000290                TIM3_IRQHandler
+                0x08000292                I2C1_EV_IRQHandler
+                0x08000296                SPI1_IRQHandler
+                0x08000298                USART1_IRQHandler
+                0x0800029a                USART2_IRQHandler
+                0x0800029e                RTCAlarm_IRQHandler
+                0x080002a0                CEC_IRQHandler
+                0x080002a2                TIM6_DAC_IRQHandler
+                0x080002a4                TIM7_IRQHandler
+                0x080002a6                reset_handler
+                0x080002b8                SystemInit
+                0x080002c8                __init_end__ = (__init_start__ + SIZEOF (.init))
+                0x080002c8                __init_load_end__ = __init_end__
+                0x00000001                . = ASSERT (((__init_end__ >= __FLASH_segment_start__) && (__init_end__ <= __FLASH_segment_end__)), error: .init is too large to fit in FLASH memory segment)
+                0x080002c8                __text_load_start__ = ALIGN (__init_end__, 0x4)
+
+.text           0x080002c8     0x14cc
+                0x080002c8                __text_start__ = .
+ *(.text .text.* .glue_7t .glue_7 .gnu.linkonce.t.* .gcc_except_table .ARM.extab* .gnu.linkonce.armextab.*)
+ .glue_7        0x00000000        0x0 linker stubs
+ .glue_7t       0x00000000        0x0 linker stubs
+ .text.startup.main
+                0x080002c8       0xc8 THUMB Debug/main.o
+                0x080002c8                main
+ .text.delay    0x08000390       0x64 THUMB Debug/main.o
+                0x08000390                delay
+ .text.print    0x080003f4      0x1a0 THUMB Debug/main.o
+                0x080003f4                print
+ .text.SysTick_Handler
+                0x08000594       0x10 THUMB Debug/main.o
+                0x08000594                SysTick_Handler
+ .text.I2C1_ER_IRQHandler
+                0x080005a4        0x2 THUMB Debug/pygmy_com.o
+                0x080005a4                I2C1_ER_IRQHandler
+ .text.i2cConfig
+                0x080005a6       0x98 THUMB Debug/pygmy_com.o
+                0x080005a6                i2cConfig
+ .text.i2cStretch
+                0x0800063e       0x18 THUMB Debug/pygmy_com.o
+                0x0800063e                i2cStretch
+ .text.i2cWriteBit
+                0x08000656       0x56 THUMB Debug/pygmy_com.o
+                0x08000656                i2cWriteBit
+ .text.i2cReadBit
+                0x080006ac       0x40 THUMB Debug/pygmy_com.o
+                0x080006ac                i2cReadBit
+ .text.i2cWriteByte
+                0x080006ec       0x2e THUMB Debug/pygmy_com.o
+                0x080006ec                i2cWriteByte
+ .text.i2cReadByte
+                0x0800071a       0x20 THUMB Debug/pygmy_com.o
+                0x0800071a                i2cReadByte
+ .text.i2cResetBus
+                0x0800073a       0x5c THUMB Debug/pygmy_com.o
+                0x0800073a                i2cResetBus
+ .text.i2cStop  0x08000796       0x44 THUMB Debug/pygmy_com.o
+                0x08000796                i2cStop
+ .text.i2cStart
+                0x080007da       0x56 THUMB Debug/pygmy_com.o
+                0x080007da                i2cStart
+ .text.pinEnablePortClock
+                0x08000830       0x5c THUMB Debug/pygmy_port.o
+                0x08000830                pinEnablePortClock
+ .text.pinGetPort
+                0x0800088c       0x40 THUMB Debug/pygmy_port.o
+                0x0800088c                pinGetPort
+ .text.pinSet   0x080008cc       0x68 THUMB Debug/pygmy_port.o
+                0x080008cc                pinSet
+ .text.pinConfig
+                0x08000934       0x7e THUMB Debug/pygmy_port.o
+                0x08000934                pinConfig
+ *fill*         0x080009b2        0x2 00
+ .text.EXTI0_IRQHandler
+                0x080009b4       0x34 THUMB Debug/pygmy_port.o
+                0x080009b4                EXTI0_IRQHandler
+ .text.EXTI1_IRQHandler
+                0x080009e8       0x34 THUMB Debug/pygmy_port.o
+                0x080009e8                EXTI1_IRQHandler
+ .text.EXTI2_IRQHandler
+                0x08000a1c       0x34 THUMB Debug/pygmy_port.o
+                0x08000a1c                EXTI2_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x08000a50       0x34 THUMB Debug/pygmy_port.o
+                0x08000a50                EXTI3_IRQHandler
+ .text.EXTI4_IRQHandler
+                0x08000a84       0x34 THUMB Debug/pygmy_port.o
+                0x08000a84                EXTI4_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x08000ab8       0xd8 THUMB Debug/pygmy_port.o
+                0x08000ab8                EXTI9_5_IRQHandler
+ .text.EXTI15_10_IRQHandler
+                0x08000b90      0x104 THUMB Debug/pygmy_port.o
+                0x08000b90                EXTI15_10_IRQHandler
+ .text.si7020GetRegister
+                0x08000c94       0x70 THUMB Debug/si7020.o
+                0x08000c94                si7020GetRegister
+ .text.si7020Reset
+                0x08000d04       0x34 THUMB Debug/si7020.o
+                0x08000d04                si7020Reset
+ .text.si7020Init
+                0x08000d38       0x28 THUMB Debug/si7020.o
+                0x08000d38                si7020Init
+ .text.lcdWriteCommand
+                0x08000d60       0x56 THUMB Debug/eastrisingERC1602.o
+                0x08000d60                lcdWriteCommand
+ .text.lcdWriteData
+                0x08000db6       0x56 THUMB Debug/eastrisingERC1602.o
+                0x08000db6                lcdWriteData
+ .text.lcdWriteAddress
+                0x08000e0c       0x1e THUMB Debug/eastrisingERC1602.o
+                0x08000e0c                lcdWriteAddress
+ .text.lcdInit  0x08000e2a       0xd6 THUMB Debug/eastrisingERC1602.o
+                0x08000e2a                lcdInit
+ .text.putsLCD  0x08000f00       0x12 THUMB Debug/eastrisingERC1602.o
+                0x08000f00                putsLCD
+ .text.isNumeric
+                0x08000f12        0xc THUMB Debug/pygmy_string.o
+                0x08000f12                isNumeric
+ .text.isAlphaOrNumeric
+                0x08000f1e       0x20 THUMB Debug/pygmy_string.o
+                0x08000f1e                isAlphaOrNumeric
+ .text.len      0x08000f3e       0x18 THUMB Debug/pygmy_string.o
+                0x08000f3e                len
+ .text.replaceChars
+                0x08000f56       0x2a THUMB Debug/pygmy_string.o
+                0x08000f56                replaceChars
+ .text.convertCharToInt
+                0x08000f80       0x2e THUMB Debug/pygmy_string.o
+                0x08000f80                convertCharToInt
+ *fill*         0x08000fae        0x2 00
+ .text.convertStringToInt
+                0x08000fb0       0xb4 THUMB Debug/pygmy_string.o
+                0x08000fb0                convertStringToInt
+ .text.convertIntToString
+                0x08001064      0x19c THUMB Debug/pygmy_string.o
+                0x08001064                convertIntToString
+ .text.convertFloatToString
+                0x08001200       0x48 THUMB Debug/pygmy_string.o
+                0x08001200                convertFloatToString
+ .text.libc.__float64_to_int32
+                0x08001248       0x54 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+                0x08001248                __fixdfsi
+                0x08001248                __aeabi_d2iz
+                0x08001248                __float64_to_int32
+ .text.libc.__float64_add
+                0x0800129c      0x2b8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+                0x0800129c                __aeabi_drsub
+                0x080012a4                __float64_sub
+                0x080012a4                __aeabi_dsub
+                0x080012a4                __subdf3
+                0x080012a8                __aeabi_dadd
+                0x080012a8                __float64_add
+                0x080012a8                __adddf3
+ .text.libc.__float64_cmp
+                0x08001554       0x6c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+                0x08001554                __ltdf2
+                0x08001554                __eqdf2
+                0x08001554                __gtdf2
+                0x08001554                __cmpdf2
+                0x08001554                __ledf2
+                0x08001554                __nedf2
+                0x08001554                __gedf2
+ .text.libc.__aeabi_dcmpeq
+                0x080015c0       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+                0x080015c0                __aeabi_dcmpeq
+ .text.libc.modf
+                0x080015d8       0x9c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+                0x080015d8                modf
+ .text.libc.__int64_udivmod
+                0x08001674       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+                0x08001674                __int64_udivmod
+                0x08001674                __aeabi_uldivmod
+                0x08001674                __int64_udiv
+                0x08001674                __udivdi3
+ .text.libc.__aeabi_ldivmod
+                0x080016d4       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+                0x080016d4                __aeabi_ldivmod
+ .text.libc.strcat
+                0x08001734       0x1a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+                0x08001734                strcat
+ *fill*         0x0800174e        0x2 00
+ .text.libc.strlen
+                0x08001750       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+                0x08001750                strlen
+ .text.libdebugio.__do_debug_operation_mempoll
+                0x08001760       0x30 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+                0x08001760                __do_debug_operation_mempoll
+ .text.libc.__debug_io_lock
+                0x08001790        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+                0x08001790                __debug_io_lock
+ .text.libc.__debug_io_unlock
+                0x08001792        0x2 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+                0x08001792                __debug_io_unlock
+                0x08001794                __text_end__ = (__text_start__ + SIZEOF (.text))
+                0x08001794                __text_load_end__ = __text_end__
+
+.vfp11_veneer   0x00000000        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x00000000        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x00000000        0x0
+ .iplt          0x00000000        0x0 THUMB Debug/main.o
+                0x00000001                . = ASSERT (((__text_end__ >= __FLASH_segment_start__) && (__text_end__ <= __FLASH_segment_end__)), error: .text is too large to fit in FLASH memory segment)
+                0x08001794                __dtors_load_start__ = ALIGN (__text_end__, 0x4)
+
+.dtors          0x08001794        0x0
+                0x08001794                __dtors_start__ = .
+ *(SORT(.dtors.*))
+ *(.dtors)
+ *(.fini_array .fini_array.*)
+                0x08001794                __dtors_end__ = (__dtors_start__ + SIZEOF (.dtors))
+                0x08001794                __dtors_load_end__ = __dtors_end__
+                0x00000001                . = ASSERT (((__dtors_end__ >= __FLASH_segment_start__) && (__dtors_end__ <= __FLASH_segment_end__)), error: .dtors is too large to fit in FLASH memory segment)
+                0x08001794                __ctors_load_start__ = ALIGN (__dtors_end__, 0x4)
+
+.ctors          0x08001794        0x0
+                0x08001794                __ctors_start__ = .
+ *(SORT(.ctors.*))
+ *(.ctors)
+ *(.init_array .init_array.*)
+                0x08001794                __ctors_end__ = (__ctors_start__ + SIZEOF (.ctors))
+                0x08001794                __ctors_load_end__ = __ctors_end__
+                0x00000001                . = ASSERT (((__ctors_end__ >= __FLASH_segment_start__) && (__ctors_end__ <= __FLASH_segment_end__)), error: .ctors is too large to fit in FLASH memory segment)
+                0x08001794                __rodata_load_start__ = ALIGN (__ctors_end__, 0x4)
+
+.rodata         0x08001794       0xee
+                0x08001794                __rodata_start__ = .
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.1
+                0x08001794       0x19 THUMB Debug/si7020.o
+ .rodata.str1.1
+                0x080017ad       0xc5 THUMB Debug/pygmy_string.o
+                                 0xc8 (size before relaxing)
+ .rodata.PYGMYHEXCHARS
+                0x08001872       0x10 THUMB Debug/pygmy_string.o
+                0x08001872                PYGMYHEXCHARS
+                0x08001882                __rodata_end__ = (__rodata_start__ + SIZEOF (.rodata))
+                0x08001882                __rodata_load_end__ = __rodata_end__
+
+.rel.dyn        0x08000000        0x0
+ .rel.iplt      0x00000000        0x0 THUMB Debug/main.o
+                0x00000001                . = ASSERT (((__rodata_end__ >= __FLASH_segment_start__) && (__rodata_end__ <= __FLASH_segment_end__)), error: .rodata is too large to fit in FLASH memory segment)
+                0x08001884                __ARM.exidx_load_start__ = ALIGN (__rodata_end__, 0x4)
+
+.ARM.exidx      0x08001884        0x0
+                0x08001884                __ARM.exidx_start__ = .
+                0x08001884                __exidx_start = __ARM.exidx_start__
+ *(.ARM.exidx .ARM.exidx.*)
+                0x08001884                __ARM.exidx_end__ = (__ARM.exidx_start__ + SIZEOF (.ARM.exidx))
+                0x08001884                __exidx_end = __ARM.exidx_end__
+                0x08001884                __ARM.exidx_load_end__ = __ARM.exidx_end__
+                0x00000001                . = ASSERT (((__ARM.exidx_end__ >= __FLASH_segment_start__) && (__ARM.exidx_end__ <= __FLASH_segment_end__)), error: .ARM.exidx is too large to fit in FLASH memory segment)
+                0x08001884                __fast_load_start__ = ALIGN (__ARM.exidx_end__, 0x4)
+
+.fast           0x20000000        0x0 load address 0x08001884
+                0x20000000                __fast_start__ = .
+ *(.fast .fast.*)
+                0x20000000                __fast_end__ = (__fast_start__ + SIZEOF (.fast))
+                0x08001884                __fast_load_end__ = (__fast_load_start__ + SIZEOF (.fast))
+                0x00000001                . = ASSERT (((__fast_load_end__ >= __FLASH_segment_start__) && (__fast_load_end__ <= __FLASH_segment_end__)), error: .fast is too large to fit in FLASH memory segment)
+
+.fast_run       0x20000000        0x0
+                0x20000000                __fast_run_start__ = .
+                0x20000000                . = MAX ((__fast_run_start__ + SIZEOF (.fast)), .)
+                0x20000000                __fast_run_end__ = (__fast_run_start__ + SIZEOF (.fast_run))
+                0x20000000                __fast_run_load_end__ = __fast_run_end__
+                0x00000001                . = ASSERT (((__fast_run_end__ >= __RAM_segment_start__) && (__fast_run_end__ <= __RAM_segment_end__)), error: .fast_run is too large to fit in RAM memory segment)
+                0x08001884                __data_load_start__ = ALIGN ((__fast_load_start__ + SIZEOF (.fast)), 0x4)
+
+.data           0x20000000        0x0 load address 0x08001884
+                0x20000000                __data_start__ = .
+ *(.data .data.* .gnu.linkonce.d.*)
+                0x20000000                __data_end__ = (__data_start__ + SIZEOF (.data))
+                0x08001884                __data_load_end__ = (__data_load_start__ + SIZEOF (.data))
+
+.igot.plt       0x00000000        0x0
+ .igot.plt      0x00000000        0x0 THUMB Debug/main.o
+                0x00000001                . = ASSERT (((__data_load_end__ >= __FLASH_segment_start__) && (__data_load_end__ <= __FLASH_segment_end__)), error: .data is too large to fit in FLASH memory segment)
+
+.data_run       0x20000000        0x0
+                0x20000000                __data_run_start__ = .
+                0x20000000                . = MAX ((__data_run_start__ + SIZEOF (.data)), .)
+                0x20000000                __data_run_end__ = (__data_run_start__ + SIZEOF (.data_run))
+                0x20000000                __data_run_load_end__ = __data_run_end__
+                0x00000001                . = ASSERT (((__data_run_end__ >= __RAM_segment_start__) && (__data_run_end__ <= __RAM_segment_end__)), error: .data_run is too large to fit in RAM memory segment)
+                0x20000000                __bss_load_start__ = ALIGN (__data_run_end__, 0x4)
+
+.bss            0x20000000       0x60
+                0x20000000                __bss_start__ = .
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss.globalIRQHandlers
+                0x20000000       0x40 THUMB Debug/pygmy_port.o
+                0x20000000                globalIRQHandlers
+ .bss.globalIRQPR
+                0x20000040        0x2 THUMB Debug/pygmy_port.o
+                0x20000040                globalIRQPR
+ *fill*         0x20000042        0x2 00
+ .bss.pygmySI7020Port
+                0x20000044       0x14 THUMB Debug/si7020.o
+                0x20000044                pygmySI7020Port
+ .bss.libdebugio.dbgCommWord
+                0x20000058        0x4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+                0x20000058                dbgCommWord
+ .bss.libdebugio.dbgCntrlWord_mempoll
+                0x2000005c        0x4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+                0x2000005c                dbgCntrlWord_mempoll
+ *(COMMON)
+                0x20000060                __bss_end__ = (__bss_start__ + SIZEOF (.bss))
+                0x20000060                __bss_load_end__ = __bss_end__
+                0x00000001                . = ASSERT (((__bss_end__ >= __RAM_segment_start__) && (__bss_end__ <= __RAM_segment_end__)), error: .bss is too large to fit in RAM memory segment)
+                0x20000060                __non_init_load_start__ = ALIGN (__bss_end__, 0x4)
+
+.non_init       0x20000060        0x0
+                0x20000060                __non_init_start__ = .
+ *(.non_init .non_init.*)
+                0x20000060                __non_init_end__ = (__non_init_start__ + SIZEOF (.non_init))
+                0x20000060                __non_init_load_end__ = __non_init_end__
+                0x00000001                . = ASSERT (((__non_init_end__ >= __RAM_segment_start__) && (__non_init_end__ <= __RAM_segment_end__)), error: .non_init is too large to fit in RAM memory segment)
+                0x20000060                __heap_load_start__ = ALIGN (__non_init_end__, 0x4)
+
+.heap           0x20000060       0x80
+                0x20000060                __heap_start__ = .
+ *(.heap .heap.*)
+                0x200000e0                . = ALIGN (MAX ((__heap_start__ + __HEAPSIZE__), .), 0x4)
+ *fill*         0x20000060       0x80 00
+                0x200000e0                __heap_end__ = (__heap_start__ + SIZEOF (.heap))
+                0x200000e0                __heap_load_end__ = __heap_end__
+                0x00000001                . = ASSERT (((__heap_end__ >= __RAM_segment_start__) && (__heap_end__ <= __RAM_segment_end__)), error: .heap is too large to fit in RAM memory segment)
+                0x200000e0                __stack_load_start__ = ALIGN (__heap_end__, 0x4)
+
+.stack          0x200000e0      0x100
+                0x200000e0                __stack_start__ = .
+ *(.stack .stack.*)
+                0x200001e0                . = ALIGN (MAX ((__stack_start__ + __STACKSIZE__), .), 0x4)
+ *fill*         0x200000e0      0x100 00
+                0x200001e0                __stack_end__ = (__stack_start__ + SIZEOF (.stack))
+                0x200001e0                __stack_load_end__ = __stack_end__
+                0x00000001                . = ASSERT (((__stack_end__ >= __RAM_segment_start__) && (__stack_end__ <= __RAM_segment_end__)), error: .stack is too large to fit in RAM memory segment)
+                0x200001e0                __stack_process_load_start__ = ALIGN (__stack_end__, 0x4)
+
+.stack_process  0x200001e0        0x0
+                0x200001e0                __stack_process_start__ = .
+ *(.stack_process .stack_process.*)
+                0x200001e0                . = ALIGN (MAX ((__stack_process_start__ + __STACKSIZE_PROCESS__), .), 0x4)
+                0x200001e0                __stack_process_end__ = (__stack_process_start__ + SIZEOF (.stack_process))
+                0x200001e0                __stack_process_load_end__ = __stack_process_end__
+                0x00000001                . = ASSERT (((__stack_process_end__ >= __RAM_segment_start__) && (__stack_process_end__ <= __RAM_segment_end__)), error: .stack_process is too large to fit in RAM memory segment)
+                0x200001e0                __tbss_load_start__ = ALIGN (__stack_process_end__, 0x4)
+
+.tbss           0x200001e0        0x0
+                0x200001e0                __tbss_start__ = .
+ *(.tbss .tbss.*)
+                0x200001e0                __tbss_end__ = (__tbss_start__ + SIZEOF (.tbss))
+                0x200001e0                __tbss_load_end__ = __tbss_end__
+                0x00000001                . = ASSERT (((__tbss_end__ >= __RAM_segment_start__) && (__tbss_end__ <= __RAM_segment_end__)), error: .tbss is too large to fit in RAM memory segment)
+                0x08001884                __tdata_load_start__ = ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4)
+
+.tdata          0x200001e0        0x0 load address 0x08001884
+                0x200001e0                __tdata_start__ = .
+ *(.tdata .tdata.*)
+                0x200001e0                __tdata_end__ = (__tdata_start__ + SIZEOF (.tdata))
+                0x08001884                __tdata_load_end__ = (__tdata_load_start__ + SIZEOF (.tdata))
+                0x08001884                __FLASH_segment_used_end__ = (ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4) + SIZEOF (.tdata))
+                0x00000001                . = ASSERT (((__tdata_load_end__ >= __FLASH_segment_start__) && (__tdata_load_end__ <= __FLASH_segment_end__)), error: .tdata is too large to fit in FLASH memory segment)
+
+.tdata_run      0x200001e0        0x0
+                0x200001e0                __tdata_run_start__ = .
+                0x200001e0                . = MAX ((__tdata_run_start__ + SIZEOF (.tdata)), .)
+                0x200001e0                __tdata_run_end__ = (__tdata_run_start__ + SIZEOF (.tdata_run))
+                0x200001e0                __tdata_run_load_end__ = __tdata_run_end__
+                0x200001e0                __RAM_segment_used_end__ = (ALIGN (__tbss_end__, 0x4) + SIZEOF (.tdata_run))
+                0x00000001                . = ASSERT (((__tdata_run_end__ >= __RAM_segment_start__) && (__tdata_run_end__ <= __RAM_segment_end__)), error: .tdata_run is too large to fit in RAM memory segment)
+START GROUP
+LOAD THUMB Debug/main.o
+LOAD THUMB Debug/pygmy_com.o
+LOAD THUMB Debug/pygmy_nvic.o
+LOAD THUMB Debug/pygmy_port.o
+LOAD THUMB Debug/si7020.o
+LOAD THUMB Debug/tsl2671x.o
+LOAD THUMB Debug/eastrisingERC1602.o
+LOAD THUMB Debug/pygmy_rtc.o
+LOAD THUMB Debug/pygmy_string.o
+LOAD THUMB Debug/thumb_crt0.o
+LOAD THUMB Debug/STM32_Startup.o
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libcm_v7m_t_le_eabi_small.a
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libcpp_v7m_t_le_eabi_small.a
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libc_targetio_impl_v7m_t_le_eabi_small.a
+LOAD /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a
+END GROUP
+OUTPUT(THUMB Debug/Incubator.elf elf32-littlearm)
+
+.debug_frame    0x00000000     0x3f88
+ .debug_frame   0x00000000       0x98 THUMB Debug/main.o
+ .debug_frame   0x00000098      0x7bc THUMB Debug/pygmy_com.o
+ .debug_frame   0x00000854      0x330 THUMB Debug/pygmy_port.o
+ .debug_frame   0x00000b84       0xac THUMB Debug/si7020.o
+ .debug_frame   0x00000c30       0xb4 THUMB Debug/eastrisingERC1602.o
+ .debug_frame   0x00000ce4      0x664 THUMB Debug/pygmy_string.o
+ .debug_frame   0x00001348      0x600 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .debug_frame   0x00001948      0x978 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_frame   0x000022c0      0x260 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .debug_frame   0x00002520     0x11e4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_frame   0x00003704      0x120 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .debug_frame   0x00003824      0x6c4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .debug_frame   0x00003ee8       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.debug_info     0x00000000     0x9989
+ .debug_info    0x00000000      0xc91 THUMB Debug/main.o
+ .debug_info    0x00000c91     0x2864 THUMB Debug/pygmy_com.o
+ .debug_info    0x000034f5     0x1798 THUMB Debug/pygmy_port.o
+ .debug_info    0x00004c8d      0xa29 THUMB Debug/si7020.o
+ .debug_info    0x000056b6      0x84d THUMB Debug/eastrisingERC1602.o
+ .debug_info    0x00005f03     0x205f THUMB Debug/pygmy_string.o
+ .debug_info    0x00007f62       0x92 THUMB Debug/thumb_crt0.o
+ .debug_info    0x00007ff4       0xcb THUMB Debug/STM32_Startup.o
+ .debug_info    0x000080bf      0x5c7 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_info    0x00008686      0xce6 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_info    0x0000936c      0x547 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .debug_info    0x000098b3       0xd6 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.debug_abbrev   0x00000000     0x142d
+ .debug_abbrev  0x00000000      0x298 THUMB Debug/main.o
+ .debug_abbrev  0x00000298      0x3c0 THUMB Debug/pygmy_com.o
+ .debug_abbrev  0x00000658      0x411 THUMB Debug/pygmy_port.o
+ .debug_abbrev  0x00000a69      0x1b6 THUMB Debug/si7020.o
+ .debug_abbrev  0x00000c1f      0x140 THUMB Debug/eastrisingERC1602.o
+ .debug_abbrev  0x00000d5f      0x3f9 THUMB Debug/pygmy_string.o
+ .debug_abbrev  0x00001158       0x14 THUMB Debug/thumb_crt0.o
+ .debug_abbrev  0x0000116c       0x14 THUMB Debug/STM32_Startup.o
+ .debug_abbrev  0x00001180       0xb2 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_abbrev  0x00001232      0x163 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_abbrev  0x00001395       0x70 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .debug_abbrev  0x00001405       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.debug_loc      0x00000000     0x6953
+ .debug_loc     0x00000000      0x205 THUMB Debug/main.o
+ .debug_loc     0x00000205     0x1ca0 THUMB Debug/pygmy_com.o
+ .debug_loc     0x00001ea5      0xc8f THUMB Debug/pygmy_port.o
+ .debug_loc     0x00002b34      0x15d THUMB Debug/si7020.o
+ .debug_loc     0x00002c91      0x1e9 THUMB Debug/eastrisingERC1602.o
+ .debug_loc     0x00002e7a     0x1e65 THUMB Debug/pygmy_string.o
+ .debug_loc     0x00004cdf      0x83e /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_loc     0x0000551d      0xe6a /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_loc     0x00006387      0x5cc /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+
+.debug_aranges  0x00000000     0x1050
+ .debug_aranges
+                0x00000000       0x40 THUMB Debug/main.o
+ .debug_aranges
+                0x00000040      0x298 THUMB Debug/pygmy_com.o
+ .debug_aranges
+                0x000002d8      0x110 THUMB Debug/pygmy_port.o
+ .debug_aranges
+                0x000003e8       0x40 THUMB Debug/si7020.o
+ .debug_aranges
+                0x00000428       0x48 THUMB Debug/eastrisingERC1602.o
+ .debug_aranges
+                0x00000470      0x218 THUMB Debug/pygmy_string.o
+ .debug_aranges
+                0x00000688       0x20 THUMB Debug/thumb_crt0.o
+ .debug_aranges
+                0x000006a8       0x20 THUMB Debug/STM32_Startup.o
+ .debug_aranges
+                0x000006c8      0x228 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_aranges
+                0x000008f0      0x4e8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_aranges
+                0x00000dd8      0x218 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .debug_aranges
+                0x00000ff0       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.debug_ranges   0x00000000      0xff0
+ .debug_ranges  0x00000000       0x30 THUMB Debug/main.o
+ .debug_ranges  0x00000030      0x2b8 THUMB Debug/pygmy_com.o
+ .debug_ranges  0x000002e8      0x138 THUMB Debug/pygmy_port.o
+ .debug_ranges  0x00000420       0x30 THUMB Debug/si7020.o
+ .debug_ranges  0x00000450       0x38 THUMB Debug/eastrisingERC1602.o
+ .debug_ranges  0x00000488      0x220 THUMB Debug/pygmy_string.o
+ .debug_ranges  0x000006a8      0x218 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_ranges  0x000008c0      0x4d8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_ranges  0x00000d98      0x208 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .debug_ranges  0x00000fa0       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.debug_line     0x00000000     0x3001
+ .debug_line    0x00000000      0x299 THUMB Debug/main.o
+ .debug_line    0x00000299      0x9a5 THUMB Debug/pygmy_com.o
+ .debug_line    0x00000c3e      0x58b THUMB Debug/pygmy_port.o
+ .debug_line    0x000011c9      0x193 THUMB Debug/si7020.o
+ .debug_line    0x0000135c      0x164 THUMB Debug/eastrisingERC1602.o
+ .debug_line    0x000014c0      0xa93 THUMB Debug/pygmy_string.o
+ .debug_line    0x00001f53       0xf3 THUMB Debug/thumb_crt0.o
+ .debug_line    0x00002046      0x104 THUMB Debug/STM32_Startup.o
+ .debug_line    0x0000214a      0x330 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .debug_line    0x0000247a      0x5b7 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .debug_line    0x00002a31      0x558 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .debug_line    0x00002f89       0x78 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.debug_str      0x00000000     0x2527
+ .debug_str     0x00000000      0x4e5 THUMB Debug/main.o
+                                0x520 (size before relaxing)
+ .debug_str     0x000004e5      0x7d7 THUMB Debug/pygmy_com.o
+                                0xa18 (size before relaxing)
+ .debug_str     0x00000cbc      0x554 THUMB Debug/pygmy_port.o
+                                0x8d3 (size before relaxing)
+ .debug_str     0x00001210       0xaa THUMB Debug/si7020.o
+                                0x342 (size before relaxing)
+ .debug_str     0x000012ba       0x71 THUMB Debug/eastrisingERC1602.o
+                                0x272 (size before relaxing)
+ .debug_str     0x0000132b      0x674 THUMB Debug/pygmy_string.o
+                                0x8e6 (size before relaxing)
+ .debug_str     0x0000199f      0x18d /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+                                0x216 (size before relaxing)
+ .debug_str     0x00001b2c      0x56e /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+                                0x659 (size before relaxing)
+ .debug_str     0x0000209a      0x3b7 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+                                0x400 (size before relaxing)
+ .debug_str     0x00002451       0xd6 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+                                0x11f (size before relaxing)
+
+.comment        0x00000000       0x4e
+ .comment       0x00000000       0x4e THUMB Debug/main.o
+                                 0x4f (size before relaxing)
+ .comment       0x00000000       0x4f THUMB Debug/pygmy_com.o
+ .comment       0x00000000       0x4f THUMB Debug/pygmy_port.o
+ .comment       0x00000000       0x4f THUMB Debug/si7020.o
+ .comment       0x00000000       0x4f THUMB Debug/eastrisingERC1602.o
+ .comment       0x00000000       0x4f THUMB Debug/pygmy_string.o
+ .comment       0x00000000       0x4f /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .comment       0x00000000       0x4f /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .comment       0x00000000       0x4f /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .comment       0x00000000       0x4f /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 THUMB Debug/main.o
+ .ARM.attributes
+                0x00000033       0x33 THUMB Debug/pygmy_com.o
+ .ARM.attributes
+                0x00000066       0x33 THUMB Debug/pygmy_port.o
+ .ARM.attributes
+                0x00000099       0x33 THUMB Debug/si7020.o
+ .ARM.attributes
+                0x000000cc       0x33 THUMB Debug/eastrisingERC1602.o
+ .ARM.attributes
+                0x000000ff       0x33 THUMB Debug/pygmy_string.o
+ .ARM.attributes
+                0x00000132       0x23 THUMB Debug/thumb_crt0.o
+ .ARM.attributes
+                0x00000155       0x23 THUMB Debug/STM32_Startup.o
+ .ARM.attributes
+                0x00000178       0x1d /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm_asm.o)
+ .ARM.attributes
+                0x00000195       0x2d /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi_small.a(libm2.o)
+ .ARM.attributes
+                0x000001c2       0x1d /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc_asm.o)
+ .ARM.attributes
+                0x000001df       0x2d /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2.o)
+ .ARM.attributes
+                0x0000020c       0x1d /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi_small.a(libc2_asm.o)
+ .ARM.attributes
+                0x00000229       0x2d /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi_small.a(libdebugio.o)
+ .ARM.attributes
+                0x00000256       0x2d /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi_small.a(user_libc.o)

@@ -27,6 +27,7 @@
 #define __PYGMYNEBULA
 #define __PYGMYSTREAMS
     #define __PYGMYSTREAMCOM3
+    //#define __PYGMYSTREAMCOM2
     #define __PYGMYSTREAMCOM1
 //#define __PYGMYCOMMANDS
 //#define __PYGMYMESSAGES
@@ -37,8 +38,10 @@
     //#define __PYGMYSOCKETS_CMDLINE
     //#define __PYGMYSOCKETS_AV
 #define __PYGMYFILES
+#define __PYGMYANALOG
 //#define __PYGMY_DEBUG_FILE
-#include "profiles/nebula/pygmy_nebula_hp.h"
+//#include "profiles/nebula/pygmy_nebula_hp.h"
+#include "profiles/gomex/gomex_v1.h"
 
 #include "pygmy_sys.h"
 #include "pygmy_type.h"

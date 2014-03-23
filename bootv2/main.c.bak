@@ -20,11 +20,8 @@
 #include "pygmy_profile.h"
 #include "pygmy_type.h"
 #include "pygmy_xmodem.h"
-//#include "profiles/memory/stm32.h"
 
-//FLASH_START = 0x08000000 
-//FLASH_SIZE = 0x00008000
-
+#define BOOT_SIZE 65536;
 #define BOOT_BUILDVERSION   2000 // 1.0 = 1000, 1.1 = 1100
 
 #define VECT_TAB_OFFSET  0x1000
@@ -41,6 +38,7 @@ void bootPrintPrompt( void );
 u8 bootTestAndLoad( u32 Address, u8* FileName );
 void bootBootOS( void );
 u32 getIDCode( void );
+u8 scriptRun( u8 *fileName, PYGMYCMD *pygmyCommands );
 u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands );
 
 //void putBufferUSART3( u16 uiLen, u8 *ucBuffer );
@@ -56,6 +54,13 @@ void bootGetUSART1( void );
 //s8 isNewline( u8 ucChar );
 
 u8 cmdHandler( u8 ucByte );
+
+u8 cmd_analog( u8 *buffer );
+u8 cmd_pinconfig( u8 *buffer );
+u8 cmd_pinget( u8 *buffer );
+u8 cmd_pinpwm( u8 *buffer );
+u8 cmd_pinset( u8 *buffer );
+
 u8 cmd_erase( u8 *Buffer );
 u8 cmd_format( u8 *Buffer );
 u8 cmdRFGet( u8 *Buffer );
@@ -110,6 +115,8 @@ u8 cmd_false( u8 *Buffer );
 u8 cmd_test( u8 *Buffer );
 u8 cmd_man( u8 *Buffer );
 u8 cmd_null( u8 *Buffer );
+u8 cmd_cmd( u8 *Buffer );
+u8 cmd_run( u8 *buffer );
 
 const u8 STRID_L15X[] = "L15x";
 const u8 STRID_F100[] = "F100";
@@ -119,62 +126,75 @@ const u8 BOOT_ERROR[] = "\rERROR\r>";
 const u8 BOOT_PROMPT[] = "\r> ";
 const u8 BOOT_filename[] = "boot.hex";
 
-
-const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"erase",      cmd_erase},
-                                    {(u8*)"format",     cmd_format},
-                                    {(u8*)"rx",         cmd_rx},
-                                    {(u8*)"tx",         cmd_tx},
-                                    {(u8*)"rfget",      cmdRFGet},
-                                    {(u8*)"rfput",      cmdRFPut},
-                                    {(u8*)"cd",         cmd_cd},
-                                    {(u8*)"read",       cmd_read},
-                                    {(u8*)"open",       cmd_open},
+#pragma codeseg( ".commands" )
+// The commands section follows the vector table and is 0x0F00 in size
+// The following command table entries should be maintained in alphabetical order
+// The exception to this rule is pygmy_cmd, which should always be the first entry
+const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"pygmy_cmd",  cmd_cmd},
                                     {(u8*)"append",     cmd_append},
-                                    {(u8*)"strings",    cmd_strings},
-                                    {(u8*)"new",        cmd_new},
-                                    {(u8*)"mkdir",      cmd_mkdir},
-                                    {(u8*)"rmdir",      cmd_rmdir},
-                                    {(u8*)"touch",      cmd_touch},
-                                    {(u8*)"cat",        cmd_cat},
-                                    {(u8*)"echo",       cmd_echo},
-                                    {(u8*)"rm",         cmd_rm},
-                                    {(u8*)"ls",         cmd_ls},
-                                    {(u8*)"mv",         cmd_mv},
-                                    {(u8*)"cp",         cmd_cp},
-                                    {(u8*)"reset",      cmd_reset},
                                     {(u8*)"boot",       cmd_boot},
-                                    {(u8*)"dump",       cmd_dump},
-                                    {(u8*)"fdisk",      cmd_fdisk},
-                                    {(u8*)"mount",      cmd_mount},
-                                    {(u8*)"umount",     cmd_umount},
-                                    //{(u8*)"flash", cmdFlash},
-                                    //{(u8*)"verify", cmdVerify},
+                                    {(u8*)"cat",        cmd_cat},
+                                    {(u8*)"cd",         cmd_cd},
+                                    {(u8*)"cksum",      cmd_cksum},
+                                    {(u8*)"cp",         cmd_cp},
                                     {(u8*)"date",       cmd_date},
-                                    {(u8*)"time",       cmd_time},
-                                    {(u8*)"find",       cmd_find},
+                                    {(u8*)"dc",         cmd_dc},
+                                    {(u8*)"declare",    cmd_declare},
                                     {(u8*)"df",         cmd_df},
                                     {(u8*)"du",         cmd_du},
-                                    {(u8*)"pwd",        cmd_pwd},
-                                    {(u8*)"tail",       cmd_tail},
-                                    {(u8*)"cksum",      cmd_cksum},
-                                    {(u8*)"if",         cmd_if},
-                                    {(u8*)"sleep",      cmd_sleep},
-                                    {(u8*)"lsof",       cmd_lsof},
+                                    {(u8*)"dump",       cmd_dump},
+                                    {(u8*)"echo",       cmd_echo},
+                                    {(u8*)"erase",      cmd_erase},
+                                    {(u8*)"false",      cmd_false},
+                                    {(u8*)"fdisk",      cmd_fdisk},
+                                    {(u8*)"find",       cmd_find},
+                                    {(u8*)"format",     cmd_format},
                                     {(u8*)"gawk",       cmd_gawk},
-                                    {(u8*)"declare",    cmd_declare},
-                                    {(u8*)"dc",         cmd_dc},
+                                    {(u8*)"if",         cmd_if},
                                     {(u8*)"kill",       cmd_kill},
                                     {(u8*)"killall",    cmd_killall},
+                                    {(u8*)"ls",         cmd_ls},
+                                    {(u8*)"lsof",       cmd_lsof},
+                                    {(u8*)"man",        cmd_man},
+                                    {(u8*)"mkdir",      cmd_mkdir},
+                                    {(u8*)"mount",      cmd_mount},
+                                    {(u8*)"mv",         cmd_mv},
+                                    {(u8*)"new",        cmd_new},
+                                    {(u8*)"open",       cmd_open},
+                                    {(u8*)"pinanalog",  cmd_analog},
+                                    {(u8*)"pinconfig",  cmd_pinconfig},
+                                    {(u8*)"pinget",     cmd_pinget},
+                                    {(u8*)"pinpwm",     cmd_pinpwm},
+                                    {(u8*)"pinset",     cmd_pinset},
+                                    {(u8*)"pwd",        cmd_pwd},
+                                    {(u8*)"read",       cmd_read},
+                                    {(u8*)"reset",      cmd_reset},
+                                    {(u8*)"rfget",      cmdRFGet},
+                                    {(u8*)"rfput",      cmdRFPut},
+                                    {(u8*)"rm",         cmd_rm},
+                                    {(u8*)"rmdir",      cmd_rmdir},
+                                    {(u8*)"run",        cmd_run},
+                                    {(u8*)"rx",         cmd_rx},
+                                    {(u8*)"sleep",      cmd_sleep},
+                                    {(u8*)"strings",    cmd_strings},
+                                    {(u8*)"test",       cmd_test},
+                                    {(u8*)"time",       cmd_time},
+                                    {(u8*)"touch",      cmd_touch},
+                                    {(u8*)"true",       cmd_true},
+                                    {(u8*)"tx",         cmd_tx},
+                                    {(u8*)"umount",     cmd_umount},
+                                    //{(u8*)"flash", cmdFlash},
+                                    //{(u8*)"verify", cmdVerify},  
                                     {(u8*)"wait",       cmd_wait},
                                     {(u8*)"watch",      cmd_watch},
                                     {(u8*)"while",      cmd_while},
-                                    {(u8*)"true",       cmd_true},
-                                    {(u8*)"false",      cmd_false},
-                                    {(u8*)"test",       cmd_test},
-                                    {(u8*)"man",        cmd_man},
-                                    {(u8*)"", NULL }//cmdNull} // No Commands after NULL
-                                    } ;//__attribute__((section("COMMANDS")));
+                                    {(u8*)"", NULL } // No Commands after NULL
+                                    } ;
+#pragma codeseg( default )
 
+const u8 *date = __DATE__;
+const u8 *time = __TIME__;
+u8 *version;
 PYGMYXMODEM XModem;
 PYGMYFILE pygmyFile;
 u32 globalFileLen, globalXMTimeout, globalTransaction, globalXMCount;
@@ -182,6 +202,40 @@ volatile u32 globalBootTimeout;
 volatile u32 globalPLL, globalID, globalXTAL, globalFreq;//, globalBaseAddress;
 volatile u8 globalStatus = 0, globalBootStatus = 0;
 volatile u8 *globalStrID;
+ 
+void taskVoltage( void )
+{
+    float voltage;
+    u16 raw;
+
+    //voltage = adcConvertRawToFloat( pinAnalog( PA1) );
+    //print( STDIO, "\rVoltge: %f", voltage );
+    raw = adcSingleSample( VOLTAGE_IN );
+    voltage = adcConvertRawToFloat( raw );
+
+    print( STDIO, "\rVoltage Float: %1.2f", voltage );
+    print( STDIO, "Voltage Raw: %d", raw );
+    //print( STDIO, "Voltage: %d", adcSingleSample( VOLTAGE ) );
+}
+
+char *bootBuildVersionString( u8 *major, u8 *date, u8 *time )
+{
+    // major must contain the major version number, date must contain the build date from __date__
+    // and time must contain the build time in a HH:MM:SS format
+    u32 month;
+    u8 *version;
+
+    // first allocate memory for the version string, return null if malloc fails
+    month = convertMonthStringToInt( date );
+    version = malloc( len( major ) + len( date ) + len( time ) + 1 );
+    if( version != NULL ){
+        strcpy( version, major );
+        strcat( version, date );
+        strcat( version, time );
+    } // if
+
+    return( version );
+}
   
 void bootTimeout( void )
 {
@@ -192,6 +246,8 @@ void bootTimeout( void )
     //} // if
     //ucFirstCall = TRUE;
 }
+
+
                                 
 int main( void )
 {   
@@ -202,6 +258,7 @@ int main( void )
     //PYGMYFILE *fileTest;
     //u64 Address;
     u32 i, ii, ulClock;
+    u8 floatString[20];
     //u8 full, ucLen, ucParams[] = "Test String";
     //u8 DataByte;
     // First test the descriptor page ( last page in FLASH )
@@ -210,14 +267,16 @@ int main( void )
     // issues in the F103 STM32s
     RCC->APB2ENR |= (RCC_IOPBEN|RCC_IOPCEN|RCC_IOPAEN);
     PYGMY_RCC_USART3_ENABLE;
-    PYGMY_RCC_USART2_ENABLE;
+    //PYGMY_RCC_USART2_ENABLE;
     PYGMY_RCC_USART1_ENABLE; 
     PYGMY_RCC_GPIOA_ENABLE;
     PYGMY_RCC_GPIOB_ENABLE;
-    pinConfig( LED0, OUT );
-    pinConfig( LED1, OUT );
-    pinSet( LED0, HIGH );
-    globalID = fpecMCUID( );
+    //PYGMY_RCC_ADC1_ENABLE;
+    //pinConfig( LED0, OUT );
+    //pinConfig( LED1, OUT );
+    //pinSet( LED0, HIGH );
+    //globalID = fpecMCUID( );
+    globalID = 0;
     globalPLL = BIT16|BIT1;
     
     // First Init the Clocks
@@ -243,13 +302,41 @@ int main( void )
         globalPLL = RCC_PLL_X9|BIT16|BIT15|BIT14|BIT1;//BIT10|BIT1;
         FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY2;
     } // else
-    //PYGMY_RCC_HSI_ENABLE;
+    
+    PYGMY_RCC_HSI_ENABLE;
     PYGMY_RCC_HSE_ENABLE;
     while( !PYGMY_RCC_HSE_READY );
     RCC->CFGR2 = 0;
     RCC->CFGR = globalPLL;
     PYGMY_RCC_PLL_ENABLE;
     while( !PYGMY_RCC_PLL_READY );
+    
+    taskInit();
+    streamInit();
+    streamSetPut( COM1, putsUSART1 );
+    streamSetPutc( COM1, putcUSART1 );
+    streamSetGet( COM1, bootGetUSART1 );
+    streamDisableDefaultGet( COM1 );
+    streamSetSTDIO( COM1 );
+    
+    // Basic Port Init
+    
+    GPIOB->CRH &= ~( PIN10_CLEAR | PIN11_CLEAR );
+    GPIOB->CRH |= ( PIN10_OUT50_ALTPUSHPULL | PIN11_IN_FLOAT );
+
+    USART3->BRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
+    USART3->CR3 = USART_ONEBITE;
+    USART3->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
+    
+    GPIOA->CRH &= ~( PIN9_CLEAR | PIN10_CLEAR );
+    GPIOA->CRH |= ( PIN9_OUT50_ALTPUSHPULL | PIN10_IN_FLOAT );
+
+    USART1->BRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
+    USART1->CR3 = USART_ONEBITE;
+    USART1->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
+
+    // End Basic Port Init
+
     // HSI Must be ON for Flash Program/Erase Operations
     // End Clock Init 
     // Configure Interrupts
@@ -267,29 +354,7 @@ int main( void )
     PYGMY_WATCHDOG_TIMER( 0x0FFF );
     PYGMY_WATCHDOG_START;
     PYGMY_WATCHDOG_REFRESH;
-   
-    // Basic Port Init
-    
-    
-    // End Basic Port Init
-    // USART3 Init, PB10 TXD, PB11 RXD
-    //comConfig( COM3, 0, 0, 230400 );
-    //comConfig( COM1, 0, 0, 230400 );
-    GPIOB->CRH &= ~( PIN10_CLEAR | PIN11_CLEAR );
-    GPIOB->CRH |= ( PIN10_OUT50_ALTPUSHPULL | PIN11_IN_FLOAT );
-
-    USART3->BRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
-    //USART3->BRR = ( ( (ulClock >> 3 ) / 9600 ) << 4 ) + ( ( ( ulClock / 9600 ) ) & 0x0007 );
-    USART3->CR3 = USART_ONEBITE;
-    USART3->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
-
-    /*GPIOA->CRH &= ~( PIN9_CLEAR | PIN10_CLEAR );
-    GPIOA->CRH |= ( PIN9_OUT50_ALTPUSHPULL | PIN10_IN_FLOAT );
-
-    USART1->BRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
-    USART1->CR3 = USART_ONEBITE;
-    USART1->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
-
+    /*
     //GPIOA->CRH &= ~( PIN2_CLEAR | PIN3_CLEAR );
     //comConfig( COM2, 0,  0, 230400 );
     
@@ -311,16 +376,12 @@ int main( void )
     //USART1->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
     //ptrUSART->CR1 = ( USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
     //USART1->SR = 0;
-    // End USART3 Init
         
     // Note: SST FLASH ICs must have write-protection removed by formatting before use
     //pinConfig( LED0, OUT );
-    //pinConfig( LED1, OUT );
-    streamInit();
-    streamSetPut( COM3, putsUSART3 );
-    streamSetPutc( COM3, putcUSART3 );
-    streamSetGet( COM3, bootGetUSART3 );
-    streamDisableDefaultGet( COM3 );
+    //pinConfig( A0, ANALOG );
+    
+
     /*
     streamSetPut( COM1, putsUSART1 );
     streamSetPutc( COM1, putcUSART1 );
@@ -332,160 +393,122 @@ int main( void )
     streamSetGet( COM2, bootGetUSART2 );
     streamDisableDefaultGet( COM2 );
     */
-    streamSetSTDIO( COM3 );
-    pinSet( LED1, HIGH );
-    print( STDIO, "\rPygmy Boot V2.0\rMCU " );
-    print( STDIO, "%s\rPage Size %d\rFLASH %dKB\rRAM %dKB", globalStrID, fpecFlashSectorSize(), fpecFlashSize(), fpecRAMSize() );
-    print( STDIO, "\rMCUID: 0x%08X", fpecMCUID() );
-
-    //print( COM3, "%s\rFLASH %d\r", globalStrID, SIZEREG->Pages );
-    //fpecWriteWord( (u16*)0x8008000, 0xAAFF );
-    //fpecWriteWord( (u16*)0x8008000, 0xFFAA );
-    //print( COM3, "\r" );
-    //for( i = 0; ucParams[ i ]; i++ ){  
-    //    fpecWriteByte( 0x8008000 + i, ucParams[ i ] ); // Test String
-    //} // for
     
-    //fileFormat( (PYGMYMEMIO *)&STM32MEMIO, 0, FPEC_BASEADDRESS, 0x8000, 0xF8000 );
-    //Volume = fileNewVolume( (PYGMYMEMIO *)&STM32MEMIO, "nebula", FPEC_BASEADDRESS, 0x8000, 0xF8000 );
+    //pinSet( LED1, HIGH );
+    version = bootBuildVersionString( "2", (u8*)date, (u8*)time );
+    if( version != NULL ){
+        println( STDIO, "Pygmy Boot V%s\rMCU ", version );
+    } else{
+        println( STDIO, "\rPygmy Boot V2.ERROR\rMCU " );
+    } // else
+    println( STDIO, "%s\rPage Size %d\rFLASH %dKB\rRAM %dKB", globalStrID, fpecFlashSectorSize(), fpecFlashSize(), fpecRAMSize() );
+    println( STDIO, "\rMCUID: 0x%08X", fpecMCUID() );
+    
     timeInit();
     xmodemInit( &XModem );
-    fileFormat( (PYGMYMEMIO *)&SST25VF, TRUE, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    Volume = fileNewVolume( (PYGMYMEMIO *)&SST25VF, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    fileLoadVolume( (PYGMYMEMIO *)&SST25VF, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    //spiConfig( &pygmySPI, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI, 0 );
-    //s25flPutChar( &pygmySPI, 0, 0xAA );
-
-    /*print( COM3, "\rFormatting Spansion Flash" );
-    fileFormat( (PYGMYMEMIO *)&S25FL, TRUE, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    print( COM3, "\rCreating volume" );
-    Volume = fileNewVolume( (PYGMYMEMIO *)&S25FL, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    print( COM3, "\rLoading volume" );
-    fileLoadVolume( (PYGMYMEMIO *)&S25FL, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    print( COM3, "..." );
-    */
-
-    //spiConfig( &pygmySPI, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI, SPIMODE0|SPIADDRESS1BYTE );
-    //spiPutCommand( ptrSPI, S25FL_WREN ); // WREN must be written before status register may be modified
-    //pygmySPI.PortCS->BRR = pygmySPI.PinCS;
-    //spiWriteByte( &pygmySPI, 0xAA );
-    //pygmySPI.PortCS->BSRR = pygmySPI.PinCS;
-    //spiGetChar( &pygmySPI, 0x0000000 );//, 0xAA );
-    //pygmySPI.PortCS->BRR = pygmySPI.PinCS;
-    //spiWriteAddress( pygmySPI, ulAddress );
-    //if( pygmySPI.CR & SPIDUMMYONREAD ){
-    //    spiReadByte( pygmySPI );
-    //} // if
-    //pygmySPI.PortSCK->BSRR = pygmySPI.PinSCK;	
-    //for( i = 0, DataByte = 0; i < 8; i++ ){               // 
-    //    pygmySPI.PortSCK->BSRR = pygmySPI.PinSCK;         // clock must start low, transition high 	
-        
-        //if( pygmySPI.PortMISO->IDR & pygmySPI.PinMISO ){  // Test port input for high and set bit in ucByte
-        //    DataByte |= ( BIT7 >> i );                    //
-        //} // if                                           //
-        //delay( 60 );
-    //    pygmySPI.PortSCK->BRR = pygmySPI.PinSCK;
-    //} // for
-    //pygmySPI.PortCS->BRR = pygmySPI.PinCS;
-    //print( COM3, "\rByte: 0x%02X", DataByte );
-    
-    //spiWriteByte( ptrSPI, S25FL_WRR );
-
-    //Volume->IO->PutBuffer( Volume->Port, 0x2000LL, Name, len(Name) + 1 );
-   
-    /*Address = 0x15000;
-    for( i = 0; i < 4; i++ ){
-        Volume->IO->PutWord( Volume->Port, Address + ( i * 4096 ), PYGMYFILE_ACTIVESECTOR );
-    } // for
-
-    //Volume->IO->PutWord( Volume->Port, (u64)(Address + (u64)(ii * SectorSize)), PYGMYFILE_ACTIVESECTOR );
+    //fileFormat( (PYGMYMEMIO *)&SST25VF, TRUE, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
+    //Volume = fileNewVolume( (PYGMYMEMIO *)&SST25VF, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
     //fileLoadVolume( (PYGMYMEMIO *)&SST25VF, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-
-    //fileSetCurrentPath( "/nebula" );
-    //fileMount( (PYGMYMEMIO *)&SST25VF, 0, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-    //fileSeekVolumes( (PYGMYMEMIO *)&SST25VF, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
-
-    pinConfig( LED0, OUT );
-    
-    /*Properties.SectorCount = 4;
-    Properties.SectorGroups = 2;
-    Sectors = malloc( sizeof( PYGMYFILEADDRESS ) * 2 );
-    Properties.Sectors = Sectors;
-    Properties.Sectors[ 0 ].BaseAddress = 0;
-    Properties.Sectors[ 0 ].SectorCount = 2;
-    Properties.Sectors[ 1 ].BaseAddress = 4096*2;
-    Properties.Sectors[ 1 ].SectorCount = 2;
-    Volume = fileGetCurrentVolume();
-    Properties.MountPoint = Volume;
-    
-    for( i = 0; i < 4094*4; i++ ){
-        fileGenerateDirectAddress( Volume, &Properties, i, &Address );
-        if( Address != PYGMYFILE_INVALIDADDRESS ){
-            print( COM3, "\r0x%012llX", Address );
-        } else{
-            print( COM3, "\rINVALID ADDRESS" );
-            break;
-        } // else
-    } // for
-    */
-    /*
-    fileTest = fileOpen( "/nebula/test2.txt", WRITE, 0 );
-    if( fileTest ){
-        print( COM3, "\rPut Chars: " );
-        for( i = 0, full = FALSE; i < 741 && !full; i++ ){ // 741
-            for( ii = 0; ii < 50 && !full; ii++ ){ // 50
-                if( !filePutChar( fileTest, 'A' ) ){
-                    print( COM3, "\rMain()->filePutChar() returned FALSE" ); 
-                    full = TRUE;
-                } // if
-            } // for
-            fileUpdateLength( fileTest->ParentFolder, &fileTest->Properties  );
-        } // for
-        fileClose( fileTest );
-    } else{
-       print( COM3, "\rFailed to open file" );
-    } // else
-    */
-    //fileOpen( "/nebula/images", FOLDER|WRITE|READ, 0 );
-    //fileOpen( "/nebula/test/test.txt", WRITE|READ, 0 );
-    
-    //putstr( "\rSplit: " ); putstr( splitString( "/nebula/test.txt", '/', -1 ) );
-    //if( fileSeekPath( "/nebula", &pygmyEntry ) ){
-    //    filePrintProperties( &pygmyEntry );
-    //} // if
-    /*ucLen = getAllSubStrings( "/root/test/test/test.txt", ucParams, 32, FILESEPARATORS );
-    putstr( "\rParams Found: " ); putIntUSART3( ucLen );
-    for( i = 0; i < ucLen; i++ ){
-        putstr( "\rParam" ); putIntUSART3( i ); putstr( ": " ); putstr( ucParams[ i ] );
-    } // for
-    */
-    //putstr( "\rPygmy Boot V2.0\rMCU " );
-    
-   
-    //putstr( "\rFLASH " );
-    //putIntUSART3( SIZEREG->Pages );
-    //putcUSART3( '\r' );
-    //fileMountRoot();
-    // First allow 2 seconds for receipt of '+' char 
-    // If received, cancel download sequence and wait for commands
-    // Timeout is incremented every millisecond by SysTick
-    
-    //taskNewSimple( "xmodem", 1000, (void *)xmodemProcessTimer );
-    //taskNewSimple( "boot", 5000, (void *)bootTimeout );
-    
-    /*for( globalBootTimeout = 0; globalBootTimeout < 2000; ){
-        ;
-    }
-    if( !(globalBootStatus & BOOT_CANCEL) ){
-        bootBootOS();   
-    }*/
+    pinConfig( ENABLE_RES, OUT );
+    pinSet( ENABLE_RES, HIGH );
+    pinConfig( VOLTAGE_IN, ANALOG );
+    pinConfig( CURRENT_IN, ANALOG );
+    adcEnableChannel( VOLTAGE_IN );
+    adcEnableChannel( CURRENT_IN );
+    adcSingleSampleInit();
+    taskNewSimple( "volt", 100, (PYGMYFUNCPTR)taskVoltage );
+    //convertFloatToString( 3.3, "%1.2", floatString );
+    //print( STDIO, "%1.2f", 3.3 );//floatString );
+    //taskVoltage();
     while( 1 ){
         // Wait for commands
     }
 }
 
+u8 cmd_analog( u8 *Buffer )
+{
+    PYGMYPARAMLIST Parameters;
+    float voltage;
+
+    if( getAllParameters( Buffer, &Parameters ) && Parameters.ParamCount == 1  ){
+        voltage = adcConvertRawToFloat( pinAnalog( convertStringToPin( Parameters.Params[ 0 ] ) ) );
+        print( STDIO, "\r%f", voltage );
+        freeParameterList( &Parameters );
+        
+        return( TRUE );
+    } // if
+
+    return( FALSE );
+}
+
+u8 cmd_pinconfig( u8 *Buffer )
+{
+    PYGMYPARAMLIST Parameters;
+
+    if( getAllParameters( Buffer, &Parameters ) && Parameters.ParamCount == 2  ){
+        if( pinConfig( convertStringToPin( Parameters.Params[ 0 ] ), convertStringToMode( Parameters.Params[ 1 ] ) ) ){
+            freeParameterList( &Parameters );
+            return( TRUE );
+        } // if
+    } // if
+
+    return( FALSE );
+}
+
+u8 cmd_pinget( u8 *Buffer )
+{
+    // get and print the state of the specified pin to STDIO
+    // The state of the pin is valid even if the pin isn't configured as an input
+    PYGMYPARAMLIST Parameters;
+    u8 pin;
+
+    if( getAllParameters( Buffer, &Parameters ) && Parameters.ParamCount == 1  ){
+        pin = convertStringToPin( Parameters.Params[ 0 ] );
+        if( pin != 0xFF ){
+            // 0xFF is the return value for an error
+            print( STDIO, "\r%s", convertStateToString( pin ) );
+            freeParameterList( &Parameters );
+            return( TRUE );
+        } // if
+    } // if
+
+    return( FALSE );
+}
+
+u8 cmd_pinpwm( u8 *Buffer )
+{
+    PYGMYPARAMLIST Parameters;
+    
+    if( getAllParameters( Buffer, &Parameters ) && Parameters.ParamCount == 3  ){
+        if( pinPWM( convertStringToPin( Parameters.Params[ 0 ] ), convertStringToInt( Parameters.Params[ 1 ] ),
+            convertStringToInt( Parameters.Params[ 2 ] ) ) ){
+            freeParameterList( &Parameters );
+            return( TRUE );
+        } // if
+    } // if
+    freeParameterList( &Parameters );
+
+    return( FALSE );
+}
+
+u8 cmd_pinset( u8 *Buffer )
+{
+    PYGMYPARAMLIST Parameters;
+    
+    if( getAllParameters( Buffer, &Parameters ) && Parameters.ParamCount == 2  ){
+        if( pinSet( convertStringToPin( Parameters.Params[ 0 ] ), convertStringToState( Parameters.Params[ 1 ] ) ) ){
+            freeParameterList( &Parameters );
+            return( TRUE );
+        } // if
+    } // if
+    freeParameterList( &Parameters );
+
+    return( FALSE );
+}
+
 u8 cmd_time( u8 *Buffer )
 {
+    // ToDo: Finish and test this command
     PYGMYPARAMLIST Parameters;
     u32 MilliSeconds;
     u8 ReturnValue;
@@ -827,7 +850,7 @@ void bootGetUSART3( void )
     static u8 ucBuffer[ 256 ], ucIndex = 0;
     u8 ucByte, CurrentStream;
 
-    pinSet( LED1, HIGH );
+    //pinSet( LED1, HIGH );
     CurrentStream = streamGetSTDIO();
     streamSetSTDIO( COM3 );
 
@@ -868,15 +891,15 @@ void bootGetUSART3( void )
         } // if
     } // if
     streamSetSTDIO( CurrentStream );
-    pinSet( LED1, HIGH );
+    //pinSet( LED1, HIGH );
 }
-
+/*
 void bootGetUSART2( void )
 {
     static u8 COM2Buffer[ 256 ], COM2Index = 0;
     u8 ucByte, CurrentStream;
 
-    pinSet( LED0, HIGH );
+    //pinSet( LED0, HIGH );
     CurrentStream = streamGetSTDIO();
     streamSetSTDIO( COM2 );
     if( USART2->SR & USART_RXNE ) { 
@@ -917,8 +940,9 @@ void bootGetUSART2( void )
         } // if
     } // if
     streamSetSTDIO( CurrentStream );
-    pinSet( LED0, LOW );
+    //pinSet( LED0, LOW );
 }
+*/
 
 void bootGetUSART1( void )
 {
@@ -1472,7 +1496,7 @@ u8 cmd_pwd( u8 *Buffer )
 {
     // Print Working Directory
 
-    print( COM3, "\r%s", fileGetCurrentPath() );
+    print( STDIO, "\r%s", fileGetCurrentPath() );
 
     return( TRUE );
 }
@@ -1591,6 +1615,80 @@ u8 cmd_boot( u8 *Params )
     PYGMY_RESET;
     
     // No return after reset
+}
+
+u8 cmd_run( u8 *Buffer )
+{
+    PYGMYPARAMLIST Parameters;
+
+    if( getAllParameters( Buffer, &Parameters ) && Parameters.ParamCount == 1  ){
+        scriptRun( Parameters.Params[ 0 ], (PYGMYCMD *)BOOTCOMMANDS );
+        freeParameterList( &Parameters );
+
+        return( TRUE );
+    } // if
+
+    return( FALSE );
+}
+
+u8 cmd_cmd( u8 *ucBuffer )
+{
+    // This is a special hook to allow apps to call the basic command line
+    return( executeCmd( ucBuffer, (PYGMYCMD *)BOOTCOMMANDS ) );
+}
+
+u8 scriptRun( u8 *fileName, PYGMYCMD *pygmyCommands )
+{
+    PYGMYVARIANT *varPool;
+    PYGMYFILE *fileIn;
+    u32 i;
+    u8 *line, *command;
+
+    fileIn = fileOpen( fileName, READ, 0 );
+    if( fileName == NULL ){
+        // file failed to open
+        return( FALSE );
+    } // if
+    // Validate that the file is a pygmy script file before executing
+    line = fileGetString( fileIn );
+    if( line == NULL || !isStringSame( line, "!pygmyscript" )){
+        return( FALSE ); // file is empty or is not a valid script
+    } // if
+
+    for( ; !fileEOF( fileIn ); ){
+        line = fileGetString( fileIn );
+        if( line == NULL ){
+            // line will only be NULL when the end of file is reached
+            break;
+        } // if
+        // process the next line in the script file
+        // exit the loop when the command being searched for is found, or the null command is reached
+        command = getNextSubString( line, WHITESPACE | PUNCT );
+
+        for( i = 0; pygmyCommands[ i ].Call; i++ ){ 
+            // First check for declare and free
+            // These are calls to free or allcoate memory, handle it outside the normal command call
+            // If the the memory allocation and deallocation commands are called from within 
+            //    the normal command call path, they can only allocate from a global pool
+            //    this would limit the command engine to one instance 
+            if( isStringSame( "declare", command ) ){
+                // declare x = 0
+                // x = x + 1
+
+            }else if( isStringSame( "free", command ) ){
+                
+            }else if( isStringSame( command, pygmyCommands[ i ].Name ) ){
+                // We have found the command, now call it, passing the buffer starting after the command
+                pygmyCommands[ i ].Call( line + len( command ) );
+            } // else if
+        } // for
+        // the buffer "line" is allocated by fileGetString() and must be freed
+        if( line != NULL ){
+            free( line );
+        } // if
+    } // for
+
+    return( TRUE );
 }
 
 u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
@@ -1832,6 +1930,7 @@ u8 cmd_man( u8 *Buffer )
 void SysTick_Handler( void )
 {
     PYGMY_WATCHDOG_REFRESH; 
-    
+    taskProcess();
+    //taskVoltage();
     xmodemProcessTimer( &XModem );
 }

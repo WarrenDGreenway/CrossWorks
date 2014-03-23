@@ -1,0 +1,51 @@
+/**************************************************************************
+    PygmyOS ( Pygmy Operating System )
+    Copyright (C) 2011-2012  Warren D Greenway
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+***************************************************************************/
+
+
+// Prototype revision of Pygmy Nebula
+#pragma once
+#define __INCUBATOR
+#include "pygmy_type.h"
+  
+#define PROXIMITY_SDA       PB11
+#define PROXIMITY_SCL       PB12
+#define PROXIMITY_INT1      PB13
+#define PROXIMITY_INT2      PB14
+#define PROXIMITY_INT3      PB15
+
+#define LCD_RS              PC0
+#define LCD_CS              PC1
+#define LCD_SCL             PC2
+#define LCD_SDA             PC3
+#define LCD_PSB             PC4
+#define LCD_PSI2B           PC5
+#define LCD_BL              PC6
+
+#define LIGHT               PB1
+#define HEATER              PC7
+#define HUMIDITY_SCL        PC8
+#define HUMIDITY_SDA        PC9
+
+#define PYGMY_MAX_XTAL      ((u32)24000000) // Maximum main clock frequency supported
+#define PYGMY_XTAL          ((u32)8000000) // XTAL frequency in Hz
+#define PYGMY_HSI           ((u32)8000000) // This is a generic value for default internal frequency
+#define PYGMY_SUPPLYVOLTAGE 3.3
+
+void delayms( u32 Delay );
+void delay( u32 Delay );
+void print( u8 *ucBuffer, ... );
