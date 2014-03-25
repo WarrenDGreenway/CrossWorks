@@ -6,10 +6,10 @@ THUMB\ Debug/pygmy_sys.o: \
  /Applications/CrossWorks\ for\ ARM\ 2.3/include/string.h pygmy_profile.h \
  incubator.h pygmyos/core/pygmy_type.h pygmyos/core/pygmy_sys.h \
  /Applications/CrossWorks\ for\ ARM\ 2.3/include/stdint.h \
- pygmyos/core/pygmy_xmodem.h pygmyos/core/pygmy_type.h \
- pygmyos/core/pygmy_pfat.h pygmyos/core/pygmy_port.h \
- pygmyos/core/pygmy_sys.h pygmyos/core/pygmy_com.h \
- pygmyos/core/pygmy_adc.h pygmyos/core/pygmy_lcd.h \
- pygmyos/core/pygmy_nvic.h pygmyos/core/pygmy_rtc.h \
- pygmyos/core/pygmy_string.h pygmyos/core/pygmy_fpec.h \
- pygmyos/profiles/memory/sst25vf.h
+ pygmyos/core/pygmy_xmodem.h pygmyos/core/pygmy_pfat.h \
+ eastrisingERC1602.h pygmyos/cpu/stm/stm32/stm32f100.h \
+ pygmyos/cpu/stm/stm32_xtal.h pygmyos/cpu/stm/stm32_watchdog.h \
+ pygmyos/cpu/stm/stm32_timers.h si7020.h pygmyos/core/pygmy_port.h \
+ pygmyos/core/pygmy_com.h pygmyos/core/pygmy_nvic.h \
+ pygmyos/core/pygmy_rtc.h pygmyos/core/pygmy_string.h \
+ pygmyos/core/pygmy_fpec.h

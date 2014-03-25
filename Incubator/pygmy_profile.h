@@ -31,7 +31,7 @@
     //#define __PYGMYSTREAMCOM1
 //#define __PYGMYCOMMANDS
 //#define __PYGMYMESSAGES
-//#define __PYGMYTASKS
+#define __PYGMYTASKS
 //#define __PYGMYSOCKETS
     //#define __PYGMYSOCKETS_CONTROL
 //    #define __PYGMYSOCKETS_FILE
@@ -44,7 +44,7 @@
 //#include "profiles/gomex/gomex_v1.h"
 #include "incubator.h"
 
-//#include "pygmy_sys.h"
+#include "pygmy_sys.h"
 #include "pygmy_type.h"
 #include "eastrisingERC1602.h"
 #include "cpu/stm/stm32/stm32f100.h"

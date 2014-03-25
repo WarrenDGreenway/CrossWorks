@@ -17,6 +17,7 @@
       <file file_name="pygmyos/core/pygmy_string.c"/>
       <file file_name="eastrisingERC1602.h"/>
       <file file_name="si7020.h"/>
+      <file file_name="pygmyos/core/pygmy_sys.c"/>
     </folder>
     <folder Name="System Files">
       <file file_name="$(StudioDir)/source/thumb_crt0.s"/>

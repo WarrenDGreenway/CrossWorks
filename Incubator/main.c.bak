@@ -5,6 +5,29 @@
 
 volatile u32 globalPLL, globalID, globalXTAL, globalFreq;
 
+u8 taskUpdateLCD( void )
+{
+    float rh, temp;
+
+    si7020Init( );
+    
+    si7020GetRegister( );
+    delay( 60 );
+    rh = si7020GetRH( );
+    delay( 60 );
+    temp = si7020GetTemperature( );
+    delay( 60 );
+    lcdWriteAddress( 0, 0 );
+    delay( 60 );
+    print( "rh: %3.01f", rh );
+    lcdWriteAddress( 0, 1 );
+    delay( 200 );
+    
+    print( "temp: %3.01f", temp );
+
+    return( TRUE );
+}
+
 void main(void)
 {
     float rh, temp;
@@ -39,20 +62,23 @@ void main(void)
 
     pinConfig( LIGHT, OUT );
     
+    taskInit();
     lcdInit(  );
     si7020Init( );
+    
+    si7020GetRegister( );
     rh = si7020GetRH( );
     temp = si7020GetTemperature( );
-    
-    //lcdWriteAddress( 0, 0 );
-    //delay( 60 );
-    //print( "temp: %f", temp );
-    //lcdWriteAddress( 0, 1 );
-    //print( "rh: %f", rh );
-    //putsLCD( "Hello" );
-    //lcdWriteAddress( 0, 1 );
-    //putsLCD( "World" );
-    
+    /*
+    lcdWriteAddress( 0, 0 );
+    delay( 60 );
+    print( "temp: %3.01f", temp );
+    lcdWriteAddress( 0, 1 );
+    print( "rh: %3.01f", rh );
+    */
+    taskNewSimple( "lcdupdate", 5000, taskUpdateLCD );
+
+    while(1){}
 }
 
 void delayms( u32 Delay )
@@ -208,5 +234,8 @@ void print( u8 *ucBuffer, ... )
 
 void SysTick_Handler( void )
 {
-    WATCHDOG_REFRESH;  
+    float rh, temp;
+
+    WATCHDOG_REFRESH;
+    taskProcess();
 }
