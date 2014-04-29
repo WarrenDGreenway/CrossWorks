@@ -38,13 +38,13 @@ SECTIONS
   __CM3_System_Control_Space_segment_end__ = 0xe000f000;
 
   __STACKSIZE__ = 256;
-  __STACKSIZE_PROCESS__ = 0;
+  __STACKSIZE_PROCESS__ = 128;
   __STACKSIZE_IRQ__ = 0;
   __STACKSIZE_FIQ__ = 0;
   __STACKSIZE_SVC__ = 0;
   __STACKSIZE_ABT__ = 0;
   __STACKSIZE_UND__ = 0;
-  __HEAPSIZE__ = 128;
+  __HEAPSIZE__ = 2048;
 
   __vectors_ram_load_start__ = ALIGN(__RAM_segment_start__ , 256);
   .vectors_ram ALIGN(__RAM_segment_start__ , 256) (NOLOAD) : AT(ALIGN(__RAM_segment_start__ , 256))

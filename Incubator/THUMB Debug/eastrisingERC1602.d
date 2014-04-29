@@ -12,6 +12,7 @@ THUMB\ Debug/eastrisingERC1602.o: \
  pygmyos/cpu/stm/stm32/stm32f100.h pygmyos/cpu/stm/stm32_xtal.h \
  pygmyos/cpu/stm/stm32_watchdog.h pygmyos/cpu/stm/stm32_timers.h \
  /Users/warrengreenway/pygmy/CrossWorks/Incubator/si7020.h \
- pygmyos/core/pygmy_port.h pygmyos/core/pygmy_com.h \
- pygmyos/core/pygmy_nvic.h pygmyos/core/pygmy_rtc.h \
- pygmyos/core/pygmy_string.h pygmyos/core/pygmy_fpec.h
+ pygmyos/profiles/sensors/tsl2671x.h pygmyos/core/pygmy_com.h \
+ pygmyos/core/pygmy_port.h pygmyos/core/pygmy_nvic.h \
+ pygmyos/core/pygmy_rtc.h pygmyos/core/pygmy_string.h \
+ pygmyos/core/pygmy_fpec.h
