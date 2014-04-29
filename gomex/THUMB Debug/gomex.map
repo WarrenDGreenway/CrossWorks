@@ -43,13 +43,13 @@ Discarded input sections
  .text.cmd_ff   0x00000000        0x2 THUMB Debug/main.o
  .text.cmd_tail
                 0x00000000        0x4 THUMB Debug/main.o
+ .rodata.BOOT_OK
+                0x00000000        0x5 THUMB Debug/main.o
  .rodata.STRID_L15X
                 0x00000000        0x5 THUMB Debug/main.o
  .rodata.BOOT_ERROR
                 0x00000000        0x9 THUMB Debug/main.o
  .data.date     0x00000000        0x4 THUMB Debug/main.o
- .rodata.BOOT_OK
-                0x00000000        0x5 THUMB Debug/main.o
  .bss.version   0x00000000        0x4 THUMB Debug/main.o
  .bss.globalBootTimeout
                 0x00000000        0x4 THUMB Debug/main.o
@@ -90,6 +90,7 @@ Discarded input sections
  .text          0x00000000        0x0 THUMB Debug/pygmy_com.o
  .data          0x00000000        0x0 THUMB Debug/pygmy_com.o
  .bss           0x00000000        0x0 THUMB Debug/pygmy_com.o
+ .text.comOpen  0x00000000      0x1a0 THUMB Debug/pygmy_com.o
  .text.comDisable
                 0x00000000       0x40 THUMB Debug/pygmy_com.o
  .text.comEnable
@@ -361,6 +362,8 @@ Discarded input sections
  .bss           0x00000000        0x0 THUMB Debug/pygmy_sys.o
  .text.sysGetADCVoltage
                 0x00000000        0x8 THUMB Debug/pygmy_sys.o
+ .text.sysEnableComClock
+                0x00000000       0x40 THUMB Debug/pygmy_sys.o
  .text.sysRandom
                 0x00000000       0x7c THUMB Debug/pygmy_sys.o
  .text.sysDisableComClock
@@ -412,7 +415,7 @@ Discarded input sections
                 0x00000000        0xc THUMB Debug/pygmy_sys.o
  .text.sysSetMainClock
                 0x00000000       0xb0 THUMB Debug/pygmy_sys.o
- .text.sysInit  0x00000000      0x1d8 THUMB Debug/pygmy_sys.o
+ .text.sysInit  0x00000000      0x1d4 THUMB Debug/pygmy_sys.o
  .text.delayms  0x00000000        0xa THUMB Debug/pygmy_sys.o
  .text.stopwatchStart
                 0x00000000       0x10 THUMB Debug/pygmy_sys.o
@@ -425,10 +428,10 @@ Discarded input sections
  .text.SysTick_Handler
                 0x00000000       0x2c THUMB Debug/pygmy_sys.o
  .rodata        0x00000000       0x10 THUMB Debug/pygmy_sys.o
+ .bss.ucIDBuffer.6165
+                0x00000000       0x19 THUMB Debug/pygmy_sys.o
  .bss.pygmyGlobalQueues
                 0x00000000       0x10 THUMB Debug/pygmy_sys.o
- .bss.ucIDBuffer.6177
-                0x00000000       0x19 THUMB Debug/pygmy_sys.o
  .bss.pygmyGlobalMessages
                 0x00000000      0x190 THUMB Debug/pygmy_sys.o
  .text          0x00000000        0x0 THUMB Debug/pygmy_string.o
@@ -446,6 +449,8 @@ Discarded input sections
                 0x00000000       0x22 THUMB Debug/pygmy_string.o
  .text.convertBufferToU16
                 0x00000000       0x12 THUMB Debug/pygmy_string.o
+ .text.convertStringToPort
+                0x00000000       0x54 THUMB Debug/pygmy_string.o
  .text.stripLeadingChars
                 0x00000000       0x1c THUMB Debug/pygmy_string.o
  .text.isHex    0x00000000       0x18 THUMB Debug/pygmy_string.o
@@ -559,6 +564,8 @@ Discarded input sections
                 0x00000000       0x50 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
  .text.libc.__float32_add
                 0x00000000      0x140 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+ .text.libc.__float32_mul
+                0x00000000       0xe4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
  .text.libc.__float32_div
                 0x00000000      0x1f8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
  .text.libc.__float32_cmp
@@ -1389,9 +1396,9 @@ CM3_System_Control_Space 0xe000e000         0x00001000         xw
 
 Linker script and memory map
 
-                0x08008f8c                __do_debug_operation = __do_debug_operation_mempoll
-                0x08008218                __vfprintf = __vfprintf_int
-                0x08008a88                __vfscanf = __vfscanf_int
+                0x080088fc                __do_debug_operation = __do_debug_operation_mempoll
+                0x08007b88                __vfprintf = __vfprintf_int
+                0x080083f8                __vfscanf = __vfscanf_int
                 0x08080000                __FLASH_BANK2_segment_start__ = 0x8080000
                 0x08100000                __FLASH_BANK2_segment_end__ = 0x8100000
                 0x08000000                __FLASH_BANK1_segment_start__ = 0x8000000
@@ -1531,1049 +1538,1024 @@ Linker script and memory map
                 0x00000001                . = ASSERT (((__init_end__ >= __FLASH_segment_start__) && (__init_end__ <= __FLASH_segment_end__)), error: .init is too large to fit in FLASH memory segment)
                 0x08000308                __text_load_start__ = ALIGN (__init_end__, 0x4)
 
-.text           0x08000308     0x8cd0
+.text           0x08000308     0x8640
                 0x08000308                __text_start__ = .
  *(.text .text.* .glue_7t .glue_7 .gnu.linkonce.t.* .gcc_except_table .ARM.extab* .gnu.linkonce.armextab.*)
  .glue_7        0x00000000        0x0 linker stubs
  .glue_7t       0x00000000        0x0 linker stubs
- .text.cmd_set_pipe
-                0x08000308        0x4 THUMB Debug/main.o
-                0x08000308                cmd_set_pipe
  .text.cmd_reset
-                0x0800030c       0x14 THUMB Debug/main.o
-                0x0800030c                cmd_reset
- .text.cmd_df   0x08000320        0x4 THUMB Debug/main.o
-                0x08000320                cmd_df
- .text.cmd_du   0x08000324        0x4 THUMB Debug/main.o
-                0x08000324                cmd_du
+                0x08000308       0x14 THUMB Debug/main.o
+                0x08000308                cmd_reset
+ .text.cmd_df   0x0800031c        0x4 THUMB Debug/main.o
+                0x0800031c                cmd_df
+ .text.cmd_du   0x08000320        0x4 THUMB Debug/main.o
+                0x08000320                cmd_du
  .text.cmd_cksum
-                0x08000328        0x4 THUMB Debug/main.o
-                0x08000328                cmd_cksum
- .text.cmd_if   0x0800032c        0x4 THUMB Debug/main.o
-                0x0800032c                cmd_if
+                0x08000324        0x4 THUMB Debug/main.o
+                0x08000324                cmd_cksum
+ .text.cmd_if   0x08000328        0x4 THUMB Debug/main.o
+                0x08000328                cmd_if
  .text.cmd_sleep
-                0x08000330        0x4 THUMB Debug/main.o
-                0x08000330                cmd_sleep
+                0x0800032c        0x4 THUMB Debug/main.o
+                0x0800032c                cmd_sleep
  .text.cmd_lsof
-                0x08000334        0x4 THUMB Debug/main.o
-                0x08000334                cmd_lsof
+                0x08000330        0x4 THUMB Debug/main.o
+                0x08000330                cmd_lsof
  .text.cmd_declare
-                0x08000338        0x4 THUMB Debug/main.o
-                0x08000338                cmd_declare
- .text.cmd_dc   0x0800033c        0x4 THUMB Debug/main.o
-                0x0800033c                cmd_dc
+                0x08000334        0x4 THUMB Debug/main.o
+                0x08000334                cmd_declare
+ .text.cmd_dc   0x08000338        0x4 THUMB Debug/main.o
+                0x08000338                cmd_dc
  .text.cmd_kill
-                0x08000340        0x4 THUMB Debug/main.o
-                0x08000340                cmd_kill
+                0x0800033c        0x4 THUMB Debug/main.o
+                0x0800033c                cmd_kill
  .text.cmd_killall
-                0x08000344        0x4 THUMB Debug/main.o
-                0x08000344                cmd_killall
+                0x08000340        0x4 THUMB Debug/main.o
+                0x08000340                cmd_killall
  .text.cmd_wait
-                0x08000348        0x4 THUMB Debug/main.o
-                0x08000348                cmd_wait
+                0x08000344        0x4 THUMB Debug/main.o
+                0x08000344                cmd_wait
  .text.cmd_watch
-                0x0800034c        0x4 THUMB Debug/main.o
-                0x0800034c                cmd_watch
+                0x08000348        0x4 THUMB Debug/main.o
+                0x08000348                cmd_watch
  .text.cmd_while
-                0x08000350        0x4 THUMB Debug/main.o
-                0x08000350                cmd_while
+                0x0800034c        0x4 THUMB Debug/main.o
+                0x0800034c                cmd_while
  .text.cmd_test
-                0x08000354        0x4 THUMB Debug/main.o
-                0x08000354                cmd_test
- .text.cmd_man  0x08000358        0x2 THUMB Debug/main.o
-                0x08000358                cmd_man
- *fill*         0x0800035a        0x2 00
+                0x08000350        0x4 THUMB Debug/main.o
+                0x08000350                cmd_test
+ .text.cmd_man  0x08000354        0x2 THUMB Debug/main.o
+                0x08000354                cmd_man
+ *fill*         0x08000356        0x2 00
  .text.cmd_false
-                0x0800035c       0x14 THUMB Debug/main.o
-                0x0800035c                cmd_false
+                0x08000358       0x14 THUMB Debug/main.o
+                0x08000358                cmd_false
  .text.cmd_true
-                0x08000370       0x14 THUMB Debug/main.o
-                0x08000370                cmd_true
+                0x0800036c       0x14 THUMB Debug/main.o
+                0x0800036c                cmd_true
  .text.cmd_volt
-                0x08000384       0x14 THUMB Debug/main.o
-                0x08000384                cmd_volt
+                0x08000380       0x14 THUMB Debug/main.o
+                0x08000380                cmd_volt
  .text.cmd_btscan
-                0x08000398       0x14 THUMB Debug/main.o
-                0x08000398                cmd_btscan
+                0x08000394       0x14 THUMB Debug/main.o
+                0x08000394                cmd_btscan
  .text.cmd_btconnect
-                0x080003ac       0x14 THUMB Debug/main.o
-                0x080003ac                cmd_btconnect
+                0x080003a8       0x14 THUMB Debug/main.o
+                0x080003a8                cmd_btconnect
  .text.cmd_btsend
-                0x080003c0       0x14 THUMB Debug/main.o
-                0x080003c0                cmd_btsend
+                0x080003bc       0x14 THUMB Debug/main.o
+                0x080003bc                cmd_btsend
  .text.cmd_btreboot
-                0x080003d4       0x14 THUMB Debug/main.o
-                0x080003d4                cmd_btreboot
- .text.cmd_rm   0x080003e8        0xa THUMB Debug/main.o
-                0x080003e8                cmd_rm
- .text.cmd_mv   0x080003f2       0x24 THUMB Debug/main.o
-                0x080003f2                cmd_mv
- *fill*         0x08000416        0x2 00
+                0x080003d0       0x14 THUMB Debug/main.o
+                0x080003d0                cmd_btreboot
+ .text.cmd_rm   0x080003e4        0xa THUMB Debug/main.o
+                0x080003e4                cmd_rm
+ .text.cmd_mv   0x080003ee       0x24 THUMB Debug/main.o
+                0x080003ee                cmd_mv
+ *fill*         0x08000412        0x2 00
  .text.cmd_gawk
-                0x08000418      0x184 THUMB Debug/main.o
-                0x08000418                cmd_gawk
+                0x08000414      0x184 THUMB Debug/main.o
+                0x08000414                cmd_gawk
  .text.cmd_mkdir
-                0x0800059c       0x16 THUMB Debug/main.o
-                0x0800059c                cmd_mkdir
- .text.cmd_new  0x080005b2       0x16 THUMB Debug/main.o
-                0x080005b2                cmd_new
+                0x08000598       0x16 THUMB Debug/main.o
+                0x08000598                cmd_mkdir
+ .text.cmd_new  0x080005ae       0x16 THUMB Debug/main.o
+                0x080005ae                cmd_new
  .text.cmd_open
-                0x080005c8       0x34 THUMB Debug/main.o
-                0x080005c8                cmd_open
+                0x080005c4       0x34 THUMB Debug/main.o
+                0x080005c4                cmd_open
  .text.cmd_append
-                0x080005fc       0x38 THUMB Debug/main.o
-                0x080005fc                cmd_append
+                0x080005f8       0x38 THUMB Debug/main.o
+                0x080005f8                cmd_append
  .text.cmd_find
-                0x08000634       0x16 THUMB Debug/main.o
-                0x08000634                cmd_find
- *fill*         0x0800064a        0x2 00
+                0x08000630       0x16 THUMB Debug/main.o
+                0x08000630                cmd_find
+ *fill*         0x08000646        0x2 00
  .text.cmd_read
-                0x0800064c       0x78 THUMB Debug/main.o
-                0x0800064c                cmd_read
+                0x08000648       0x78 THUMB Debug/main.o
+                0x08000648                cmd_read
  .text.cmdRFPut
-                0x080006c4       0x20 THUMB Debug/main.o
-                0x080006c4                cmdRFPut
+                0x080006c0       0x20 THUMB Debug/main.o
+                0x080006c0                cmdRFPut
  .text.cmdRFGet
-                0x080006e4       0x20 THUMB Debug/main.o
-                0x080006e4                cmdRFGet
+                0x080006e0       0x20 THUMB Debug/main.o
+                0x080006e0                cmdRFGet
  .text.cmd_strings
-                0x08000704       0x3c THUMB Debug/main.o
-                0x08000704                cmd_strings
- .text.cmd_cp   0x08000740       0x1a THUMB Debug/main.o
-                0x08000740                cmd_cp
- *fill*         0x0800075a        0x2 00
- .text.cmd_pwd  0x0800075c       0x18 THUMB Debug/main.o
-                0x0800075c                cmd_pwd
- .text.cmd_ls   0x08000774      0x1dc THUMB Debug/main.o
-                0x08000774                cmd_ls
- .text.cmd_cd   0x08000950       0x20 THUMB Debug/main.o
-                0x08000950                cmd_cd
+                0x08000700       0x3c THUMB Debug/main.o
+                0x08000700                cmd_strings
+ .text.cmd_cp   0x0800073c       0x1a THUMB Debug/main.o
+                0x0800073c                cmd_cp
+ *fill*         0x08000756        0x2 00
+ .text.cmd_pwd  0x08000758       0x18 THUMB Debug/main.o
+                0x08000758                cmd_pwd
+ .text.cmd_ls   0x08000770      0x1dc THUMB Debug/main.o
+                0x08000770                cmd_ls
+ .text.cmd_cd   0x0800094c       0x20 THUMB Debug/main.o
+                0x0800094c                cmd_cd
  .text.cmd_rmdir
-                0x08000970       0x54 THUMB Debug/main.o
-                0x08000970                cmd_rmdir
+                0x0800096c       0x54 THUMB Debug/main.o
+                0x0800096c                cmd_rmdir
  .text.cmd_touch
-                0x080009c4       0x40 THUMB Debug/main.o
-                0x080009c4                cmd_touch
- .text.cmd_cat  0x08000a04      0x2a8 THUMB Debug/main.o
-                0x08000a04                cmd_cat
+                0x080009c0       0x40 THUMB Debug/main.o
+                0x080009c0                cmd_touch
+ .text.cmd_cat  0x08000a00      0x2a8 THUMB Debug/main.o
+                0x08000a00                cmd_cat
  .text.cmd_echo
-                0x08000cac       0x8c THUMB Debug/main.o
-                0x08000cac                cmd_echo
- .text.cmd_tx   0x08000d38       0x20 THUMB Debug/main.o
-                0x08000d38                cmd_tx
- .text.cmd_rx   0x08000d58       0x20 THUMB Debug/main.o
-                0x08000d58                cmd_rx
+                0x08000ca8       0x8c THUMB Debug/main.o
+                0x08000ca8                cmd_echo
+ .text.cmd_tx   0x08000d34       0x20 THUMB Debug/main.o
+                0x08000d34                cmd_tx
+ .text.cmd_rx   0x08000d54       0x20 THUMB Debug/main.o
+                0x08000d54                cmd_rx
  .text.cmd_format
-                0x08000d78       0x98 THUMB Debug/main.o
-                0x08000d78                cmd_format
+                0x08000d74       0x98 THUMB Debug/main.o
+                0x08000d74                cmd_format
  .text.cmd_erase
-                0x08000e10       0x18 THUMB Debug/main.o
-                0x08000e10                cmd_erase
+                0x08000e0c       0x18 THUMB Debug/main.o
+                0x08000e0c                cmd_erase
  .text.cmd_dump
-                0x08000e28       0xac THUMB Debug/main.o
-                0x08000e28                cmd_dump
+                0x08000e24       0xac THUMB Debug/main.o
+                0x08000e24                cmd_dump
  .text.cmd_umount
-                0x08000ed4       0x30 THUMB Debug/main.o
-                0x08000ed4                cmd_umount
+                0x08000ed0       0x30 THUMB Debug/main.o
+                0x08000ed0                cmd_umount
  .text.cmd_mount
-                0x08000f04       0x98 THUMB Debug/main.o
-                0x08000f04                cmd_mount
+                0x08000f00       0x98 THUMB Debug/main.o
+                0x08000f00                cmd_mount
  .text.cmd_fdisk
-                0x08000f9c      0x1b8 THUMB Debug/main.o
-                0x08000f9c                cmd_fdisk
+                0x08000f98      0x1b8 THUMB Debug/main.o
+                0x08000f98                cmd_fdisk
  .text.cmd_date
-                0x08001154       0x68 THUMB Debug/main.o
-                0x08001154                cmd_date
+                0x08001150       0x68 THUMB Debug/main.o
+                0x08001150                cmd_date
  .text.cmd_pinset
-                0x080011bc       0x44 THUMB Debug/main.o
-                0x080011bc                cmd_pinset
+                0x080011b8       0x44 THUMB Debug/main.o
+                0x080011b8                cmd_pinset
  .text.cmd_pinpwm
-                0x08001200       0x52 THUMB Debug/main.o
-                0x08001200                cmd_pinpwm
- *fill*         0x08001252        0x2 00
+                0x080011fc       0x52 THUMB Debug/main.o
+                0x080011fc                cmd_pinpwm
+ *fill*         0x0800124e        0x2 00
  .text.cmd_pinget
-                0x08001254       0x40 THUMB Debug/main.o
-                0x08001254                cmd_pinget
+                0x08001250       0x40 THUMB Debug/main.o
+                0x08001250                cmd_pinget
  .text.cmd_pinconfig
-                0x08001294       0x40 THUMB Debug/main.o
-                0x08001294                cmd_pinconfig
+                0x08001290       0x40 THUMB Debug/main.o
+                0x08001290                cmd_pinconfig
  .text.cmd_analog
-                0x080012d4       0x48 THUMB Debug/main.o
-                0x080012d4                cmd_analog
- .text.cmd_set_com
-                0x0800131c      0x1e0 THUMB Debug/main.o
-                0x0800131c                cmd_set_com
+                0x080012d0       0x48 THUMB Debug/main.o
+                0x080012d0                cmd_analog
  .text.taskVoltage
-                0x080014fc      0x118 THUMB Debug/main.o
-                0x080014fc                taskVoltage
+                0x08001318       0x90 THUMB Debug/main.o
+                0x08001318                taskVoltage
  .text.handleBTConnectButton
-                0x08001614       0x4c THUMB Debug/main.o
-                0x08001614                handleBTConnectButton
- .text.setUARTMode
-                0x08001660       0x8e THUMB Debug/main.o
-                0x08001660                setUARTMode
- *fill*         0x080016ee        0x2 00
+                0x080013a8       0x4c THUMB Debug/main.o
+                0x080013a8                handleBTConnectButton
  .text.startup.main
-                0x080016f0      0x398 THUMB Debug/main.o
-                0x080016f0                main
+                0x080013f4      0x370 THUMB Debug/main.o
+                0x080013f4                main
  .text.bootPrintPrompt
-                0x08001a88       0x1c THUMB Debug/main.o
-                0x08001a88                bootPrintPrompt
+                0x08001764       0x1c THUMB Debug/main.o
+                0x08001764                bootPrintPrompt
  .text.bootTestAndLoad
-                0x08001aa4       0x7c THUMB Debug/main.o
-                0x08001aa4                bootTestAndLoad
+                0x08001780       0x7c THUMB Debug/main.o
+                0x08001780                bootTestAndLoad
  .text.cmd_boot
-                0x08001b20       0x50 THUMB Debug/main.o
-                0x08001b20                cmd_boot
+                0x080017fc       0x50 THUMB Debug/main.o
+                0x080017fc                cmd_boot
  .text.USART3_IRQHandler
-                0x08001b70       0x28 THUMB Debug/main.o
-                0x08001b70                USART3_IRQHandler
+                0x0800184c       0x28 THUMB Debug/main.o
+                0x0800184c                USART3_IRQHandler
  .text.USART2_IRQHandler
-                0x08001b98       0x30 THUMB Debug/main.o
-                0x08001b98                USART2_IRQHandler
+                0x08001874       0x30 THUMB Debug/main.o
+                0x08001874                USART2_IRQHandler
  .text.scriptRun
-                0x08001bc8       0x9c THUMB Debug/main.o
-                0x08001bc8                scriptRun
- .text.cmd_run  0x08001c64       0x30 THUMB Debug/main.o
-                0x08001c64                cmd_run
+                0x080018a4       0x9c THUMB Debug/main.o
+                0x080018a4                scriptRun
+ .text.cmd_run  0x08001940       0x30 THUMB Debug/main.o
+                0x08001940                cmd_run
  .text.executeCmd
-                0x08001c94       0x70 THUMB Debug/main.o
-                0x08001c94                executeCmd
- .text.cmd_cmd  0x08001d04        0xc THUMB Debug/main.o
-                0x08001d04                cmd_cmd
+                0x08001970       0x58 THUMB Debug/main.o
+                0x08001970                executeCmd
+ .text.cmd_cmd  0x080019c8        0xc THUMB Debug/main.o
+                0x080019c8                cmd_cmd
  .text.USART1_IRQHandler
-                0x08001d10       0x88 THUMB Debug/main.o
-                0x08001d10                USART1_IRQHandler
+                0x080019d4       0x88 THUMB Debug/main.o
+                0x080019d4                USART1_IRQHandler
  .text.cmd_time
-                0x08001d98       0x20 THUMB Debug/main.o
-                0x08001d98                cmd_time
- .text.cmd_set  0x08001db8        0xc THUMB Debug/main.o
-                0x08001db8                cmd_set
+                0x08001a5c       0x20 THUMB Debug/main.o
+                0x08001a5c                cmd_time
  .text.SysTick_Handler
-                0x08001dc4       0x10 THUMB Debug/main.o
-                0x08001dc4                SysTick_Handler
+                0x08001a7c       0x10 THUMB Debug/main.o
+                0x08001a7c                SysTick_Handler
  .text.adcGetStatus
-                0x08001dd4        0xc THUMB Debug/pygmy_adc.o
-                0x08001dd4                adcGetStatus
+                0x08001a8c        0xc THUMB Debug/pygmy_adc.o
+                0x08001a8c                adcGetStatus
  .text.ADC1_2_IRQHandler
-                0x08001de0       0x10 THUMB Debug/pygmy_adc.o
-                0x08001de0                ADC1_2_IRQHandler
+                0x08001a98       0x10 THUMB Debug/pygmy_adc.o
+                0x08001a98                ADC1_2_IRQHandler
  .text.adcGetSQR
-                0x08001df0       0x38 THUMB Debug/pygmy_adc.o
-                0x08001df0                adcGetSQR
+                0x08001aa8       0x38 THUMB Debug/pygmy_adc.o
+                0x08001aa8                adcGetSQR
  .text.adcSingleSampleInit
-                0x08001e28       0x40 THUMB Debug/pygmy_adc.o
-                0x08001e28                adcSingleSampleInit
+                0x08001ae0       0x40 THUMB Debug/pygmy_adc.o
+                0x08001ae0                adcSingleSampleInit
  .text.adcGetChannelFromPin
-                0x08001e68       0x1c THUMB Debug/pygmy_adc.o
-                0x08001e68                adcGetChannelFromPin
+                0x08001b20       0x1c THUMB Debug/pygmy_adc.o
+                0x08001b20                adcGetChannelFromPin
  .text.adcSingleSample
-                0x08001e84       0x28 THUMB Debug/pygmy_adc.o
-                0x08001e84                adcSingleSample
+                0x08001b3c       0x28 THUMB Debug/pygmy_adc.o
+                0x08001b3c                adcSingleSample
  .text.adcEnableChannel
-                0x08001eac       0x68 THUMB Debug/pygmy_adc.o
-                0x08001eac                adcEnableChannel
- *fill*         0x08001f14        0x4 00
+                0x08001b64       0x68 THUMB Debug/pygmy_adc.o
+                0x08001b64                adcEnableChannel
+ *fill*         0x08001bcc        0x4 00
  .text.adcConvertRawToFloat
-                0x08001f18       0x20 THUMB Debug/pygmy_adc.o
-                0x08001f18                adcConvertRawToFloat
+                0x08001bd0       0x20 THUMB Debug/pygmy_adc.o
+                0x08001bd0                adcConvertRawToFloat
  .text.streamPutChar.part.1
-                0x08001f38       0x3c THUMB Debug/pygmy_com.o
- .text.comOpen  0x08001f74      0x1a0 THUMB Debug/pygmy_com.o
-                0x08001f74                comOpen
+                0x08001bf0       0x3c THUMB Debug/pygmy_com.o
  .text.spiWriteByte
-                0x08002114       0x28 THUMB Debug/pygmy_com.o
-                0x08002114                spiWriteByte
+                0x08001c2c       0x28 THUMB Debug/pygmy_com.o
+                0x08001c2c                spiWriteByte
  .text.spiWriteAddress
-                0x0800213c       0x40 THUMB Debug/pygmy_com.o
-                0x0800213c                spiWriteAddress
+                0x08001c54       0x40 THUMB Debug/pygmy_com.o
+                0x08001c54                spiWriteAddress
  .text.spiPutCommand
-                0x0800217c       0x16 THUMB Debug/pygmy_com.o
-                0x0800217c                spiPutCommand
+                0x08001c94       0x16 THUMB Debug/pygmy_com.o
+                0x08001c94                spiPutCommand
  .text.spiReadByte
-                0x08002192       0x2c THUMB Debug/pygmy_com.o
-                0x08002192                spiReadByte
+                0x08001caa       0x2c THUMB Debug/pygmy_com.o
+                0x08001caa                spiReadByte
  .text.spiGetChar
-                0x080021be       0x2c THUMB Debug/pygmy_com.o
-                0x080021be                spiGetChar
+                0x08001cd6       0x2c THUMB Debug/pygmy_com.o
+                0x08001cd6                spiGetChar
  .text.spiPutChar
-                0x080021ea       0x30 THUMB Debug/pygmy_com.o
-                0x080021ea                spiPutChar
+                0x08001d02       0x30 THUMB Debug/pygmy_com.o
+                0x08001d02                spiPutChar
  .text.spiConfig
-                0x0800221a       0x9e THUMB Debug/pygmy_com.o
-                0x0800221a                spiConfig
+                0x08001d32       0x9e THUMB Debug/pygmy_com.o
+                0x08001d32                spiConfig
  .text.I2C1_ER_IRQHandler
-                0x080022b8        0x2 THUMB Debug/pygmy_com.o
-                0x080022b8                I2C1_ER_IRQHandler
+                0x08001dd0        0x2 THUMB Debug/pygmy_com.o
+                0x08001dd0                I2C1_ER_IRQHandler
  .text.I2C2_EV_IRQHandler
-                0x080022ba        0x2 THUMB Debug/pygmy_com.o
-                0x080022ba                I2C2_EV_IRQHandler
+                0x08001dd2        0x2 THUMB Debug/pygmy_com.o
+                0x08001dd2                I2C2_EV_IRQHandler
  .text.I2C2_ER_IRQHandler
-                0x080022bc        0x2 THUMB Debug/pygmy_com.o
-                0x080022bc                I2C2_ER_IRQHandler
- *fill*         0x080022be        0x2 00
+                0x08001dd4        0x2 THUMB Debug/pygmy_com.o
+                0x08001dd4                I2C2_ER_IRQHandler
+ *fill*         0x08001dd6        0x2 00
  .text.streamReset
-                0x080022c0       0x44 THUMB Debug/pygmy_com.o
-                0x080022c0                streamReset
+                0x08001dd8       0x44 THUMB Debug/pygmy_com.o
+                0x08001dd8                streamReset
  .text.streamInit
-                0x08002304       0x24 THUMB Debug/pygmy_com.o
-                0x08002304                streamInit
+                0x08001e1c       0x24 THUMB Debug/pygmy_com.o
+                0x08001e1c                streamInit
  .text.streamGetSTDIO
-                0x08002328        0xc THUMB Debug/pygmy_com.o
-                0x08002328                streamGetSTDIO
+                0x08001e40        0xc THUMB Debug/pygmy_com.o
+                0x08001e40                streamGetSTDIO
  .text.streamSetSTDIO
-                0x08002334       0x50 THUMB Debug/pygmy_com.o
-                0x08002334                streamSetSTDIO
+                0x08001e4c       0x50 THUMB Debug/pygmy_com.o
+                0x08001e4c                streamSetSTDIO
  .text.streamPutChar
-                0x08002384        0xc THUMB Debug/pygmy_com.o
-                0x08002384                streamPutChar
+                0x08001e9c        0xc THUMB Debug/pygmy_com.o
+                0x08001e9c                streamPutChar
  .text.streamSetPut
-                0x08002390       0x1c THUMB Debug/pygmy_com.o
-                0x08002390                streamSetPut
+                0x08001ea8       0x1c THUMB Debug/pygmy_com.o
+                0x08001ea8                streamSetPut
  .text.streamSetPutc
-                0x080023ac       0x1c THUMB Debug/pygmy_com.o
-                0x080023ac                streamSetPutc
+                0x08001ec4       0x1c THUMB Debug/pygmy_com.o
+                0x08001ec4                streamSetPutc
  .text.putcUSART1
-                0x080023c8       0x28 THUMB Debug/pygmy_com.o
-                0x080023c8                putcUSART1
+                0x08001ee0       0x28 THUMB Debug/pygmy_com.o
+                0x08001ee0                putcUSART1
  .text.putsUSART1
-                0x080023f0       0x24 THUMB Debug/pygmy_com.o
-                0x080023f0                putsUSART1
+                0x08001f08       0x24 THUMB Debug/pygmy_com.o
+                0x08001f08                putsUSART1
  .text.putcUSART2
-                0x08002414       0x28 THUMB Debug/pygmy_com.o
-                0x08002414                putcUSART2
+                0x08001f2c       0x28 THUMB Debug/pygmy_com.o
+                0x08001f2c                putcUSART2
  .text.putsUSART2
-                0x0800243c       0x24 THUMB Debug/pygmy_com.o
-                0x0800243c                putsUSART2
+                0x08001f54       0x24 THUMB Debug/pygmy_com.o
+                0x08001f54                putsUSART2
  .text.putcUSART3
-                0x08002460       0x28 THUMB Debug/pygmy_com.o
-                0x08002460                putcUSART3
+                0x08001f78       0x28 THUMB Debug/pygmy_com.o
+                0x08001f78                putcUSART3
  .text.putsUSART3
-                0x08002488       0x18 THUMB Debug/pygmy_com.o
-                0x08002488                putsUSART3
+                0x08001fa0       0x18 THUMB Debug/pygmy_com.o
+                0x08001fa0                putsUSART3
  .text.putsUSART4
-                0x080024a0       0x24 THUMB Debug/pygmy_com.o
-                0x080024a0                putsUSART4
+                0x08001fb8       0x24 THUMB Debug/pygmy_com.o
+                0x08001fb8                putsUSART4
  .text.putcUSART4
-                0x080024c4       0x28 THUMB Debug/pygmy_com.o
-                0x080024c4                putcUSART4
+                0x08001fdc       0x28 THUMB Debug/pygmy_com.o
+                0x08001fdc                putcUSART4
  .text.fpecWriteWord
-                0x080024ec       0x60 THUMB Debug/pygmy_fpec.o
-                0x080024ec                fpecWriteWord
+                0x08002004       0x60 THUMB Debug/pygmy_fpec.o
+                0x08002004                fpecWriteWord
  .text.fpecProcessIHEX
-                0x0800254c       0xb8 THUMB Debug/pygmy_fpec.o
-                0x0800254c                fpecProcessIHEX
+                0x08002064       0xb8 THUMB Debug/pygmy_fpec.o
+                0x08002064                fpecProcessIHEX
  .text.fpecErasePage
-                0x08002604       0xbc THUMB Debug/pygmy_fpec.o
-                0x08002604                fpecErasePage
+                0x0800211c       0xbc THUMB Debug/pygmy_fpec.o
+                0x0800211c                fpecErasePage
  .text.fpecEraseProgramMemory
-                0x080026c0       0x58 THUMB Debug/pygmy_fpec.o
-                0x080026c0                fpecEraseProgramMemory
+                0x080021d8       0x58 THUMB Debug/pygmy_fpec.o
+                0x080021d8                fpecEraseProgramMemory
  .text.interruptGetTimerVector
-                0x08002718       0x20 THUMB Debug/pygmy_nvic.o
-                0x08002718                interruptGetTimerVector
+                0x08002230       0x20 THUMB Debug/pygmy_nvic.o
+                0x08002230                interruptGetTimerVector
  .text.interruptEnable
-                0x08002738       0x30 THUMB Debug/pygmy_nvic.o
-                0x08002738                interruptEnable
+                0x08002250       0x30 THUMB Debug/pygmy_nvic.o
+                0x08002250                interruptEnable
  .text.interruptSetPriority
-                0x08002768       0xbc THUMB Debug/pygmy_nvic.o
-                0x08002768                interruptSetPriority
+                0x08002280       0xbc THUMB Debug/pygmy_nvic.o
+                0x08002280                interruptSetPriority
  .text.fileSetCurrentPath
-                0x08002824       0x7c THUMB Debug/pygmy_pfat.o
-                0x08002824                fileSetCurrentPath
+                0x0800233c       0x7c THUMB Debug/pygmy_pfat.o
+                0x0800233c                fileSetCurrentPath
  .text.fileGetCurrentPath
-                0x080028a0       0x20 THUMB Debug/pygmy_pfat.o
-                0x080028a0                fileGetCurrentPath
+                0x080023b8       0x20 THUMB Debug/pygmy_pfat.o
+                0x080023b8                fileGetCurrentPath
  .text.fileAddVolume
-                0x080028c0       0x7c THUMB Debug/pygmy_pfat.o
-                0x080028c0                fileAddVolume
+                0x080023d8       0x7c THUMB Debug/pygmy_pfat.o
+                0x080023d8                fileAddVolume
  .text.fileFormat
-                0x0800293c       0xa0 THUMB Debug/pygmy_pfat.o
-                0x0800293c                fileFormat
+                0x08002454       0xa0 THUMB Debug/pygmy_pfat.o
+                0x08002454                fileFormat
  .text.fileFreeVolume
-                0x080029dc       0x54 THUMB Debug/pygmy_pfat.o
-                0x080029dc                fileFreeVolume
+                0x080024f4       0x54 THUMB Debug/pygmy_pfat.o
+                0x080024f4                fileFreeVolume
  .text.fileUnmount
-                0x08002a30       0xbc THUMB Debug/pygmy_pfat.o
-                0x08002a30                fileUnmount
+                0x08002548       0xbc THUMB Debug/pygmy_pfat.o
+                0x08002548                fileUnmount
  .text.fileCopyProperties
-                0x08002aec       0x2a THUMB Debug/pygmy_pfat.o
-                0x08002aec                fileCopyProperties
+                0x08002604       0x2a THUMB Debug/pygmy_pfat.o
+                0x08002604                fileCopyProperties
  .text.fileConvertBufferToAddress
-                0x08002b16       0x3a THUMB Debug/pygmy_pfat.o
-                0x08002b16                fileConvertBufferToAddress
+                0x0800262e       0x3a THUMB Debug/pygmy_pfat.o
+                0x0800262e                fileConvertBufferToAddress
  .text.fileConvertAddressToBuffer
-                0x08002b50       0x26 THUMB Debug/pygmy_pfat.o
-                0x08002b50                fileConvertAddressToBuffer
+                0x08002668       0x26 THUMB Debug/pygmy_pfat.o
+                0x08002668                fileConvertAddressToBuffer
  .text.fileGenerateDirectAddress
-                0x08002b76       0xb0 THUMB Debug/pygmy_pfat.o
-                0x08002b76                fileGenerateDirectAddress
+                0x0800268e       0xb0 THUMB Debug/pygmy_pfat.o
+                0x0800268e                fileGenerateDirectAddress
  .text.fileMergeSectorGroups
-                0x08002c26       0xde THUMB Debug/pygmy_pfat.o
-                0x08002c26                fileMergeSectorGroups
+                0x0800273e       0xde THUMB Debug/pygmy_pfat.o
+                0x0800273e                fileMergeSectorGroups
  .text.fileGetFreeChunks
-                0x08002d04       0x90 THUMB Debug/pygmy_pfat.o
-                0x08002d04                fileGetFreeChunks
+                0x0800281c       0x90 THUMB Debug/pygmy_pfat.o
+                0x0800281c                fileGetFreeChunks
  .text.fileFindContiguousChunks
-                0x08002d94       0x88 THUMB Debug/pygmy_pfat.o
-                0x08002d94                fileFindContiguousChunks
+                0x080028ac       0x88 THUMB Debug/pygmy_pfat.o
+                0x080028ac                fileFindContiguousChunks
  .text.fileWriteProperties
-                0x08002e1c      0x190 THUMB Debug/pygmy_pfat.o
-                0x08002e1c                fileWriteProperties
+                0x08002934      0x190 THUMB Debug/pygmy_pfat.o
+                0x08002934                fileWriteProperties
  .text.fileWriteLength
-                0x08002fac       0x56 THUMB Debug/pygmy_pfat.o
-                0x08002fac                fileWriteLength
+                0x08002ac4       0x56 THUMB Debug/pygmy_pfat.o
+                0x08002ac4                fileWriteLength
  .text.fileFindChunkAddress
-                0x08003002       0xae THUMB Debug/pygmy_pfat.o
-                0x08003002                fileFindChunkAddress
+                0x08002b1a       0xae THUMB Debug/pygmy_pfat.o
+                0x08002b1a                fileFindChunkAddress
  .text.fileFindChunk
-                0x080030b0       0x3c THUMB Debug/pygmy_pfat.o
-                0x080030b0                fileFindChunk
+                0x08002bc8       0x3c THUMB Debug/pygmy_pfat.o
+                0x08002bc8                fileFindChunk
  .text.fileLoadLength
-                0x080030ec       0x6e THUMB Debug/pygmy_pfat.o
-                0x080030ec                fileLoadLength
+                0x08002c04       0x6e THUMB Debug/pygmy_pfat.o
+                0x08002c04                fileLoadLength
  .text.fileLoadProperties
-                0x0800315a       0xce THUMB Debug/pygmy_pfat.o
-                0x0800315a                fileLoadProperties
+                0x08002c72       0xce THUMB Debug/pygmy_pfat.o
+                0x08002c72                fileLoadProperties
  .text.fileLoadSectorGroups
-                0x08003228       0xb4 THUMB Debug/pygmy_pfat.o
-                0x08003228                fileLoadSectorGroups
+                0x08002d40       0xb4 THUMB Debug/pygmy_pfat.o
+                0x08002d40                fileLoadSectorGroups
  .text.fileLoadEntry
-                0x080032dc       0x3c THUMB Debug/pygmy_pfat.o
-                0x080032dc                fileLoadEntry
+                0x08002df4       0x3c THUMB Debug/pygmy_pfat.o
+                0x08002df4                fileLoadEntry
  .text.fileDeleteChunk
-                0x08003318       0x1e THUMB Debug/pygmy_pfat.o
-                0x08003318                fileDeleteChunk
+                0x08002e30       0x1e THUMB Debug/pygmy_pfat.o
+                0x08002e30                fileDeleteChunk
  .text.fileDeleteProperties
-                0x08003336       0x2e THUMB Debug/pygmy_pfat.o
-                0x08003336                fileDeleteProperties
+                0x08002e4e       0x2e THUMB Debug/pygmy_pfat.o
+                0x08002e4e                fileDeleteProperties
  .text.fileDeleteLength
-                0x08003364       0x22 THUMB Debug/pygmy_pfat.o
-                0x08003364                fileDeleteLength
+                0x08002e7c       0x22 THUMB Debug/pygmy_pfat.o
+                0x08002e7c                fileDeleteLength
  .text.fileDeleteSectorGroups
-                0x08003386       0x2e THUMB Debug/pygmy_pfat.o
-                0x08003386                fileDeleteSectorGroups
+                0x08002e9e       0x2e THUMB Debug/pygmy_pfat.o
+                0x08002e9e                fileDeleteSectorGroups
  .text.fileDeleteEntry
-                0x080033b4       0x2c THUMB Debug/pygmy_pfat.o
-                0x080033b4                fileDeleteEntry
+                0x08002ecc       0x2c THUMB Debug/pygmy_pfat.o
+                0x08002ecc                fileDeleteEntry
  .text.fileFindNextID
-                0x080033e0       0xbc THUMB Debug/pygmy_pfat.o
-                0x080033e0                fileFindNextID
+                0x08002ef8       0xbc THUMB Debug/pygmy_pfat.o
+                0x08002ef8                fileFindNextID
  .text.fileSeekVolumeAddress
-                0x0800349c       0xc6 THUMB Debug/pygmy_pfat.o
-                0x0800349c                fileSeekVolumeAddress
+                0x08002fb4       0xc6 THUMB Debug/pygmy_pfat.o
+                0x08002fb4                fileSeekVolumeAddress
  .text.fileDeleteVolume
-                0x08003562       0x50 THUMB Debug/pygmy_pfat.o
-                0x08003562                fileDeleteVolume
+                0x0800307a       0x50 THUMB Debug/pygmy_pfat.o
+                0x0800307a                fileDeleteVolume
  .text.fileSeekVolumes
-                0x080035b2       0xb4 THUMB Debug/pygmy_pfat.o
-                0x080035b2                fileSeekVolumes
- *fill*         0x08003666        0x2 00
+                0x080030ca       0xb4 THUMB Debug/pygmy_pfat.o
+                0x080030ca                fileSeekVolumes
+ *fill*         0x0800317e        0x2 00
  .text.fileLoadVolume
-                0x08003668      0x1b4 THUMB Debug/pygmy_pfat.o
-                0x08003668                fileLoadVolume
+                0x08003180      0x1b4 THUMB Debug/pygmy_pfat.o
+                0x08003180                fileLoadVolume
  .text.fileFindNextEmptySector
-                0x0800381c       0x76 THUMB Debug/pygmy_pfat.o
-                0x0800381c                fileFindNextEmptySector
+                0x08003334       0x76 THUMB Debug/pygmy_pfat.o
+                0x08003334                fileFindNextEmptySector
  .text.fileFindContiguousEmptySectors
-                0x08003892       0x3e THUMB Debug/pygmy_pfat.o
-                0x08003892                fileFindContiguousEmptySectors
+                0x080033aa       0x3e THUMB Debug/pygmy_pfat.o
+                0x080033aa                fileFindContiguousEmptySectors
  .text.fileAllocateSectors
-                0x080038d0      0x118 THUMB Debug/pygmy_pfat.o
-                0x080038d0                fileAllocateSectors
+                0x080033e8      0x118 THUMB Debug/pygmy_pfat.o
+                0x080033e8                fileAllocateSectors
  .text.fileRecycleChunks
-                0x080039e8      0x142 THUMB Debug/pygmy_pfat.o
-                0x080039e8                fileRecycleChunks
- *fill*         0x08003b2a        0x2 00
+                0x08003500      0x142 THUMB Debug/pygmy_pfat.o
+                0x08003500                fileRecycleChunks
+ *fill*         0x08003642        0x2 00
  .text.fileWriteSectorGroups
-                0x08003b2c       0xe0 THUMB Debug/pygmy_pfat.o
-                0x08003b2c                fileWriteSectorGroups
+                0x08003644       0xe0 THUMB Debug/pygmy_pfat.o
+                0x08003644                fileWriteSectorGroups
  .text.fileWriteEntry
-                0x08003c0c       0xd4 THUMB Debug/pygmy_pfat.o
-                0x08003c0c                fileWriteEntry
+                0x08003724       0xd4 THUMB Debug/pygmy_pfat.o
+                0x08003724                fileWriteEntry
  .text.fileAllocateChunks
-                0x08003ce0      0x168 THUMB Debug/pygmy_pfat.o
-                0x08003ce0                fileAllocateChunks
+                0x080037f8      0x168 THUMB Debug/pygmy_pfat.o
+                0x080037f8                fileAllocateChunks
  .text.fileUpdateLength
-                0x08003e48      0x176 THUMB Debug/pygmy_pfat.o
-                0x08003e48                fileUpdateLength
+                0x08003960      0x176 THUMB Debug/pygmy_pfat.o
+                0x08003960                fileUpdateLength
  .text.fileAppendSectors.part.5
-                0x08003fbe      0x124 THUMB Debug/pygmy_pfat.o
+                0x08003ad6      0x124 THUMB Debug/pygmy_pfat.o
  .text.fileAppendSectors
-                0x080040e2       0x10 THUMB Debug/pygmy_pfat.o
-                0x080040e2                fileAppendSectors
+                0x08003bfa       0x10 THUMB Debug/pygmy_pfat.o
+                0x08003bfa                fileAppendSectors
  .text.fileUpdateSectorGroups
-                0x080040f2       0x66 THUMB Debug/pygmy_pfat.o
-                0x080040f2                fileUpdateSectorGroups
+                0x08003c0a       0x66 THUMB Debug/pygmy_pfat.o
+                0x08003c0a                fileUpdateSectorGroups
  .text.fileNewVolume
-                0x08004158      0x144 THUMB Debug/pygmy_pfat.o
-                0x08004158                fileNewVolume
+                0x08003c70      0x144 THUMB Debug/pygmy_pfat.o
+                0x08003c70                fileNewVolume
  .text.fileGetVolumeCount
-                0x0800429c        0xc THUMB Debug/pygmy_pfat.o
-                0x0800429c                fileGetVolumeCount
+                0x08003db4        0xc THUMB Debug/pygmy_pfat.o
+                0x08003db4                fileGetVolumeCount
  .text.fileGetCurrentVolume
-                0x080042a8        0xc THUMB Debug/pygmy_pfat.o
-                0x080042a8                fileGetCurrentVolume
+                0x08003dc0        0xc THUMB Debug/pygmy_pfat.o
+                0x08003dc0                fileGetCurrentVolume
  .text.fileGetVolume
-                0x080042b4       0x10 THUMB Debug/pygmy_pfat.o
-                0x080042b4                fileGetVolume
+                0x08003dcc       0x10 THUMB Debug/pygmy_pfat.o
+                0x08003dcc                fileGetVolume
  .text.fileAllocateFoldersFromFullPath
-                0x080042c4      0x148 THUMB Debug/pygmy_pfat.o
-                0x080042c4                fileAllocateFoldersFromFullPath
+                0x08003ddc      0x148 THUMB Debug/pygmy_pfat.o
+                0x08003ddc                fileAllocateFoldersFromFullPath
  .text.fileTestPath
-                0x0800440c       0x94 THUMB Debug/pygmy_pfat.o
-                0x0800440c                fileTestPath
+                0x08003f24       0x94 THUMB Debug/pygmy_pfat.o
+                0x08003f24                fileTestPath
  .text.fileFindVolume
-                0x080044a0       0x2c THUMB Debug/pygmy_pfat.o
-                0x080044a0                fileFindVolume
+                0x08003fb8       0x2c THUMB Debug/pygmy_pfat.o
+                0x08003fb8                fileFindVolume
  .text.fileOpen
-                0x080044cc      0x154 THUMB Debug/pygmy_pfat.o
-                0x080044cc                fileOpen
+                0x08003fe4      0x154 THUMB Debug/pygmy_pfat.o
+                0x08003fe4                fileOpen
  .text.fileGetVolumeFromFullPath
-                0x08004620       0x54 THUMB Debug/pygmy_pfat.o
-                0x08004620                fileGetVolumeFromFullPath
+                0x08004138       0x54 THUMB Debug/pygmy_pfat.o
+                0x08004138                fileGetVolumeFromFullPath
  .text.fileChangeCurrentPath
-                0x08004674      0x110 THUMB Debug/pygmy_pfat.o
-                0x08004674                fileChangeCurrentPath
+                0x0800418c      0x110 THUMB Debug/pygmy_pfat.o
+                0x0800418c                fileChangeCurrentPath
  .text.fileDeleteAdvanced
-                0x08004784       0xe0 THUMB Debug/pygmy_pfat.o
-                0x08004784                fileDeleteAdvanced
+                0x0800429c       0xe0 THUMB Debug/pygmy_pfat.o
+                0x0800429c                fileDeleteAdvanced
  .text.fileDelete
-                0x08004864       0x7c THUMB Debug/pygmy_pfat.o
-                0x08004864                fileDelete
+                0x0800437c       0x7c THUMB Debug/pygmy_pfat.o
+                0x0800437c                fileDelete
  .text.fileGetNameFromPath
-                0x080048e0       0x36 THUMB Debug/pygmy_pfat.o
-                0x080048e0                fileGetNameFromPath
+                0x080043f8       0x36 THUMB Debug/pygmy_pfat.o
+                0x080043f8                fileGetNameFromPath
  .text.fileFlush
-                0x08004916       0x10 THUMB Debug/pygmy_pfat.o
-                0x08004916                fileFlush
+                0x0800442e       0x10 THUMB Debug/pygmy_pfat.o
+                0x0800442e                fileFlush
  .text.fileClose
-                0x08004926       0x2e THUMB Debug/pygmy_pfat.o
-                0x08004926                fileClose
+                0x0800443e       0x2e THUMB Debug/pygmy_pfat.o
+                0x0800443e                fileClose
  .text.filePrintProperties
-                0x08004954      0x104 THUMB Debug/pygmy_pfat.o
-                0x08004954                filePrintProperties
+                0x0800446c      0x104 THUMB Debug/pygmy_pfat.o
+                0x0800446c                filePrintProperties
  .text.fileMakeFullPath
-                0x08004a58       0x6c THUMB Debug/pygmy_pfat.o
-                0x08004a58                fileMakeFullPath
+                0x08004570       0x6c THUMB Debug/pygmy_pfat.o
+                0x08004570                fileMakeFullPath
  .text.fileRename
-                0x08004ac4       0x90 THUMB Debug/pygmy_pfat.o
-                0x08004ac4                fileRename
+                0x080045dc       0x90 THUMB Debug/pygmy_pfat.o
+                0x080045dc                fileRename
  .text.fileReadBytes
-                0x08004b54       0xa6 THUMB Debug/pygmy_pfat.o
-                0x08004b54                fileReadBytes
+                0x0800466c       0xa6 THUMB Debug/pygmy_pfat.o
+                0x0800466c                fileReadBytes
  .text.fileGetString
-                0x08004bfa       0x58 THUMB Debug/pygmy_pfat.o
-                0x08004bfa                fileGetString
+                0x08004712       0x58 THUMB Debug/pygmy_pfat.o
+                0x08004712                fileGetString
  .text.fileGetChar
-                0x08004c52       0x12 THUMB Debug/pygmy_pfat.o
-                0x08004c52                fileGetChar
+                0x0800476a       0x12 THUMB Debug/pygmy_pfat.o
+                0x0800476a                fileGetChar
  .text.fileWriteBytes
-                0x08004c64       0xb6 THUMB Debug/pygmy_pfat.o
-                0x08004c64                fileWriteBytes
+                0x0800477c       0xb6 THUMB Debug/pygmy_pfat.o
+                0x0800477c                fileWriteBytes
  .text.fileCopy
-                0x08004d1a       0x68 THUMB Debug/pygmy_pfat.o
-                0x08004d1a                fileCopy
+                0x08004832       0x68 THUMB Debug/pygmy_pfat.o
+                0x08004832                fileCopy
  .text.filePutChar
-                0x08004d82       0x2a THUMB Debug/pygmy_pfat.o
-                0x08004d82                filePutChar
+                0x0800489a       0x2a THUMB Debug/pygmy_pfat.o
+                0x0800489a                filePutChar
  .text.fileFind
-                0x08004dac      0x10c THUMB Debug/pygmy_pfat.o
-                0x08004dac                fileFind
- .text.fileEOF  0x08004eb8       0x1e THUMB Debug/pygmy_pfat.o
-                0x08004eb8                fileEOF
+                0x080048c4      0x10c THUMB Debug/pygmy_pfat.o
+                0x080048c4                fileFind
+ .text.fileEOF  0x080049d0       0x1e THUMB Debug/pygmy_pfat.o
+                0x080049d0                fileEOF
  .text.pinAnalog
-                0x08004ed6       0x18 THUMB Debug/pygmy_port.o
-                0x08004ed6                pinAnalog
- *fill*         0x08004eee        0x2 00
+                0x080049ee       0x18 THUMB Debug/pygmy_port.o
+                0x080049ee                pinAnalog
+ *fill*         0x08004a06        0x2 00
  .text.pinInterrupt
-                0x08004ef0       0xec THUMB Debug/pygmy_port.o
-                0x08004ef0                pinInterrupt
+                0x08004a08       0xec THUMB Debug/pygmy_port.o
+                0x08004a08                pinInterrupt
  .text.pinEnablePortClock
-                0x08004fdc       0x5c THUMB Debug/pygmy_port.o
-                0x08004fdc                pinEnablePortClock
+                0x08004af4       0x5c THUMB Debug/pygmy_port.o
+                0x08004af4                pinEnablePortClock
  .text.pinGetPort
-                0x08005038       0x40 THUMB Debug/pygmy_port.o
-                0x08005038                pinGetPort
- .text.pinSet   0x08005078       0x68 THUMB Debug/pygmy_port.o
-                0x08005078                pinSet
+                0x08004b50       0x40 THUMB Debug/pygmy_port.o
+                0x08004b50                pinGetPort
+ .text.pinSet   0x08004b90       0x68 THUMB Debug/pygmy_port.o
+                0x08004b90                pinSet
  .text.pinConfig
-                0x080050e0       0x7e THUMB Debug/pygmy_port.o
-                0x080050e0                pinConfig
- *fill*         0x0800515e        0x2 00
- .text.pinGet   0x08005160       0x54 THUMB Debug/pygmy_port.o
-                0x08005160                pinGet
+                0x08004bf8       0x7e THUMB Debug/pygmy_port.o
+                0x08004bf8                pinConfig
+ *fill*         0x08004c76        0x2 00
+ .text.pinGet   0x08004c78       0x54 THUMB Debug/pygmy_port.o
+                0x08004c78                pinGet
  .text.pinGetTimer
-                0x080051b4       0x50 THUMB Debug/pygmy_port.o
-                0x080051b4                pinGetTimer
+                0x08004ccc       0x50 THUMB Debug/pygmy_port.o
+                0x08004ccc                pinGetTimer
  .text.pinGetChannel
-                0x08005204       0x2c THUMB Debug/pygmy_port.o
-                0x08005204                pinGetChannel
+                0x08004d1c       0x2c THUMB Debug/pygmy_port.o
+                0x08004d1c                pinGetChannel
  .text.pinInitSoftPWM
-                0x08005230       0x74 THUMB Debug/pygmy_port.o
-                0x08005230                pinInitSoftPWM
+                0x08004d48       0x74 THUMB Debug/pygmy_port.o
+                0x08004d48                pinInitSoftPWM
  .text.pinAddSoftPWM
-                0x080052a4       0xd0 THUMB Debug/pygmy_port.o
-                0x080052a4                pinAddSoftPWM
- .text.pinPWM   0x08005374      0x240 THUMB Debug/pygmy_port.o
-                0x08005374                pinPWM
+                0x08004dbc       0xd0 THUMB Debug/pygmy_port.o
+                0x08004dbc                pinAddSoftPWM
+ .text.pinPWM   0x08004e8c      0x240 THUMB Debug/pygmy_port.o
+                0x08004e8c                pinPWM
  .text.EXTI0_IRQHandler
-                0x080055b4       0x34 THUMB Debug/pygmy_port.o
-                0x080055b4                EXTI0_IRQHandler
+                0x080050cc       0x34 THUMB Debug/pygmy_port.o
+                0x080050cc                EXTI0_IRQHandler
  .text.EXTI1_IRQHandler
-                0x080055e8       0x34 THUMB Debug/pygmy_port.o
-                0x080055e8                EXTI1_IRQHandler
+                0x08005100       0x34 THUMB Debug/pygmy_port.o
+                0x08005100                EXTI1_IRQHandler
  .text.EXTI2_IRQHandler
-                0x0800561c       0x34 THUMB Debug/pygmy_port.o
-                0x0800561c                EXTI2_IRQHandler
+                0x08005134       0x34 THUMB Debug/pygmy_port.o
+                0x08005134                EXTI2_IRQHandler
  .text.EXTI3_IRQHandler
-                0x08005650       0x34 THUMB Debug/pygmy_port.o
-                0x08005650                EXTI3_IRQHandler
+                0x08005168       0x34 THUMB Debug/pygmy_port.o
+                0x08005168                EXTI3_IRQHandler
  .text.EXTI4_IRQHandler
-                0x08005684       0x34 THUMB Debug/pygmy_port.o
-                0x08005684                EXTI4_IRQHandler
+                0x0800519c       0x34 THUMB Debug/pygmy_port.o
+                0x0800519c                EXTI4_IRQHandler
  .text.EXTI9_5_IRQHandler
-                0x080056b8       0xd8 THUMB Debug/pygmy_port.o
-                0x080056b8                EXTI9_5_IRQHandler
+                0x080051d0       0xd8 THUMB Debug/pygmy_port.o
+                0x080051d0                EXTI9_5_IRQHandler
  .text.EXTI15_10_IRQHandler
-                0x08005790      0x104 THUMB Debug/pygmy_port.o
-                0x08005790                EXTI15_10_IRQHandler
+                0x080052a8      0x104 THUMB Debug/pygmy_port.o
+                0x080052a8                EXTI15_10_IRQHandler
  .text.TaskException_Handler
-                0x08005894        0x2 THUMB Debug/pygmy_sys.o
-                0x08005894                TaskException_Handler
- *fill*         0x08005896        0x2 00
+                0x080053ac        0x2 THUMB Debug/pygmy_sys.o
+                0x080053ac                TaskException_Handler
+ *fill*         0x080053ae        0x2 00
  .text.pdiaEncode.part.0
-                0x08005898       0x5c THUMB Debug/pygmy_sys.o
- .text.sysEnableComClock
-                0x080058f4       0x40 THUMB Debug/pygmy_sys.o
-                0x080058f4                sysEnableComClock
+                0x080053b0       0x5c THUMB Debug/pygmy_sys.o
  .text.sysEnableTimerClock
-                0x08005934       0xf8 THUMB Debug/pygmy_sys.o
-                0x08005934                sysEnableTimerClock
+                0x0800540c       0xf8 THUMB Debug/pygmy_sys.o
+                0x0800540c                sysEnableTimerClock
  .text.sysEnableTimerInterrupt
-                0x08005a2c       0x12 THUMB Debug/pygmy_sys.o
-                0x08005a2c                sysEnableTimerInterrupt
- *fill*         0x08005a3e        0x2 00
+                0x08005504       0x12 THUMB Debug/pygmy_sys.o
+                0x08005504                sysEnableTimerInterrupt
+ *fill*         0x08005516        0x2 00
  .text.sysGetDelayTimer
-                0x08005a40        0xc THUMB Debug/pygmy_sys.o
-                0x08005a40                sysGetDelayTimer
+                0x08005518        0xc THUMB Debug/pygmy_sys.o
+                0x08005518                sysGetDelayTimer
  .text.sysGetPWMTimer
-                0x08005a4c        0xc THUMB Debug/pygmy_sys.o
-                0x08005a4c                sysGetPWMTimer
+                0x08005524        0xc THUMB Debug/pygmy_sys.o
+                0x08005524                sysGetPWMTimer
  .text.sysGetMainClock
-                0x08005a58        0xc THUMB Debug/pygmy_sys.o
-                0x08005a58                sysGetMainClock
+                0x08005530        0xc THUMB Debug/pygmy_sys.o
+                0x08005530                sysGetMainClock
  .text.sysGenerateBit
-                0x08005a64       0x1a THUMB Debug/pygmy_sys.o
-                0x08005a64                sysGenerateBit
- *fill*         0x08005a7e        0x2 00
+                0x0800553c       0x1a THUMB Debug/pygmy_sys.o
+                0x0800553c                sysGenerateBit
+ *fill*         0x08005556        0x2 00
  .text.pdiaEncode
-                0x08005a80       0x44 THUMB Debug/pygmy_sys.o
-                0x08005a80                pdiaEncode
+                0x08005558       0x44 THUMB Debug/pygmy_sys.o
+                0x08005558                pdiaEncode
  .text.pdiaEncodeString
-                0x08005ac4       0x3c THUMB Debug/pygmy_sys.o
-                0x08005ac4                pdiaEncodeString
+                0x0800559c       0x3c THUMB Debug/pygmy_sys.o
+                0x0800559c                pdiaEncodeString
  .text.taskInit
-                0x08005b00       0x24 THUMB Debug/pygmy_sys.o
-                0x08005b00                taskInit
+                0x080055d8       0x24 THUMB Debug/pygmy_sys.o
+                0x080055d8                taskInit
  .text.taskIsRunning
-                0x08005b24       0x3c THUMB Debug/pygmy_sys.o
-                0x08005b24                taskIsRunning
- .text.taskNew  0x08005b60       0x88 THUMB Debug/pygmy_sys.o
-                0x08005b60                taskNew
+                0x080055fc       0x3c THUMB Debug/pygmy_sys.o
+                0x080055fc                taskIsRunning
+ .text.taskNew  0x08005638       0x88 THUMB Debug/pygmy_sys.o
+                0x08005638                taskNew
  .text.taskNewSimple
-                0x08005be8        0xe THUMB Debug/pygmy_sys.o
-                0x08005be8                taskNewSimple
- *fill*         0x08005bf6        0x2 00
+                0x080056c0        0xe THUMB Debug/pygmy_sys.o
+                0x080056c0                taskNewSimple
+ *fill*         0x080056ce        0x2 00
  .text.taskDelete
-                0x08005bf8       0x54 THUMB Debug/pygmy_sys.o
-                0x08005bf8                taskDelete
+                0x080056d0       0x54 THUMB Debug/pygmy_sys.o
+                0x080056d0                taskDelete
  .text.taskProcess
-                0x08005c4c       0x68 THUMB Debug/pygmy_sys.o
-                0x08005c4c                taskProcess
+                0x08005724       0x68 THUMB Debug/pygmy_sys.o
+                0x08005724                taskProcess
  .text.descriptorGetID
-                0x08005cb4       0x18 THUMB Debug/pygmy_sys.o
-                0x08005cb4                descriptorGetID
- .text.print    0x08005ccc      0x254 THUMB Debug/pygmy_sys.o
-                0x08005ccc                print
+                0x0800578c       0x18 THUMB Debug/pygmy_sys.o
+                0x0800578c                descriptorGetID
+ .text.print    0x080057a4      0x240 THUMB Debug/pygmy_sys.o
+                0x080057a4                print
  .text.HardFault_Handler
-                0x08005f20        0xc THUMB Debug/pygmy_sys.o
-                0x08005f20                HardFault_Handler
+                0x080059e4        0xc THUMB Debug/pygmy_sys.o
+                0x080059e4                HardFault_Handler
  .text.sysGetTimer
-                0x08005f2c       0x18 THUMB Debug/pygmy_sys.o
-                0x08005f2c                sysGetTimer
- .text.delay    0x08005f44       0xb0 THUMB Debug/pygmy_sys.o
-                0x08005f44                delay
+                0x080059f0       0x18 THUMB Debug/pygmy_sys.o
+                0x080059f0                sysGetTimer
+ .text.delay    0x08005a08       0xb0 THUMB Debug/pygmy_sys.o
+                0x08005a08                delay
  .text.convertStateToString
-                0x08005ff4       0x1c THUMB Debug/pygmy_string.o
-                0x08005ff4                convertStateToString
+                0x08005ab8       0x1c THUMB Debug/pygmy_string.o
+                0x08005ab8                convertStateToString
  .text.convertBufferToU32
-                0x08006010       0x2c THUMB Debug/pygmy_string.o
-                0x08006010                convertBufferToU32
+                0x08005ad4       0x2c THUMB Debug/pygmy_string.o
+                0x08005ad4                convertBufferToU32
  .text.countCharInString
-                0x0800603c       0x16 THUMB Debug/pygmy_string.o
-                0x0800603c                countCharInString
+                0x08005b00       0x16 THUMB Debug/pygmy_string.o
+                0x08005b00                countCharInString
  .text.removeLeadingWhitespace
-                0x08006052       0x12 THUMB Debug/pygmy_string.o
-                0x08006052                removeLeadingWhitespace
+                0x08005b16       0x12 THUMB Debug/pygmy_string.o
+                0x08005b16                removeLeadingWhitespace
  .text.isPrintable
-                0x08006064        0xc THUMB Debug/pygmy_string.o
-                0x08006064                isPrintable
+                0x08005b28        0xc THUMB Debug/pygmy_string.o
+                0x08005b28                isPrintable
  .text.isCharInString
-                0x08006070       0x1a THUMB Debug/pygmy_string.o
-                0x08006070                isCharInString
+                0x08005b34       0x1a THUMB Debug/pygmy_string.o
+                0x08005b34                isCharInString
  .text.isCharsInString
-                0x0800608a       0x2c THUMB Debug/pygmy_string.o
-                0x0800608a                isCharsInString
- .text.isAlpha  0x080060b6       0x18 THUMB Debug/pygmy_string.o
-                0x080060b6                isAlpha
+                0x08005b4e       0x2c THUMB Debug/pygmy_string.o
+                0x08005b4e                isCharsInString
+ .text.isAlpha  0x08005b7a       0x18 THUMB Debug/pygmy_string.o
+                0x08005b7a                isAlpha
  .text.isNumeric
-                0x080060ce        0xc THUMB Debug/pygmy_string.o
-                0x080060ce                isNumeric
+                0x08005b92        0xc THUMB Debug/pygmy_string.o
+                0x08005b92                isNumeric
  .text.isAlphaOrNumeric
-                0x080060da       0x20 THUMB Debug/pygmy_string.o
-                0x080060da                isAlphaOrNumeric
+                0x08005b9e       0x20 THUMB Debug/pygmy_string.o
+                0x08005b9e                isAlphaOrNumeric
  .text.isNewline
-                0x080060fa       0x1a THUMB Debug/pygmy_string.o
-                0x080060fa                isNewline
- .text.isQuote  0x08006114       0x12 THUMB Debug/pygmy_string.o
-                0x08006114                isQuote
- *fill*         0x08006126        0x2 00
+                0x08005bbe       0x1a THUMB Debug/pygmy_string.o
+                0x08005bbe                isNewline
+ .text.isQuote  0x08005bd8       0x12 THUMB Debug/pygmy_string.o
+                0x08005bd8                isQuote
+ *fill*         0x08005bea        0x2 00
  .text.isSeparator
-                0x08006128       0x14 THUMB Debug/pygmy_string.o
-                0x08006128                isSeparator
+                0x08005bec       0x14 THUMB Debug/pygmy_string.o
+                0x08005bec                isSeparator
  .text.isPunctuation
-                0x0800613c       0x14 THUMB Debug/pygmy_string.o
-                0x0800613c                isPunctuation
- .text.len      0x08006150       0x18 THUMB Debug/pygmy_string.o
-                0x08006150                len
+                0x08005c00       0x14 THUMB Debug/pygmy_string.o
+                0x08005c00                isPunctuation
+ .text.len      0x08005c14       0x18 THUMB Debug/pygmy_string.o
+                0x08005c14                len
  .text.convertCharToUpper
-                0x08006168        0xe THUMB Debug/pygmy_string.o
-                0x08006168                convertCharToUpper
+                0x08005c2c        0xe THUMB Debug/pygmy_string.o
+                0x08005c2c                convertCharToUpper
  .text.isCharSameIgnoreCase
-                0x08006176       0x18 THUMB Debug/pygmy_string.o
-                0x08006176                isCharSameIgnoreCase
+                0x08005c3a       0x18 THUMB Debug/pygmy_string.o
+                0x08005c3a                isCharSameIgnoreCase
  .text.isStringSameIgnoreCase
-                0x0800618e       0x32 THUMB Debug/pygmy_string.o
-                0x0800618e                isStringSameIgnoreCase
- .text.convertStringToPort
-                0x080061c0       0x54 THUMB Debug/pygmy_string.o
-                0x080061c0                convertStringToPort
+                0x08005c52       0x32 THUMB Debug/pygmy_string.o
+                0x08005c52                isStringSameIgnoreCase
  .text.convertStringToMode
-                0x08006214       0x70 THUMB Debug/pygmy_string.o
-                0x08006214                convertStringToMode
+                0x08005c84       0x70 THUMB Debug/pygmy_string.o
+                0x08005c84                convertStringToMode
  .text.isStringSame
-                0x08006284       0x2e THUMB Debug/pygmy_string.o
-                0x08006284                isStringSame
- *fill*         0x080062b2        0x2 00
+                0x08005cf4       0x2e THUMB Debug/pygmy_string.o
+                0x08005cf4                isStringSame
+ *fill*         0x08005d22        0x2 00
  .text.convertStringToState
-                0x080062b4       0x90 THUMB Debug/pygmy_string.o
-                0x080062b4                convertStringToState
+                0x08005d24       0x90 THUMB Debug/pygmy_string.o
+                0x08005d24                convertStringToState
  .text.getAllParameters
-                0x08006344      0x1d2 THUMB Debug/pygmy_string.o
-                0x08006344                getAllParameters
+                0x08005db4      0x1d2 THUMB Debug/pygmy_string.o
+                0x08005db4                getAllParameters
  .text.freeParameterList
-                0x08006516        0x2 THUMB Debug/pygmy_string.o
-                0x08006516                freeParameterList
+                0x08005f86        0x2 THUMB Debug/pygmy_string.o
+                0x08005f86                freeParameterList
  .text.replaceChars
-                0x08006518       0x2a THUMB Debug/pygmy_string.o
-                0x08006518                replaceChars
+                0x08005f88       0x2a THUMB Debug/pygmy_string.o
+                0x08005f88                replaceChars
  .text.convertCharToInt
-                0x08006542       0x2e THUMB Debug/pygmy_string.o
-                0x08006542                convertCharToInt
+                0x08005fb2       0x2e THUMB Debug/pygmy_string.o
+                0x08005fb2                convertCharToInt
  .text.seekCharInStringIgnoreCase
-                0x08006570       0x50 THUMB Debug/pygmy_string.o
-                0x08006570                seekCharInStringIgnoreCase
+                0x08005fe0       0x50 THUMB Debug/pygmy_string.o
+                0x08005fe0                seekCharInStringIgnoreCase
  .text.isCharInStringIgnoreCase
-                0x080065c0        0xe THUMB Debug/pygmy_string.o
-                0x080065c0                isCharInStringIgnoreCase
- *fill*         0x080065ce        0x2 00
+                0x08006030        0xe THUMB Debug/pygmy_string.o
+                0x08006030                isCharInStringIgnoreCase
+ *fill*         0x0800603e        0x2 00
  .text.convertIntToStringWithFormat
-                0x080065d0      0x10c THUMB Debug/pygmy_string.o
-                0x080065d0                convertIntToStringWithFormat
+                0x08006040      0x10c THUMB Debug/pygmy_string.o
+                0x08006040                convertIntToStringWithFormat
  .text.replaceLastChar
-                0x080066dc       0x20 THUMB Debug/pygmy_string.o
-                0x080066dc                replaceLastChar
+                0x0800614c       0x20 THUMB Debug/pygmy_string.o
+                0x0800614c                replaceLastChar
  .text.appendString
-                0x080066fc       0x42 THUMB Debug/pygmy_string.o
-                0x080066fc                appendString
+                0x0800616c       0x42 THUMB Debug/pygmy_string.o
+                0x0800616c                appendString
  .text.copyString
-                0x0800673e       0x12 THUMB Debug/pygmy_string.o
-                0x0800673e                copyString
+                0x080061ae       0x12 THUMB Debug/pygmy_string.o
+                0x080061ae                copyString
  .text.getNextSubString
-                0x08006750      0x188 THUMB Debug/pygmy_string.o
-                0x08006750                getNextSubString
+                0x080061c0      0x16c THUMB Debug/pygmy_string.o
+                0x080061c0                getNextSubString
  .text.getAllSubStrings
-                0x080068d8       0x3e THUMB Debug/pygmy_string.o
-                0x080068d8                getAllSubStrings
- *fill*         0x08006916        0x2 00
+                0x0800632c       0x3e THUMB Debug/pygmy_string.o
+                0x0800632c                getAllSubStrings
+ *fill*         0x0800636a        0x2 00
  .text.convertStringToInt
-                0x08006918       0xb4 THUMB Debug/pygmy_string.o
-                0x08006918                convertStringToInt
+                0x0800636c       0xb4 THUMB Debug/pygmy_string.o
+                0x0800636c                convertStringToInt
  .text.convertDateStringToSeconds
-                0x080069cc       0x88 THUMB Debug/pygmy_string.o
-                0x080069cc                convertDateStringToSeconds
+                0x08006420       0x88 THUMB Debug/pygmy_string.o
+                0x08006420                convertDateStringToSeconds
  .text.convertStringToPin
-                0x08006a54       0x9c THUMB Debug/pygmy_string.o
-                0x08006a54                convertStringToPin
+                0x080064a8       0x9c THUMB Debug/pygmy_string.o
+                0x080064a8                convertStringToPin
  .text.convertFormatString
-                0x08006af0      0x224 THUMB Debug/pygmy_string.o
-                0x08006af0                convertFormatString
+                0x08006544      0x224 THUMB Debug/pygmy_string.o
+                0x08006544                convertFormatString
  .text.convertIntToString
-                0x08006d14       0x1e THUMB Debug/pygmy_string.o
-                0x08006d14                convertIntToString
+                0x08006768       0x1e THUMB Debug/pygmy_string.o
+                0x08006768                convertIntToString
  .text.convertFloatToString
-                0x08006d32       0xb0 THUMB Debug/pygmy_string.o
-                0x08006d32                convertFloatToString
- *fill*         0x08006de2        0x2 00
+                0x08006786       0xb0 THUMB Debug/pygmy_string.o
+                0x08006786                convertFloatToString
+ *fill*         0x08006836        0x2 00
  .text.convertHexCharToInteger
-                0x08006de4       0x1c THUMB Debug/pygmy_string.o
-                0x08006de4                convertHexCharToInteger
+                0x08006838       0x1c THUMB Debug/pygmy_string.o
+                0x08006838                convertHexCharToInteger
  .text.convertHexEncodedStringToBuffer
-                0x08006e00       0x2e THUMB Debug/pygmy_string.o
-                0x08006e00                convertHexEncodedStringToBuffer
- *fill*         0x08006e2e        0x2 00
+                0x08006854       0x2e THUMB Debug/pygmy_string.o
+                0x08006854                convertHexEncodedStringToBuffer
+ *fill*         0x08006882        0x2 00
  .text.timeInit
-                0x08006e30       0xa0 THUMB Debug/pygmy_rtc.o
-                0x08006e30                timeInit
- .text.timeSet  0x08006ed0       0x3c THUMB Debug/pygmy_rtc.o
-                0x08006ed0                timeSet
- .text.timeGet  0x08006f0c       0x14 THUMB Debug/pygmy_rtc.o
-                0x08006f0c                timeGet
+                0x08006884       0xa0 THUMB Debug/pygmy_rtc.o
+                0x08006884                timeInit
+ .text.timeSet  0x08006924       0x3c THUMB Debug/pygmy_rtc.o
+                0x08006924                timeSet
+ .text.timeGet  0x08006960       0x14 THUMB Debug/pygmy_rtc.o
+                0x08006960                timeGet
  .text.convertSystemTimeToSeconds
-                0x08006f20       0x9c THUMB Debug/pygmy_rtc.o
-                0x08006f20                convertSystemTimeToSeconds
+                0x08006974       0x9c THUMB Debug/pygmy_rtc.o
+                0x08006974                convertSystemTimeToSeconds
  .text.convertSecondsToSystemTime
-                0x08006fbc       0xc8 THUMB Debug/pygmy_rtc.o
-                0x08006fbc                convertSecondsToSystemTime
+                0x08006a10       0xc8 THUMB Debug/pygmy_rtc.o
+                0x08006a10                convertSecondsToSystemTime
  .text.xmodemInit
-                0x08007084       0x1c THUMB Debug/pygmy_xmodem.o
-                0x08007084                xmodemInit
+                0x08006ad8       0x1c THUMB Debug/pygmy_xmodem.o
+                0x08006ad8                xmodemInit
  .text.xmodemEnable
-                0x080070a0        0x8 THUMB Debug/pygmy_xmodem.o
-                0x080070a0                xmodemEnable
+                0x08006af4        0x8 THUMB Debug/pygmy_xmodem.o
+                0x08006af4                xmodemEnable
  .text.xmodemRecv
-                0x080070a8       0x2a THUMB Debug/pygmy_xmodem.o
-                0x080070a8                xmodemRecv
+                0x08006afc       0x2a THUMB Debug/pygmy_xmodem.o
+                0x08006afc                xmodemRecv
  .text.xmodemSend
-                0x080070d2       0x26 THUMB Debug/pygmy_xmodem.o
-                0x080070d2                xmodemSend
+                0x08006b26       0x26 THUMB Debug/pygmy_xmodem.o
+                0x08006b26                xmodemSend
  .text.sst25vfDesc
-                0x080070f8       0x68 THUMB Debug/sst25vf.o
-                0x080070f8                sst25vfDesc
+                0x08006b4c       0x68 THUMB Debug/sst25vf.o
+                0x08006b4c                sst25vfDesc
  .text.sst25vfStatus
-                0x08007160       0x1e THUMB Debug/sst25vf.o
-                0x08007160                sst25vfStatus
+                0x08006bb4       0x1e THUMB Debug/sst25vf.o
+                0x08006bb4                sst25vfStatus
  .text.sst25vfClose
-                0x0800717e        0xc THUMB Debug/sst25vf.o
-                0x0800717e                sst25vfClose
+                0x08006bd2        0xc THUMB Debug/sst25vf.o
+                0x08006bd2                sst25vfClose
  .text.sst25vfVOpen
-                0x0800718a       0x5c THUMB Debug/sst25vf.o
-                0x0800718a                sst25vfVOpen
+                0x08006bde       0x5c THUMB Debug/sst25vf.o
+                0x08006bde                sst25vfVOpen
  .text.sst25vfOpen
-                0x080071e6       0x1c THUMB Debug/sst25vf.o
-                0x080071e6                sst25vfOpen
+                0x08006c3a       0x1c THUMB Debug/sst25vf.o
+                0x08006c3a                sst25vfOpen
  .text.sst25vfGetBuffer
-                0x08007202       0x30 THUMB Debug/sst25vf.o
-                0x08007202                sst25vfGetBuffer
+                0x08006c56       0x30 THUMB Debug/sst25vf.o
+                0x08006c56                sst25vfGetBuffer
  .text.sst25vfGetChar
-                0x08007232        0x8 THUMB Debug/sst25vf.o
-                0x08007232                sst25vfGetChar
+                0x08006c86        0x8 THUMB Debug/sst25vf.o
+                0x08006c86                sst25vfGetChar
  .text.sst25vfGetLong
-                0x0800723a       0x3e THUMB Debug/sst25vf.o
-                0x0800723a                sst25vfGetLong
+                0x08006c8e       0x3e THUMB Debug/sst25vf.o
+                0x08006c8e                sst25vfGetLong
  .text.sst25vfGetWord
-                0x08007278       0x26 THUMB Debug/sst25vf.o
-                0x08007278                sst25vfGetWord
+                0x08006ccc       0x26 THUMB Debug/sst25vf.o
+                0x08006ccc                sst25vfGetWord
  .text.sst25vfWaitForBusy
-                0x0800729e       0x2e THUMB Debug/sst25vf.o
-                0x0800729e                sst25vfWaitForBusy
+                0x08006cf2       0x2e THUMB Debug/sst25vf.o
+                0x08006cf2                sst25vfWaitForBusy
  .text.sst25vfPutChar
-                0x080072cc       0x24 THUMB Debug/sst25vf.o
-                0x080072cc                sst25vfPutChar
+                0x08006d20       0x24 THUMB Debug/sst25vf.o
+                0x08006d20                sst25vfPutChar
  .text.sst25vfPutBuffer
-                0x080072f0       0x36 THUMB Debug/sst25vf.o
-                0x080072f0                sst25vfPutBuffer
+                0x08006d44       0x36 THUMB Debug/sst25vf.o
+                0x08006d44                sst25vfPutBuffer
  .text.sst25vfPutLong
-                0x08007326       0x56 THUMB Debug/sst25vf.o
-                0x08007326                sst25vfPutLong
+                0x08006d7a       0x56 THUMB Debug/sst25vf.o
+                0x08006d7a                sst25vfPutLong
  .text.sst25vfPutWord
-                0x0800737c       0x2e THUMB Debug/sst25vf.o
-                0x0800737c                sst25vfPutWord
+                0x08006dd0       0x2e THUMB Debug/sst25vf.o
+                0x08006dd0                sst25vfPutWord
  .text.sst25vfEraseAll
-                0x080073aa       0x1c THUMB Debug/sst25vf.o
-                0x080073aa                sst25vfEraseAll
+                0x08006dfe       0x1c THUMB Debug/sst25vf.o
+                0x08006dfe                sst25vfEraseAll
  .text.sst25vfEraseSector
-                0x080073c6       0x2c THUMB Debug/sst25vf.o
-                0x080073c6                sst25vfEraseSector
- *fill*         0x080073f2        0x2 00
+                0x08006e1a       0x2c THUMB Debug/sst25vf.o
+                0x08006e1a                sst25vfEraseSector
+ *fill*         0x08006e46        0x2 00
  .text.libc.__int32_to_float32
-                0x080073f4       0x30 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x080073f4                __aeabi_i2f
-                0x080073f4                __int32_to_float32
-                0x080073f4                __floatsisf
-                0x08007404                __int32_to_float32_common
+                0x08006e48       0x30 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006e48                __aeabi_i2f
+                0x08006e48                __int32_to_float32
+                0x08006e48                __floatsisf
+                0x08006e58                __int32_to_float32_common
  .text.libc.__uint32_to_float32
-                0x08007424       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x08007424                __uint32_to_float32
-                0x08007424                __aeabi_ui2f
-                0x08007424                __floatunsisf
+                0x08006e78       0x10 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006e78                __uint32_to_float32
+                0x08006e78                __aeabi_ui2f
+                0x08006e78                __floatunsisf
  .text.libc.__uint32_to_float64
-                0x08007434       0x24 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x08007434                __uint32_to_float64
-                0x08007434                __aeabi_ui2d
-                0x08007434                __floatunsidf
+                0x08006e88       0x24 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006e88                __uint32_to_float64
+                0x08006e88                __aeabi_ui2d
+                0x08006e88                __floatunsidf
  .text.libc.__float64_to_uint32
-                0x08007458       0x34 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x08007458                __fixunsdfsi
-                0x08007458                __aeabi_d2uiz
-                0x08007458                __float64_to_uint32
+                0x08006eac       0x34 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006eac                __fixunsdfsi
+                0x08006eac                __aeabi_d2uiz
+                0x08006eac                __float64_to_uint32
  .text.libc.__float32_to_float64
-                0x0800748c       0x38 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x0800748c                __extendsfdf2
-                0x0800748c                __float32_to_float64
-                0x0800748c                __aeabi_f2d
+                0x08006ee0       0x38 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006ee0                __extendsfdf2
+                0x08006ee0                __float32_to_float64
+                0x08006ee0                __aeabi_f2d
  .text.libc.__float64_to_float32
-                0x080074c4       0x78 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x080074c4                __aeabi_d2f
-                0x080074c4                __truncdfsf2
-                0x080074c4                __float64_to_float32
- .text.libc.__float32_mul
-                0x0800753c       0xe4 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x0800753c                __float32_mul
-                0x0800753c                __mulsf3
-                0x0800753c                __aeabi_fmul
+                0x08006f18       0x78 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006f18                __aeabi_d2f
+                0x08006f18                __truncdfsf2
+                0x08006f18                __float64_to_float32
  .text.libc.__float64_add
-                0x08007620      0x2b8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x08007620                __aeabi_drsub
-                0x08007628                __float64_sub
-                0x08007628                __aeabi_dsub
-                0x08007628                __subdf3
-                0x0800762c                __aeabi_dadd
-                0x0800762c                __float64_add
-                0x0800762c                __adddf3
+                0x08006f90      0x2b8 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08006f90                __aeabi_drsub
+                0x08006f98                __float64_sub
+                0x08006f98                __aeabi_dsub
+                0x08006f98                __subdf3
+                0x08006f9c                __aeabi_dadd
+                0x08006f9c                __float64_add
+                0x08006f9c                __adddf3
  .text.libc.__float64_mul
-                0x080078d8      0x180 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x080078d8                __aeabi_dmul
-                0x080078d8                __float64_mul
-                0x080078d8                __muldf3
+                0x08007248      0x180 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08007248                __aeabi_dmul
+                0x08007248                __float64_mul
+                0x08007248                __muldf3
  .text.libc.__float64_cmp
-                0x08007a58       0x6c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x08007a58                __ltdf2
-                0x08007a58                __eqdf2
-                0x08007a58                __gtdf2
-                0x08007a58                __cmpdf2
-                0x08007a58                __ledf2
-                0x08007a58                __nedf2
-                0x08007a58                __gedf2
+                0x080073c8       0x6c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x080073c8                __ltdf2
+                0x080073c8                __eqdf2
+                0x080073c8                __gtdf2
+                0x080073c8                __cmpdf2
+                0x080073c8                __ledf2
+                0x080073c8                __nedf2
+                0x080073c8                __gedf2
  .text.libc.__aeabi_dcmpeq
-                0x08007ac4       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
-                0x08007ac4                __aeabi_dcmpeq
+                0x08007434       0x18 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+                0x08007434                __aeabi_dcmpeq
  .text.libc.modf
-                0x08007adc       0x9c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
-                0x08007adc                modf
+                0x0800744c       0x9c /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+                0x0800744c                modf
  .text.libc.__int64_udivmod
-                0x08007b78       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc_asm.o)
-                0x08007b78                __int64_udivmod
-                0x08007b78                __aeabi_uldivmod
-                0x08007b78                __int64_udiv
-                0x08007b78                __udivdi3
+                0x080074e8       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc_asm.o)
+                0x080074e8                __int64_udivmod
+                0x080074e8                __aeabi_uldivmod
+                0x080074e8                __int64_udiv
+                0x080074e8                __udivdi3
  .text.libc.__aeabi_ldivmod
-                0x08007bd8       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc_asm.o)
-                0x08007bd8                __aeabi_ldivmod
+                0x08007548       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc_asm.o)
+                0x08007548                __aeabi_ldivmod
  .text.libc.__getc
-                0x08007c38       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007c38                __getc
+                0x080075a8       0x24 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x080075a8                __getc
  .text.libc.__putc
-                0x08007c5c       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007c5c                __putc
+                0x080075cc       0x38 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x080075cc                __putc
  .text.libc.__print_padding
-                0x08007c94       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007c94                __print_padding
+                0x08007604       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007604                __print_padding
  .text.libc.__pre_padding
-                0x08007cf4       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007cf4                __pre_padding
+                0x08007664       0x1c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007664                __pre_padding
  .text.libc.isupper
-                0x08007d10       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007d10                isupper
+                0x08007680       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007680                isupper
  .text.libc.islower
-                0x08007d20       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007d20                islower
+                0x08007690       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007690                islower
  .text.libc.isdigit
-                0x08007d30       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007d30                isdigit
+                0x080076a0       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x080076a0                isdigit
  .text.libc.__digit
-                0x08007d40       0x3c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007d40                __digit
+                0x080076b0       0x3c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x080076b0                __digit
  .text.libc.isspace
-                0x08007d7c       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007d7c                isspace
+                0x080076ec       0x18 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x080076ec                isspace
  .text.libc.malloc
-                0x08007d94       0x90 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007d94                malloc
+                0x08007704       0x90 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007704                malloc
  .text.libc.free
-                0x08007e24       0xa8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007e24                free
+                0x08007794       0xa8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007794                free
  .text.libc.realloc
-                0x08007ecc       0x2c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007ecc                realloc
+                0x0800783c       0x2c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x0800783c                realloc
  .text.libc.strcat
-                0x08007ef8       0x30 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007ef8                strcat
+                0x08007868       0x30 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007868                strcat
  .text.libc.strchr
-                0x08007f28       0x2c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007f28                strchr
+                0x08007898       0x2c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08007898                strchr
  .text.libc.strrchr
-                0x08007f54       0x58 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007f54                strrchr
+                0x080078c4       0x58 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x080078c4                strrchr
  .text.libc.strtok
-                0x08007fac       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08007fac                strtok
+                0x0800791c       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x0800791c                strtok
  .text.libc.memcpy
-                0x0800804c       0x48 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
-                0x0800804c                memcpy
-                0x0800804c                __aeabi_memcpy
-                0x0800804c                __aeabi_memcpy4
-                0x0800804c                __aeabi_memcpy8
+                0x080079bc       0x48 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
+                0x080079bc                memcpy
+                0x080079bc                __aeabi_memcpy
+                0x080079bc                __aeabi_memcpy4
+                0x080079bc                __aeabi_memcpy8
  .text.libc.memset
-                0x08008094       0x70 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
-                0x08008094                memset
+                0x08007a04       0x70 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
+                0x08007a04                memset
  .text.libc.strcpy
-                0x08008104       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
-                0x08008104                strcpy
+                0x08007a74       0x4c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
+                0x08007a74                strcpy
  .text.libc.strcmp
-                0x08008150       0x58 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
-                0x08008150                strcmp
+                0x08007ac0       0x58 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
+                0x08007ac0                strcmp
  .text.libc.strlen
-                0x080081a8       0x70 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
-                0x080081a8                strlen
+                0x08007b18       0x70 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
+                0x08007b18                strlen
  .text.libc.__vfprintf_int
-                0x08008218      0x678 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
-                0x08008218                __vfprintf_int
+                0x08007b88      0x678 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+                0x08007b88                __vfprintf_int
  .text.libc.__ungetc
-                0x08008890       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+                0x08008200       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
  .text.libc.rd_int
-                0x080088b0      0x1d8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+                0x08008220      0x1d8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
  .text.libc.__vfscanf_int
-                0x08008a88      0x504 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
-                0x08008a88                __vfscanf_int
+                0x080083f8      0x504 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+                0x080083f8                __vfscanf_int
  .text.libdebugio.__do_debug_operation_mempoll
-                0x08008f8c       0x3c /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
-                0x08008f8c                __do_debug_operation_mempoll
+                0x080088fc       0x3c /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+                0x080088fc                __do_debug_operation_mempoll
  .text.libc.__heap_lock
-                0x08008fc8        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
-                0x08008fc8                __heap_lock
+                0x08008938        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+                0x08008938                __heap_lock
  .text.libc.__heap_unlock
-                0x08008fcc        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
-                0x08008fcc                __heap_unlock
+                0x0800893c        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+                0x0800893c                __heap_unlock
  .text.libc.__debug_io_lock
-                0x08008fd0        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
-                0x08008fd0                __debug_io_lock
+                0x08008940        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+                0x08008940                __debug_io_lock
  .text.libc.__debug_io_unlock
-                0x08008fd4        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
-                0x08008fd4                __debug_io_unlock
-                0x08008fd8                __text_end__ = (__text_start__ + SIZEOF (.text))
-                0x08008fd8                __text_load_end__ = __text_end__
+                0x08008944        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+                0x08008944                __debug_io_unlock
+                0x08008948                __text_end__ = (__text_start__ + SIZEOF (.text))
+                0x08008948                __text_load_end__ = __text_end__
 
 .vfp11_veneer   0x00000000        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
@@ -2584,110 +2566,106 @@ Linker script and memory map
 .iplt           0x00000000        0x0
  .iplt          0x00000000        0x0 THUMB Debug/main.o
                 0x00000001                . = ASSERT (((__text_end__ >= __FLASH_segment_start__) && (__text_end__ <= __FLASH_segment_end__)), error: .text is too large to fit in FLASH memory segment)
-                0x08008fd8                __dtors_load_start__ = ALIGN (__text_end__, 0x4)
+                0x08008948                __dtors_load_start__ = ALIGN (__text_end__, 0x4)
 
-.dtors          0x08008fd8        0x0
-                0x08008fd8                __dtors_start__ = .
+.dtors          0x08008948        0x0
+                0x08008948                __dtors_start__ = .
  *(SORT(.dtors.*))
  *(.dtors)
  *(.fini_array .fini_array.*)
-                0x08008fd8                __dtors_end__ = (__dtors_start__ + SIZEOF (.dtors))
-                0x08008fd8                __dtors_load_end__ = __dtors_end__
+                0x08008948                __dtors_end__ = (__dtors_start__ + SIZEOF (.dtors))
+                0x08008948                __dtors_load_end__ = __dtors_end__
                 0x00000001                . = ASSERT (((__dtors_end__ >= __FLASH_segment_start__) && (__dtors_end__ <= __FLASH_segment_end__)), error: .dtors is too large to fit in FLASH memory segment)
-                0x08008fd8                __ctors_load_start__ = ALIGN (__dtors_end__, 0x4)
+                0x08008948                __ctors_load_start__ = ALIGN (__dtors_end__, 0x4)
 
-.ctors          0x08008fd8        0x0
-                0x08008fd8                __ctors_start__ = .
+.ctors          0x08008948        0x0
+                0x08008948                __ctors_start__ = .
  *(SORT(.ctors.*))
  *(.ctors)
  *(.init_array .init_array.*)
-                0x08008fd8                __ctors_end__ = (__ctors_start__ + SIZEOF (.ctors))
-                0x08008fd8                __ctors_load_end__ = __ctors_end__
+                0x08008948                __ctors_end__ = (__ctors_start__ + SIZEOF (.ctors))
+                0x08008948                __ctors_load_end__ = __ctors_end__
                 0x00000001                . = ASSERT (((__ctors_end__ >= __FLASH_segment_start__) && (__ctors_end__ <= __FLASH_segment_end__)), error: .ctors is too large to fit in FLASH memory segment)
-                0x08008fd8                __rodata_load_start__ = ALIGN (__ctors_end__, 0x4)
+                0x08008948                __rodata_load_start__ = ALIGN (__ctors_end__, 0x4)
 
-.rodata         0x08008fd8      0xc5c
-                0x08008fd8                __rodata_start__ = .
+.rodata         0x08008948      0xaf0
+                0x08008948                __rodata_start__ = .
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.BOOTCOMMANDS
-                0x08008fd8      0x1f8 THUMB Debug/main.o
-                0x08008fd8                BOOTCOMMANDS
- .rodata.STRID_F103
-                0x080091d0        0x5 THUMB Debug/main.o
-                0x080091d0                STRID_F103
- *fill*         0x080091d5        0x3 00
- .rodata.SETCOMMANDS
-                0x080091d8       0x18 THUMB Debug/main.o
-                0x080091d8                SETCOMMANDS
+                0x08008948      0x1f0 THUMB Debug/main.o
+                0x08008948                BOOTCOMMANDS
  .rodata.str1.1
-                0x080091f0      0x74b THUMB Debug/main.o
-                                0x79a (size before relaxing)
+                0x08008b38      0x61e THUMB Debug/main.o
+                                0x665 (size before relaxing)
+ .rodata.STRID_F103
+                0x08009156        0x5 THUMB Debug/main.o
+                0x08009156                STRID_F103
  .rodata.PYGMY_ADC_CHANNELS
-                0x0800993b       0x12 THUMB Debug/pygmy_adc.o
-                0x0800993b                PYGMY_ADC_CHANNELS
+                0x0800915b       0x12 THUMB Debug/pygmy_adc.o
+                0x0800915b                PYGMY_ADC_CHANNELS
  .rodata.str1.1
                 0x00000000        0x2 THUMB Debug/pygmy_com.o
  .rodata.PYGMY_TIMERVECTORS_L15X
-                0x0800994d       0x12 THUMB Debug/pygmy_nvic.o
-                0x0800994d                PYGMY_TIMERVECTORS_L15X
+                0x0800916d       0x12 THUMB Debug/pygmy_nvic.o
+                0x0800916d                PYGMY_TIMERVECTORS_L15X
  .rodata.PYGMY_TIMERVECTORS
-                0x0800995f       0x12 THUMB Debug/pygmy_nvic.o
-                0x0800995f                PYGMY_TIMERVECTORS
+                0x0800917f       0x12 THUMB Debug/pygmy_nvic.o
+                0x0800917f                PYGMY_TIMERVECTORS
  .rodata.str1.1
-                0x08009971       0xa7 THUMB Debug/pygmy_pfat.o
+                0x08009191       0xa7 THUMB Debug/pygmy_pfat.o
                                  0xc9 (size before relaxing)
  .rodata.PYGMY_TIMERPINS
-                0x08009a18       0x10 THUMB Debug/pygmy_port.o
-                0x08009a18                PYGMY_TIMERPINS
+                0x08009238       0x10 THUMB Debug/pygmy_port.o
+                0x08009238                PYGMY_TIMERPINS
  .rodata.PYGMY_DAYSINMONTH
-                0x08009a28        0xc THUMB Debug/pygmy_sys.o
-                0x08009a28                PYGMY_DAYSINMONTH
+                0x08009248        0xc THUMB Debug/pygmy_sys.o
+                0x08009248                PYGMY_DAYSINMONTH
  .rodata.str1.1
-                0x08009a34       0x44 THUMB Debug/pygmy_sys.o
+                0x08009254       0x44 THUMB Debug/pygmy_sys.o
                                  0x46 (size before relaxing)
  .rodata.CSWTCH.69
-                0x08009a78       0x44 THUMB Debug/pygmy_sys.o
+                0x08009298       0x44 THUMB Debug/pygmy_sys.o
  .rodata.str1.1
-                0x08009abc      0x102 THUMB Debug/pygmy_string.o
-                                0x129 (size before relaxing)
+                0x080092dc       0xe5 THUMB Debug/pygmy_string.o
+                                0x10a (size before relaxing)
  .rodata.PYGMYHEXCHARS
-                0x08009bbe       0x10 THUMB Debug/pygmy_string.o
-                0x08009bbe                PYGMYHEXCHARS
- *fill*         0x08009bce        0x2 00
+                0x080093c1       0x10 THUMB Debug/pygmy_string.o
+                0x080093c1                PYGMYHEXCHARS
+ *fill*         0x080093d1        0x3 00
  .rodata.SST25VF
-                0x08009bd0       0x3c THUMB Debug/sst25vf.o
-                0x08009bd0                SST25VF
+                0x080093d4       0x3c THUMB Debug/sst25vf.o
+                0x080093d4                SST25VF
  .rodata.libc.__hex_lc
-                0x08009c0c       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08009c0c                __hex_lc
+                0x08009410       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08009410                __hex_lc
  .rodata.libc.__hex_uc
-                0x08009c1c       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
-                0x08009c1c                __hex_uc
+                0x08009420       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x08009420                __hex_uc
  .rodata.libc.str1.4
-                0x08009c2c        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
-                0x08009c34                __rodata_end__ = (__rodata_start__ + SIZEOF (.rodata))
-                0x08009c34                __rodata_load_end__ = __rodata_end__
+                0x08009430        0x8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+                0x08009438                __rodata_end__ = (__rodata_start__ + SIZEOF (.rodata))
+                0x08009438                __rodata_load_end__ = __rodata_end__
 
 .rel.dyn        0x08080000        0x0
  .rel.iplt      0x00000000        0x0 THUMB Debug/main.o
                 0x00000001                . = ASSERT (((__rodata_end__ >= __FLASH_segment_start__) && (__rodata_end__ <= __FLASH_segment_end__)), error: .rodata is too large to fit in FLASH memory segment)
-                0x08009c34                __ARM.exidx_load_start__ = ALIGN (__rodata_end__, 0x4)
+                0x08009438                __ARM.exidx_load_start__ = ALIGN (__rodata_end__, 0x4)
 
-.ARM.exidx      0x08009c34        0x0
-                0x08009c34                __ARM.exidx_start__ = .
-                0x08009c34                __exidx_start = __ARM.exidx_start__
+.ARM.exidx      0x08009438        0x0
+                0x08009438                __ARM.exidx_start__ = .
+                0x08009438                __exidx_start = __ARM.exidx_start__
  *(.ARM.exidx .ARM.exidx.*)
-                0x08009c34                __ARM.exidx_end__ = (__ARM.exidx_start__ + SIZEOF (.ARM.exidx))
-                0x08009c34                __exidx_end = __ARM.exidx_end__
-                0x08009c34                __ARM.exidx_load_end__ = __ARM.exidx_end__
+                0x08009438                __ARM.exidx_end__ = (__ARM.exidx_start__ + SIZEOF (.ARM.exidx))
+                0x08009438                __exidx_end = __ARM.exidx_end__
+                0x08009438                __ARM.exidx_load_end__ = __ARM.exidx_end__
                 0x00000001                . = ASSERT (((__ARM.exidx_end__ >= __FLASH_segment_start__) && (__ARM.exidx_end__ <= __FLASH_segment_end__)), error: .ARM.exidx is too large to fit in FLASH memory segment)
-                0x08009c34                __fast_load_start__ = ALIGN (__ARM.exidx_end__, 0x4)
+                0x08009438                __fast_load_start__ = ALIGN (__ARM.exidx_end__, 0x4)
 
-.fast           0x20000000        0x0 load address 0x08009c34
+.fast           0x20000000        0x0 load address 0x08009438
                 0x20000000                __fast_start__ = .
  *(.fast .fast.*)
                 0x20000000                __fast_end__ = (__fast_start__ + SIZEOF (.fast))
-                0x08009c34                __fast_load_end__ = (__fast_load_start__ + SIZEOF (.fast))
+                0x08009438                __fast_load_end__ = (__fast_load_start__ + SIZEOF (.fast))
                 0x00000001                . = ASSERT (((__fast_load_end__ >= __FLASH_segment_start__) && (__fast_load_end__ <= __FLASH_segment_end__)), error: .fast is too large to fit in FLASH memory segment)
 
 .fast_run       0x20000000        0x0
@@ -2696,9 +2674,9 @@ Linker script and memory map
                 0x20000000                __fast_run_end__ = (__fast_run_start__ + SIZEOF (.fast_run))
                 0x20000000                __fast_run_load_end__ = __fast_run_end__
                 0x00000001                . = ASSERT (((__fast_run_end__ >= __RAM_segment_start__) && (__fast_run_end__ <= __RAM_segment_end__)), error: .fast_run is too large to fit in RAM memory segment)
-                0x08009c34                __data_load_start__ = ALIGN ((__fast_load_start__ + SIZEOF (.fast)), 0x4)
+                0x08009438                __data_load_start__ = ALIGN ((__fast_load_start__ + SIZEOF (.fast)), 0x4)
 
-.data           0x20000000       0x14 load address 0x08009c34
+.data           0x20000000       0x14 load address 0x08009438
                 0x20000000                __data_start__ = .
  *(.data .data.* .gnu.linkonce.d.*)
  .data.globalPFATVersionTag
@@ -2708,13 +2686,13 @@ Linker script and memory map
  .data.libc.heap
                 0x20000010        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
                 0x20000014                __data_end__ = (__data_start__ + SIZEOF (.data))
-                0x08009c48                __data_load_end__ = (__data_load_start__ + SIZEOF (.data))
+                0x0800944c                __data_load_end__ = (__data_load_start__ + SIZEOF (.data))
 
 .igot.plt       0x00000000        0x0
  .igot.plt      0x00000000        0x0 THUMB Debug/main.o
                 0x00000001                . = ASSERT (((__data_load_end__ >= __FLASH_segment_start__) && (__data_load_end__ <= __FLASH_segment_end__)), error: .data is too large to fit in FLASH memory segment)
 
-.data_run       0x20000000       0x14 load address 0x08009c34
+.data_run       0x20000000       0x14 load address 0x08009438
                 0x20000000                __data_run_start__ = .
                 0x20000014                . = MAX ((__data_run_start__ + SIZEOF (.data)), .)
  *fill*         0x20000000       0x14 00
@@ -2740,40 +2718,40 @@ Linker script and memory map
  .bss.globalPLL
                 0x20000054        0x4 THUMB Debug/main.o
                 0x20000054                globalPLL
- .bss.ucBuffer.6546
-                0x20000058      0x100 THUMB Debug/main.o
- .bss.XModem    0x20000158       0x9c THUMB Debug/main.o
-                0x20000158                XModem
+ .bss.ucIndex.6507
+                0x20000058        0x1 THUMB Debug/main.o
+ *fill*         0x20000059        0x3 00
+ .bss.XModem    0x2000005c       0x9c THUMB Debug/main.o
+                0x2000005c                XModem
  .bss.globalBootStatus
-                0x200001f4        0x1 THUMB Debug/main.o
-                0x200001f4                globalBootStatus
+                0x200000f8        0x1 THUMB Debug/main.o
+                0x200000f8                globalBootStatus
  .bss.globalStatus
-                0x200001f5        0x1 THUMB Debug/main.o
-                0x200001f5                globalStatus
- *fill*         0x200001f6        0x2 00
+                0x200000f9        0x1 THUMB Debug/main.o
+                0x200000f9                globalStatus
+ *fill*         0x200000fa        0x2 00
  .bss.globalXTAL
-                0x200001f8        0x4 THUMB Debug/main.o
-                0x200001f8                globalXTAL
- .bss.ucIndex.6547
-                0x200001fc        0x1 THUMB Debug/main.o
- *fill*         0x200001fd        0x1 00
+                0x200000fc        0x4 THUMB Debug/main.o
+                0x200000fc                globalXTAL
+ .bss.ucBuffer.6506
+                0x20000100      0x100 THUMB Debug/main.o
  .bss.globalADCStatus
-                0x200001fe        0x2 THUMB Debug/pygmy_adc.o
-                0x200001fe                globalADCStatus
+                0x20000200        0x2 THUMB Debug/pygmy_adc.o
+                0x20000200                globalADCStatus
+ *fill*         0x20000202        0x2 00
  .bss.globalStreams
-                0x20000200       0xc8 THUMB Debug/pygmy_com.o
-                0x20000200                globalStreams
+                0x20000204       0xc8 THUMB Debug/pygmy_com.o
+                0x20000204                globalStreams
  .bss.globalSTDIO
-                0x200002c8        0x1 THUMB Debug/pygmy_com.o
-                0x200002c8                globalSTDIO
- *fill*         0x200002c9        0x3 00
- .bss.AddrOffset.5745
-                0x200002cc        0x4 THUMB Debug/pygmy_fpec.o
- .bss.Address.5744
+                0x200002cc        0x1 THUMB Debug/pygmy_com.o
+                0x200002cc                globalSTDIO
+ .bss.Dummy.5734
+                0x200002cd        0x1 THUMB Debug/pygmy_fpec.o
+ *fill*         0x200002ce        0x2 00
+ .bss.Address.5732
                 0x200002d0        0x4 THUMB Debug/pygmy_fpec.o
- .bss.Dummy.5746
-                0x200002d4        0x1 THUMB Debug/pygmy_fpec.o
- *fill*         0x200002d5        0x3 00
+ .bss.AddrOffset.5733
+                0x200002d4        0x4 THUMB Debug/pygmy_fpec.o
  .bss.globalVolumes
                 0x200002d8        0x4 THUMB Debug/pygmy_pfat.o
                 0x200002d8                globalVolumes
@@ -2803,24 +2781,24 @@ Linker script and memory map
                 0x200003bc        0x2 THUMB Debug/pygmy_port.o
                 0x200003bc                globalIRQPR
  *fill*         0x200003be        0x2 00
- .bss.pygmyGlobalTasks
-                0x200003c0        0x4 THUMB Debug/pygmy_sys.o
-                0x200003c0                pygmyGlobalTasks
  .bss.pygmyGlobalData
-                0x200003c4       0xc8 THUMB Debug/pygmy_sys.o
-                0x200003c4                pygmyGlobalData
- .bss.pygmyGlobalTaskCount
+                0x200003c0       0xc8 THUMB Debug/pygmy_sys.o
+                0x200003c0                pygmyGlobalData
+ .bss.ulAccumulator.6074
+                0x20000488        0x4 THUMB Debug/pygmy_sys.o
+ .bss.ulIndex.6076
                 0x2000048c        0x4 THUMB Debug/pygmy_sys.o
-                0x2000048c                pygmyGlobalTaskCount
- .bss.ulAccumulator.6086
+ .bss.pygmyGlobalTaskCount
                 0x20000490        0x4 THUMB Debug/pygmy_sys.o
- .bss.ulIndex.6088
+                0x20000490                pygmyGlobalTaskCount
+ .bss.ulMask.6075
                 0x20000494        0x4 THUMB Debug/pygmy_sys.o
- .bss.ulMask.6087
+ .bss.pygmyGlobalTasks
                 0x20000498        0x4 THUMB Debug/pygmy_sys.o
- .bss.ucBufferCopy.6375
+                0x20000498                pygmyGlobalTasks
+ .bss.ucIndex.6362
                 0x2000049c        0x4 THUMB Debug/pygmy_string.o
- .bss.ucIndex.6374
+ .bss.ucBufferCopy.6363
                 0x200004a0        0x4 THUMB Debug/pygmy_string.o
  .bss.libc.__format_extender
                 0x200004a4        0x4 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
@@ -2883,14 +2861,14 @@ Linker script and memory map
                 0x20010eb4                __tbss_end__ = (__tbss_start__ + SIZEOF (.tbss))
                 0x20010eb4                __tbss_load_end__ = __tbss_end__
                 0x00000001                . = ASSERT (((__tbss_end__ >= __RAM_segment_start__) && (__tbss_end__ <= __RAM_segment_end__)), error: .tbss is too large to fit in RAM memory segment)
-                0x08009c48                __tdata_load_start__ = ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4)
+                0x0800944c                __tdata_load_start__ = ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4)
 
-.tdata          0x20010eb4        0x0 load address 0x08009c48
+.tdata          0x20010eb4        0x0 load address 0x0800944c
                 0x20010eb4                __tdata_start__ = .
  *(.tdata .tdata.*)
                 0x20010eb4                __tdata_end__ = (__tdata_start__ + SIZEOF (.tdata))
-                0x08009c48                __tdata_load_end__ = (__tdata_load_start__ + SIZEOF (.tdata))
-                0x08009c48                __FLASH_segment_used_end__ = (ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4) + SIZEOF (.tdata))
+                0x0800944c                __tdata_load_end__ = (__tdata_load_start__ + SIZEOF (.tdata))
+                0x0800944c                __FLASH_segment_used_end__ = (ALIGN ((__data_load_start__ + SIZEOF (.data)), 0x4) + SIZEOF (.tdata))
                 0x00000001                . = ASSERT (((__tdata_load_end__ >= __FLASH_segment_start__) && (__tdata_load_end__ <= __FLASH_segment_end__)), error: .tdata is too large to fit in FLASH memory segment)
 
 .tdata_run      0x20010eb4        0x0
@@ -2925,212 +2903,212 @@ LOAD /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a
 END GROUP
 OUTPUT(THUMB Debug/gomex.elf elf32-littlearm)
 
-.debug_frame    0x00000000     0x65a8
- .debug_frame   0x00000000      0x954 THUMB Debug/main.o
- .debug_frame   0x00000954      0x134 THUMB Debug/pygmy_adc.o
- .debug_frame   0x00000a88      0x9b4 THUMB Debug/pygmy_com.o
- .debug_frame   0x0000143c      0x19c THUMB Debug/pygmy_fpec.o
- .debug_frame   0x000015d8       0x6c THUMB Debug/pygmy_nvic.o
- .debug_frame   0x00001644      0xcf0 THUMB Debug/pygmy_pfat.o
- .debug_frame   0x00002334      0x330 THUMB Debug/pygmy_port.o
- .debug_frame   0x00002664      0x560 THUMB Debug/pygmy_sys.o
- .debug_frame   0x00002bc4      0x6f4 THUMB Debug/pygmy_string.o
- .debug_frame   0x000032b8       0xd0 THUMB Debug/pygmy_rtc.o
- .debug_frame   0x00003388       0xf4 THUMB Debug/pygmy_xmodem.o
- .debug_frame   0x0000347c      0x258 THUMB Debug/sst25vf.o
- .debug_frame   0x000036d4      0x600 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
- .debug_frame   0x00003cd4      0x978 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
- .debug_frame   0x0000464c      0x260 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc_asm.o)
- .debug_frame   0x000048ac     0x12e0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
- .debug_frame   0x00005b8c      0x120 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
- .debug_frame   0x00005cac       0x40 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
- .debug_frame   0x00005cec       0x8c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
- .debug_frame   0x00005d78      0x790 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
- .debug_frame   0x00006508       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+.debug_frame    0x00000000     0x6538
+ .debug_frame   0x00000000      0x8e8 THUMB Debug/main.o
+ .debug_frame   0x000008e8      0x134 THUMB Debug/pygmy_adc.o
+ .debug_frame   0x00000a1c      0x9b0 THUMB Debug/pygmy_com.o
+ .debug_frame   0x000013cc      0x19c THUMB Debug/pygmy_fpec.o
+ .debug_frame   0x00001568       0x6c THUMB Debug/pygmy_nvic.o
+ .debug_frame   0x000015d4      0xcf0 THUMB Debug/pygmy_pfat.o
+ .debug_frame   0x000022c4      0x330 THUMB Debug/pygmy_port.o
+ .debug_frame   0x000025f4      0x560 THUMB Debug/pygmy_sys.o
+ .debug_frame   0x00002b54      0x6f4 THUMB Debug/pygmy_string.o
+ .debug_frame   0x00003248       0xd0 THUMB Debug/pygmy_rtc.o
+ .debug_frame   0x00003318       0xf4 THUMB Debug/pygmy_xmodem.o
+ .debug_frame   0x0000340c      0x258 THUMB Debug/sst25vf.o
+ .debug_frame   0x00003664      0x600 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm_asm.o)
+ .debug_frame   0x00003c64      0x978 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_frame   0x000045dc      0x260 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc_asm.o)
+ .debug_frame   0x0000483c     0x12e0 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_frame   0x00005b1c      0x120 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2_asm.o)
+ .debug_frame   0x00005c3c       0x40 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_frame   0x00005c7c       0x8c /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_frame   0x00005d08      0x790 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+ .debug_frame   0x00006498       0xa0 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
 
-.debug_info     0x00000000    0x1a98e
- .debug_info    0x00000000     0x5c3a THUMB Debug/main.o
- .debug_info    0x00005c3a      0x8c3 THUMB Debug/pygmy_adc.o
- .debug_info    0x000064fd     0x3361 THUMB Debug/pygmy_com.o
- .debug_info    0x0000985e      0xe4b THUMB Debug/pygmy_fpec.o
- .debug_info    0x0000a6a9      0x3a1 THUMB Debug/pygmy_nvic.o
- .debug_info    0x0000aa4a     0x5dbc THUMB Debug/pygmy_pfat.o
- .debug_info    0x00010806     0x1695 THUMB Debug/pygmy_port.o
- .debug_info    0x00011e9b     0x2aae THUMB Debug/pygmy_sys.o
- .debug_info    0x00014949     0x2614 THUMB Debug/pygmy_string.o
- .debug_info    0x00016f5d      0x556 THUMB Debug/pygmy_rtc.o
- .debug_info    0x000174b3      0xac5 THUMB Debug/pygmy_xmodem.o
- .debug_info    0x00017f78      0xf24 THUMB Debug/sst25vf.o
- .debug_info    0x00018e9c       0x8e THUMB Debug/thumb_crt0.o
- .debug_info    0x00018f2a       0xc7 THUMB Debug/STM32_Startup.o
- .debug_info    0x00018ff1      0x5c7 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
- .debug_info    0x000195b8      0xd02 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
- .debug_info    0x0001a2ba       0x37 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
- .debug_info    0x0001a2f1       0x68 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
- .debug_info    0x0001a359      0x55f /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
- .debug_info    0x0001a8b8       0xd6 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+.debug_info     0x00000000    0x1a2db
+ .debug_info    0x00000000     0x55aa THUMB Debug/main.o
+ .debug_info    0x000055aa      0x8c3 THUMB Debug/pygmy_adc.o
+ .debug_info    0x00005e6d     0x336e THUMB Debug/pygmy_com.o
+ .debug_info    0x000091db      0xe4b THUMB Debug/pygmy_fpec.o
+ .debug_info    0x0000a026      0x3a1 THUMB Debug/pygmy_nvic.o
+ .debug_info    0x0000a3c7     0x5dbc THUMB Debug/pygmy_pfat.o
+ .debug_info    0x00010183     0x1695 THUMB Debug/pygmy_port.o
+ .debug_info    0x00011818     0x2aa3 THUMB Debug/pygmy_sys.o
+ .debug_info    0x000142bb     0x25ef THUMB Debug/pygmy_string.o
+ .debug_info    0x000168aa      0x556 THUMB Debug/pygmy_rtc.o
+ .debug_info    0x00016e00      0xac5 THUMB Debug/pygmy_xmodem.o
+ .debug_info    0x000178c5      0xf24 THUMB Debug/sst25vf.o
+ .debug_info    0x000187e9       0x8e THUMB Debug/thumb_crt0.o
+ .debug_info    0x00018877       0xc7 THUMB Debug/STM32_Startup.o
+ .debug_info    0x0001893e      0x5c7 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_info    0x00018f05      0xd02 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_info    0x00019c07       0x37 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_info    0x00019c3e       0x68 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_info    0x00019ca6      0x55f /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+ .debug_info    0x0001a205       0xd6 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
 
-.debug_abbrev   0x00000000     0x2981
- .debug_abbrev  0x00000000      0x408 THUMB Debug/main.o
- .debug_abbrev  0x00000408      0x23e THUMB Debug/pygmy_adc.o
- .debug_abbrev  0x00000646      0x3f3 THUMB Debug/pygmy_com.o
- .debug_abbrev  0x00000a39      0x33e THUMB Debug/pygmy_fpec.o
- .debug_abbrev  0x00000d77      0x121 THUMB Debug/pygmy_nvic.o
- .debug_abbrev  0x00000e98      0x52d THUMB Debug/pygmy_pfat.o
- .debug_abbrev  0x000013c5      0x415 THUMB Debug/pygmy_port.o
- .debug_abbrev  0x000017da      0x502 THUMB Debug/pygmy_sys.o
- .debug_abbrev  0x00001cdc      0x432 THUMB Debug/pygmy_string.o
- .debug_abbrev  0x0000210e      0x194 THUMB Debug/pygmy_rtc.o
- .debug_abbrev  0x000022a2      0x1f4 THUMB Debug/pygmy_xmodem.o
- .debug_abbrev  0x00002496      0x26f THUMB Debug/sst25vf.o
- .debug_abbrev  0x00002705       0x14 THUMB Debug/thumb_crt0.o
- .debug_abbrev  0x00002719       0x14 THUMB Debug/STM32_Startup.o
- .debug_abbrev  0x0000272d       0xb2 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
- .debug_abbrev  0x000027df       0xcb /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
- .debug_abbrev  0x000028aa       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
- .debug_abbrev  0x000028d2       0x49 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
- .debug_abbrev  0x0000291b       0x3e /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
- .debug_abbrev  0x00002959       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+.debug_abbrev   0x00000000     0x29ac
+ .debug_abbrev  0x00000000      0x433 THUMB Debug/main.o
+ .debug_abbrev  0x00000433      0x23e THUMB Debug/pygmy_adc.o
+ .debug_abbrev  0x00000671      0x3f3 THUMB Debug/pygmy_com.o
+ .debug_abbrev  0x00000a64      0x33e THUMB Debug/pygmy_fpec.o
+ .debug_abbrev  0x00000da2      0x121 THUMB Debug/pygmy_nvic.o
+ .debug_abbrev  0x00000ec3      0x52d THUMB Debug/pygmy_pfat.o
+ .debug_abbrev  0x000013f0      0x415 THUMB Debug/pygmy_port.o
+ .debug_abbrev  0x00001805      0x502 THUMB Debug/pygmy_sys.o
+ .debug_abbrev  0x00001d07      0x432 THUMB Debug/pygmy_string.o
+ .debug_abbrev  0x00002139      0x194 THUMB Debug/pygmy_rtc.o
+ .debug_abbrev  0x000022cd      0x1f4 THUMB Debug/pygmy_xmodem.o
+ .debug_abbrev  0x000024c1      0x26f THUMB Debug/sst25vf.o
+ .debug_abbrev  0x00002730       0x14 THUMB Debug/thumb_crt0.o
+ .debug_abbrev  0x00002744       0x14 THUMB Debug/STM32_Startup.o
+ .debug_abbrev  0x00002758       0xb2 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_abbrev  0x0000280a       0xcb /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_abbrev  0x000028d5       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_abbrev  0x000028fd       0x49 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_abbrev  0x00002946       0x3e /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+ .debug_abbrev  0x00002984       0x28 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
 
-.debug_loc      0x00000000    0x10554
- .debug_loc     0x00000000     0x23c1 THUMB Debug/main.o
- .debug_loc     0x000023c1      0x226 THUMB Debug/pygmy_adc.o
- .debug_loc     0x000025e7     0x2168 THUMB Debug/pygmy_com.o
- .debug_loc     0x0000474f      0x695 THUMB Debug/pygmy_fpec.o
- .debug_loc     0x00004de4      0x204 THUMB Debug/pygmy_nvic.o
- .debug_loc     0x00004fe8     0x4571 THUMB Debug/pygmy_pfat.o
- .debug_loc     0x00009559      0xc8f THUMB Debug/pygmy_port.o
- .debug_loc     0x0000a1e8     0x128e THUMB Debug/pygmy_sys.o
- .debug_loc     0x0000b476     0x2174 THUMB Debug/pygmy_string.o
- .debug_loc     0x0000d5ea      0x2a5 THUMB Debug/pygmy_rtc.o
- .debug_loc     0x0000d88f      0x3e0 THUMB Debug/pygmy_xmodem.o
- .debug_loc     0x0000dc6f      0x77b THUMB Debug/sst25vf.o
- .debug_loc     0x0000e3ea      0x83e /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
- .debug_loc     0x0000ec28     0x1092 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
- .debug_loc     0x0000fcba       0x2d /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
- .debug_loc     0x0000fce7       0x79 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
- .debug_loc     0x0000fd60      0x7f4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+.debug_loc      0x00000000    0x1023d
+ .debug_loc     0x00000000     0x20ce THUMB Debug/main.o
+ .debug_loc     0x000020ce      0x226 THUMB Debug/pygmy_adc.o
+ .debug_loc     0x000022f4     0x2144 THUMB Debug/pygmy_com.o
+ .debug_loc     0x00004438      0x695 THUMB Debug/pygmy_fpec.o
+ .debug_loc     0x00004acd      0x204 THUMB Debug/pygmy_nvic.o
+ .debug_loc     0x00004cd1     0x4571 THUMB Debug/pygmy_pfat.o
+ .debug_loc     0x00009242      0xc8f THUMB Debug/pygmy_port.o
+ .debug_loc     0x00009ed1     0x128e THUMB Debug/pygmy_sys.o
+ .debug_loc     0x0000b15f     0x2174 THUMB Debug/pygmy_string.o
+ .debug_loc     0x0000d2d3      0x2a5 THUMB Debug/pygmy_rtc.o
+ .debug_loc     0x0000d578      0x3e0 THUMB Debug/pygmy_xmodem.o
+ .debug_loc     0x0000d958      0x77b THUMB Debug/sst25vf.o
+ .debug_loc     0x0000e0d3      0x83e /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_loc     0x0000e911     0x1092 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_loc     0x0000f9a3       0x2d /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_loc     0x0000f9d0       0x79 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_loc     0x0000fa49      0x7f4 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
 
-.debug_aranges  0x00000000     0x1b00
+.debug_aranges  0x00000000     0x1ae0
  .debug_aranges
-                0x00000000      0x2c0 THUMB Debug/main.o
+                0x00000000      0x2a0 THUMB Debug/main.o
  .debug_aranges
-                0x000002c0       0x90 THUMB Debug/pygmy_adc.o
+                0x000002a0       0x90 THUMB Debug/pygmy_adc.o
  .debug_aranges
-                0x00000350      0x320 THUMB Debug/pygmy_com.o
+                0x00000330      0x320 THUMB Debug/pygmy_com.o
  .debug_aranges
-                0x00000670       0x98 THUMB Debug/pygmy_fpec.o
+                0x00000650       0x98 THUMB Debug/pygmy_fpec.o
  .debug_aranges
-                0x00000708       0x38 THUMB Debug/pygmy_nvic.o
+                0x000006e8       0x38 THUMB Debug/pygmy_nvic.o
  .debug_aranges
-                0x00000740      0x2f0 THUMB Debug/pygmy_pfat.o
+                0x00000720      0x2f0 THUMB Debug/pygmy_pfat.o
  .debug_aranges
-                0x00000a30      0x110 THUMB Debug/pygmy_port.o
+                0x00000a10      0x110 THUMB Debug/pygmy_port.o
  .debug_aranges
-                0x00000b40      0x1e8 THUMB Debug/pygmy_sys.o
+                0x00000b20      0x1e8 THUMB Debug/pygmy_sys.o
  .debug_aranges
-                0x00000d28      0x238 THUMB Debug/pygmy_string.o
+                0x00000d08      0x238 THUMB Debug/pygmy_string.o
  .debug_aranges
-                0x00000f60       0x68 THUMB Debug/pygmy_rtc.o
+                0x00000f40       0x68 THUMB Debug/pygmy_rtc.o
  .debug_aranges
-                0x00000fc8       0x60 THUMB Debug/pygmy_xmodem.o
+                0x00000fa8       0x60 THUMB Debug/pygmy_xmodem.o
  .debug_aranges
-                0x00001028       0xa0 THUMB Debug/sst25vf.o
+                0x00001008       0xa0 THUMB Debug/sst25vf.o
  .debug_aranges
-                0x000010c8       0x20 THUMB Debug/thumb_crt0.o
+                0x000010a8       0x20 THUMB Debug/thumb_crt0.o
  .debug_aranges
-                0x000010e8       0x20 THUMB Debug/STM32_Startup.o
+                0x000010c8       0x20 THUMB Debug/STM32_Startup.o
  .debug_aranges
-                0x00001108      0x228 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+                0x000010e8      0x228 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
  .debug_aranges
-                0x00001330      0x508 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+                0x00001310      0x508 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
  .debug_aranges
-                0x00001838       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+                0x00001818       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
  .debug_aranges
-                0x00001858       0x30 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+                0x00001838       0x30 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
  .debug_aranges
-                0x00001888      0x218 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+                0x00001868      0x218 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
  .debug_aranges
-                0x00001aa0       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+                0x00001a80       0x60 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
 
-.debug_ranges   0x00000000     0x1b20
- .debug_ranges  0x00000000      0x2b0 THUMB Debug/main.o
- .debug_ranges  0x000002b0       0x80 THUMB Debug/pygmy_adc.o
- .debug_ranges  0x00000330      0x340 THUMB Debug/pygmy_com.o
- .debug_ranges  0x00000670       0x88 THUMB Debug/pygmy_fpec.o
- .debug_ranges  0x000006f8       0x28 THUMB Debug/pygmy_nvic.o
- .debug_ranges  0x00000720      0x3a0 THUMB Debug/pygmy_pfat.o
- .debug_ranges  0x00000ac0      0x100 THUMB Debug/pygmy_port.o
- .debug_ranges  0x00000bc0      0x250 THUMB Debug/pygmy_sys.o
- .debug_ranges  0x00000e10      0x240 THUMB Debug/pygmy_string.o
- .debug_ranges  0x00001050       0x58 THUMB Debug/pygmy_rtc.o
- .debug_ranges  0x000010a8       0x50 THUMB Debug/pygmy_xmodem.o
- .debug_ranges  0x000010f8       0x90 THUMB Debug/sst25vf.o
- .debug_ranges  0x00001188      0x218 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
- .debug_ranges  0x000013a0      0x4f8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
- .debug_ranges  0x00001898       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
- .debug_ranges  0x000018a8       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
- .debug_ranges  0x000018c8      0x208 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
- .debug_ranges  0x00001ad0       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+.debug_ranges   0x00000000     0x1b00
+ .debug_ranges  0x00000000      0x290 THUMB Debug/main.o
+ .debug_ranges  0x00000290       0x80 THUMB Debug/pygmy_adc.o
+ .debug_ranges  0x00000310      0x340 THUMB Debug/pygmy_com.o
+ .debug_ranges  0x00000650       0x88 THUMB Debug/pygmy_fpec.o
+ .debug_ranges  0x000006d8       0x28 THUMB Debug/pygmy_nvic.o
+ .debug_ranges  0x00000700      0x3a0 THUMB Debug/pygmy_pfat.o
+ .debug_ranges  0x00000aa0      0x100 THUMB Debug/pygmy_port.o
+ .debug_ranges  0x00000ba0      0x250 THUMB Debug/pygmy_sys.o
+ .debug_ranges  0x00000df0      0x240 THUMB Debug/pygmy_string.o
+ .debug_ranges  0x00001030       0x58 THUMB Debug/pygmy_rtc.o
+ .debug_ranges  0x00001088       0x50 THUMB Debug/pygmy_xmodem.o
+ .debug_ranges  0x000010d8       0x90 THUMB Debug/sst25vf.o
+ .debug_ranges  0x00001168      0x218 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_ranges  0x00001380      0x4f8 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_ranges  0x00001878       0x10 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_ranges  0x00001888       0x20 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_ranges  0x000018a8      0x208 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+ .debug_ranges  0x00001ab0       0x50 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
 
-.debug_line     0x00000000     0x64b0
- .debug_line    0x00000000      0xd06 THUMB Debug/main.o
- .debug_line    0x00000d06      0x22b THUMB Debug/pygmy_adc.o
- .debug_line    0x00000f31      0xbc3 THUMB Debug/pygmy_com.o
- .debug_line    0x00001af4      0x3a8 THUMB Debug/pygmy_fpec.o
- .debug_line    0x00001e9c      0x108 THUMB Debug/pygmy_nvic.o
- .debug_line    0x00001fa4     0x1186 THUMB Debug/pygmy_pfat.o
- .debug_line    0x0000312a      0x561 THUMB Debug/pygmy_port.o
- .debug_line    0x0000368b      0x92e THUMB Debug/pygmy_sys.o
- .debug_line    0x00003fb9      0xbaf THUMB Debug/pygmy_string.o
- .debug_line    0x00004b68      0x219 THUMB Debug/pygmy_rtc.o
- .debug_line    0x00004d81      0x295 THUMB Debug/pygmy_xmodem.o
- .debug_line    0x00005016      0x2e8 THUMB Debug/sst25vf.o
- .debug_line    0x000052fe       0xf3 THUMB Debug/thumb_crt0.o
- .debug_line    0x000053f1      0x117 THUMB Debug/STM32_Startup.o
- .debug_line    0x00005508      0x330 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
- .debug_line    0x00005838      0x5b7 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
- .debug_line    0x00005def       0x79 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
- .debug_line    0x00005e68       0x78 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
- .debug_line    0x00005ee0      0x558 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
- .debug_line    0x00006438       0x78 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+.debug_line     0x00000000     0x63dd
+ .debug_line    0x00000000      0xc38 THUMB Debug/main.o
+ .debug_line    0x00000c38      0x22b THUMB Debug/pygmy_adc.o
+ .debug_line    0x00000e63      0xbc6 THUMB Debug/pygmy_com.o
+ .debug_line    0x00001a29      0x3a8 THUMB Debug/pygmy_fpec.o
+ .debug_line    0x00001dd1      0x108 THUMB Debug/pygmy_nvic.o
+ .debug_line    0x00001ed9     0x1186 THUMB Debug/pygmy_pfat.o
+ .debug_line    0x0000305f      0x561 THUMB Debug/pygmy_port.o
+ .debug_line    0x000035c0      0x929 THUMB Debug/pygmy_sys.o
+ .debug_line    0x00003ee9      0xbac THUMB Debug/pygmy_string.o
+ .debug_line    0x00004a95      0x219 THUMB Debug/pygmy_rtc.o
+ .debug_line    0x00004cae      0x295 THUMB Debug/pygmy_xmodem.o
+ .debug_line    0x00004f43      0x2e8 THUMB Debug/sst25vf.o
+ .debug_line    0x0000522b       0xf3 THUMB Debug/thumb_crt0.o
+ .debug_line    0x0000531e      0x117 THUMB Debug/STM32_Startup.o
+ .debug_line    0x00005435      0x330 /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_line    0x00005765      0x5b7 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_line    0x00005d1c       0x79 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_line    0x00005d95       0x78 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_line    0x00005e0d      0x558 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+ .debug_line    0x00006365       0x78 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
 
-.debug_str      0x00000000     0x459b
- .debug_str     0x00000000     0x116f THUMB Debug/main.o
-                               0x1358 (size before relaxing)
- .debug_str     0x0000116f      0x1f3 THUMB Debug/pygmy_adc.o
+.debug_str      0x00000000     0x4507
+ .debug_str     0x00000000     0x10bf THUMB Debug/main.o
+                               0x12a3 (size before relaxing)
+ .debug_str     0x000010bf      0x1f3 THUMB Debug/pygmy_adc.o
                                 0x446 (size before relaxing)
- .debug_str     0x00001362      0x849 THUMB Debug/pygmy_com.o
+ .debug_str     0x000012b2      0x851 THUMB Debug/pygmy_com.o
                                 0xc52 (size before relaxing)
- .debug_str     0x00001bab      0x1a1 THUMB Debug/pygmy_fpec.o
+ .debug_str     0x00001b03      0x1a1 THUMB Debug/pygmy_fpec.o
                                 0x598 (size before relaxing)
- .debug_str     0x00001d4c       0xc7 THUMB Debug/pygmy_nvic.o
+ .debug_str     0x00001ca4       0xc7 THUMB Debug/pygmy_nvic.o
                                 0x28c (size before relaxing)
- .debug_str     0x00001e13      0x8c4 THUMB Debug/pygmy_pfat.o
+ .debug_str     0x00001d6b      0x8c4 THUMB Debug/pygmy_pfat.o
                                 0xf63 (size before relaxing)
- .debug_str     0x000026d7      0x560 THUMB Debug/pygmy_port.o
+ .debug_str     0x0000262f      0x560 THUMB Debug/pygmy_port.o
                                 0x8cb (size before relaxing)
- .debug_str     0x00002c37      0x4e5 THUMB Debug/pygmy_sys.o
+ .debug_str     0x00002b8f      0x4e5 THUMB Debug/pygmy_sys.o
                                 0xf1b (size before relaxing)
- .debug_str     0x0000311c      0x507 THUMB Debug/pygmy_string.o
-                                0xa70 (size before relaxing)
- .debug_str     0x00003623       0xf7 THUMB Debug/pygmy_rtc.o
+ .debug_str     0x00003074      0x51b THUMB Debug/pygmy_string.o
+                                0xa77 (size before relaxing)
+ .debug_str     0x0000358f       0xf7 THUMB Debug/pygmy_rtc.o
                                 0x35b (size before relaxing)
- .debug_str     0x0000371a       0xa2 THUMB Debug/pygmy_xmodem.o
+ .debug_str     0x00003686       0xa2 THUMB Debug/pygmy_xmodem.o
                                 0x45d (size before relaxing)
- .debug_str     0x000037bc      0x17e THUMB Debug/sst25vf.o
+ .debug_str     0x00003728      0x17e THUMB Debug/sst25vf.o
                                 0x4ab (size before relaxing)
- .debug_str     0x0000393a      0x18d /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
+ .debug_str     0x000038a6      0x18d /Applications/CrossWorks for ARM 2.3/lib/libm_v7m_t_le_eabi.a(libm2.o)
                                 0x216 (size before relaxing)
- .debug_str     0x00003ac7      0x55f /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
+ .debug_str     0x00003a33      0x55f /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(libc2.o)
                                 0x659 (size before relaxing)
- .debug_str     0x00004026       0x68 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
+ .debug_str     0x00003f92       0x68 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfprintf_int.o)
                                  0xb1 (size before relaxing)
- .debug_str     0x0000408e       0x80 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
+ .debug_str     0x00003ffa       0x80 /Applications/CrossWorks for ARM 2.3/lib/libc_v7m_t_le_eabi.a(__vfscanf_int.o)
                                  0xc9 (size before relaxing)
- .debug_str     0x0000410e      0x3b7 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
+ .debug_str     0x0000407a      0x3b7 /Applications/CrossWorks for ARM 2.3/lib/libdebugio_v7m_t_le_eabi.a(libdebugio.o)
                                 0x400 (size before relaxing)
- .debug_str     0x000044c5       0xd6 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
+ .debug_str     0x00004431       0xd6 /Applications/CrossWorks for ARM 2.3/lib/libc_user_libc_v7m_t_le_eabi.a(user_libc.o)
                                 0x11f (size before relaxing)
 
 .comment        0x00000000       0x4e
