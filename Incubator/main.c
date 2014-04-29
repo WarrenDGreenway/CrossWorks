@@ -4,26 +4,34 @@
 //#include "eastrisingERC1602.h"
 
 volatile u32 globalPLL, globalID, globalXTAL, globalFreq;
+volatile u32 proximity1, proximity2, proximity3;
+PYGMYI2CPORT proximity1Port;
 
-u8 taskUpdateLCD( void )
+/*u8 taskUpdateLCD( void )
 {
-    float rh, temp;
+    float rh, temp, farenheit;
 
-    si7020Init( );
+    //si7020Init( );
     
     si7020GetRegister( );
-    delay( 60 );
+    //delay( 60 );
     rh = si7020GetRH( );
-    delay( 60 );
+    //delay( 60 );
     temp = si7020GetTemperature( );
-    delay( 60 );
+    //delay( 60 );
     lcdWriteAddress( 0, 0 );
-    delay( 60 );
+    //delay( 60 );
     print( "rh: %3.01f", rh );
     lcdWriteAddress( 0, 1 );
-    delay( 200 );
-    
-    print( "temp: %3.01f", temp );
+    //delay( 200 );
+    farenheit = ( (temp * 9 ) / 5 ) + 32;
+    print( "temp: %3.01f", farenheit );
+
+    return( TRUE );
+}*/
+u8 proximity1Detect( void )
+{
+    proximity1 = TRUE;
 
     return( TRUE );
 }
@@ -31,6 +39,7 @@ u8 taskUpdateLCD( void )
 void main(void)
 {
     float rh, temp;
+    PYGMYTASK *task;
 
     RCC->APB2ENR |= (RCC_IOPBEN|RCC_IOPCEN|RCC_IOPAEN);
 
@@ -62,11 +71,20 @@ void main(void)
 
     pinConfig( LIGHT, OUT );
     
-    taskInit();
+    //timeInit();
+    //taskInit();
     lcdInit(  );
     si7020Init( );
     
-    si7020GetRegister( );
+    pinConfig( PROXIMITY_INT1, PULLUP );
+    pinInterrupt( (void *)proximity1Detect, PROXIMITY_INT1, TRIGGER_RISING, 2 );
+ 
+    tsl2671xInit( &proximity1Port, TSL2671X_ADDRESS, PROXIMITY_SCL, PROXIMITY_SDA );
+    tsl2671xEnableProximityInterrupt( &proximity1Port );
+    proximity1 = FALSE;
+    proximity2 = FALSE;
+    proximity3 = FALSE;
+    /*si7020GetRegister( );
     rh = si7020GetRH( );
     temp = si7020GetTemperature( );
     
@@ -75,9 +93,21 @@ void main(void)
     print( "temp: %3.01f", temp );
     lcdWriteAddress( 0, 1 );
     print( "rh: %3.01f", rh );
-    
-    //taskNewSimple( "lcdupdate", 5000, taskUpdateLCD );
+    */
 
+    /*if( taskNewSimple( "lcdupdate", 1000, taskUpdateLCD ) ){
+        lcdWriteAddress( 0, 0 );
+        task = taskGet( "lcdupdate" );
+        if( task != NULL ){
+            print( "%d", 1000);///task->Timer );
+        } else{
+            print( "ERROR" );
+        } // else 
+    } else{
+        lcdWriteAddress( 0, 0 );
+        print( "ERROR" );
+    } // else
+*/
     while(1){}
 }
 
@@ -234,8 +264,24 @@ void print( u8 *ucBuffer, ... )
 
 void SysTick_Handler( void )
 {
-    float rh, temp;
+    float rh, temp, farenheit;
 
     WATCHDOG_REFRESH;
-    taskProcess();
+ 
+    si7020GetRegister( );
+    //delay( 60 );
+    rh = si7020GetRH( );
+    //delay( 60 );
+    temp = si7020GetTemperature( );
+    //delay( 60 );
+    lcdWriteAddress( 0, 0 );
+    //delay( 60 );
+    print( "rh: %3.01f", rh );
+    lcdWriteAddress( 0, 1 );
+    //delay( 200 );
+    farenheit = ( (temp * 9 ) / 5 ) + 32;
+    print( "temp: %3.01f", farenheit );
+
+    lcdWriteAddress( 14, 0 );
+    print( "%d", proximity1 );
 }

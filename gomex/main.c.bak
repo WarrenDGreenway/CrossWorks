@@ -33,6 +33,14 @@
 #define BOOT_NOOS           BIT6
 #define BOOT_BAUDRATE       115200
 
+#define LOOPBACK            0x00
+#define RS232RS485          0x01 // LOW LOW HIGH
+#define RS232               0x01 // LOW LOW HIGH
+#define RS422_FULLDUPLEX    0x05 // HIGH LOW HIGH
+#define RS422_HALFDUPLEX    0x04 // HIGH LOW LOW
+#define RS485_FULLDUPLEX    0x03 // LOW HIGH HIGH
+#define RS485_HALFDUPLEX    0x02 // LOW HIGH LOW 
+
 u16 generateBootBaud( void );
 u8 bootTest( void );
 void bootPrintPrompt( void );
@@ -63,7 +71,7 @@ u8 cmd_pinconfig( u8 *buffer );
 u8 cmd_pinget( u8 *buffer );
 u8 cmd_pinpwm( u8 *buffer );
 u8 cmd_pinset( u8 *buffer );
-
+u8 cmd_set( u8 *buffer );
 u8 cmd_erase( u8 *Buffer );
 u8 cmd_format( u8 *Buffer );
 u8 cmdRFGet( u8 *Buffer );
@@ -125,6 +133,9 @@ u8 cmd_btscan( u8 *buffer );
 u8 cmd_btsend( u8 *buffer );
 u8 cmd_btreboot( u8 *buffer );
 
+u8 cmd_set_com( u8 *buffer );
+u8 cmd_set_pipe( u8 *buffer );
+
 const u8 STRID_L15X[] = "L15x";
 const u8 STRID_F100[] = "F100";
 const u8 STRID_F103[] = "F103";
@@ -137,7 +148,12 @@ const u8 BOOT_filename[] = "boot.hex";
 // The commands section follows the vector table and is 0x0F00 in size
 // The following command table entries should be maintained in alphabetical order
 // The exception to this rule is pygmy_cmd, which should always be the first entry
+const PYGMYCMD SETCOMMANDS[] =  {   {(u8*)"com",        cmd_set_com},
+                                    {(u8*)"pipe",       cmd_set_pipe},
+                                    {(u8*)"", NULL } // No Commands after NULL
+                                };
 const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"pygmy_cmd",  cmd_cmd},
+                                    {(u8*)"set",        cmd_set},
                                     {(u8*)"volt",       cmd_volt},
                                     {(u8*)"append",     cmd_append},
                                     {(u8*)"boot",       cmd_boot},
@@ -221,16 +237,27 @@ u8 taskVoltage( void )
     double fractionPart, wholePart;
     u16 rawVoltage, rawCurrent;
 
-    pinSet( ENABLE_RES, LOW );
+    pinSet( ENABLE_RES, HIGH );
     rawCurrent = pinAnalog( CURRENT_OUT );  
     current = adcConvertRawToFloat( rawCurrent );
     rawVoltage = pinAnalog( VOLTAGE_OUT );
     voltage = adcConvertRawToFloat( rawVoltage );
+    voltage *= 100;
      
-    print( COM3, "\r\rTime: %t", timeGet() );
-    print( COM3, "\r\rVoltage: %f", voltage );
-    print( COM3, "\rCurrent: %f", current );//voltage, current );
-    print( COM3, "\rRawVoltage: %d\rRawCurrent: %d", rawVoltage, rawCurrent );
+    print( COM4, "\r\rTime: %t", timeGet() );
+    print( COM4, "\r\rVoltage: %f", voltage );
+    print( COM4, "\rCurrent: %f", current );//voltage, current );
+    print( COM4, "\rRawVoltage: %d\rRawCurrent: %d", rawVoltage, rawCurrent );
+
+    print( COM3, "\n\nTime: %t", timeGet() );
+    print( COM3, "\nVoltage: %f", voltage );
+    print( COM3, "\nCurrent: %f", current );
+    print( COM3, "\nRawVoltage: %d\nRawCurrent: %d", rawVoltage, rawCurrent );
+
+    print( STDIO, "\r\rTime: %t", timeGet() );
+    print( STDIO, "\r\rVoltage: %f", voltage );
+    print( STDIO, "\rCurrent: %f", current );//voltage, current );
+    print( STDIO, "\rRawVoltage: %d\rRawCurrent: %d", rawVoltage, rawCurrent );
 
     if( pinGet( LED1 ) ){
         pinSet( LED1, LOW );
@@ -278,7 +305,40 @@ void handleBTConnectButton( void )
     print( STDIO, "BT_CONNECT" );
     print( COM2, "$$$CFI" );
 }
-                                
+
+void setUARTMode( u8 Mode )
+{
+    if ( Mode == LOOPBACK ) {
+        pinSet( MODE0, LOW );
+        pinSet( MODE1, LOW );
+        pinSet( MODE2, LOW );
+    } else if( Mode == RS232RS485 ){
+        pinSet( MODE0, LOW );
+        pinSet( MODE1, LOW );
+        pinSet( MODE2, HIGH );
+    } else if( Mode == RS232 ){
+        pinSet( MODE0, LOW );
+        pinSet( MODE1, LOW );
+        pinSet( MODE2, HIGH );
+    } else if( Mode == RS422_FULLDUPLEX ){
+        pinSet( MODE0, HIGH );
+        pinSet( MODE1, LOW );
+        pinSet( MODE2, HIGH );
+    } else if( Mode == RS422_HALFDUPLEX ){
+        pinSet( MODE0, HIGH );
+        pinSet( MODE1, LOW );
+        pinSet( MODE2, LOW );
+    } else if( Mode == RS485_FULLDUPLEX ){
+        pinSet( MODE0, LOW );
+        pinSet( MODE1, HIGH );
+        pinSet( MODE2, HIGH );
+    } else if( Mode == RS485_HALFDUPLEX ){
+        pinSet( MODE0, LOW );
+        pinSet( MODE1, HIGH );
+        pinSet( MODE2, LOW );
+    } // else if
+}
+
 int main( void )
 {   
     float f = 0.1234;
@@ -348,8 +408,11 @@ int main( void )
     pinConfig( BAT2, PULLUP );
     pinConfig( BT_CONNECT, PULLUP );
     pinConfig( MODE0, OUT );
+    pinSet( MODE0, LOW );
     pinConfig( MODE1, OUT );
+    pinSet( MODE1, LOW );
     pinConfig( MODE2, OUT );
+    pinSet( MODE2, HIGH );
     pinConfig( CURRENT_OUT, ANALOG );
     pinConfig( VOLTAGE_OUT, IN ); //ANALOG );
     pinConfig( BT_RESET, OUT );
@@ -366,6 +429,9 @@ int main( void )
     adcSingleSampleInit();
     // End Initialize Pins
     // Initialize COM ports 
+
+    setUARTMode( RS485_HALFDUPLEX );
+
     pinConfig( COM1_RX, IN );
     pinConfig( COM1_TX, ALT );
     pinConfig( COM1_RTS, IN );
@@ -401,9 +467,6 @@ int main( void )
     USART4->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE );
     // End Initialize COM Ports
     // Initialize Streams
-
-    
-
     streamInit();
     streamSetPut( COM1, putsUSART1 );
     streamSetPutc( COM1, putcUSART1 );
@@ -443,13 +506,7 @@ int main( void )
     println( STDIO, "%s\rPage Size %d\rFLASH %dKB\rRAM %dKB", globalStrID, fpecFlashSectorSize(), fpecFlashSize(), fpecRAMSize() );
     println( STDIO, "\rMCUID: 0x%08X", fpecMCUID() );
     */
-    /*if( !taskInit() ){
-        print( STDIO, "\rFailed to initialize tasks" );
-    } // if
-    if( !taskNewSimple( "volt", 2000, (PYGMYFUNCPTR)taskVoltage ) ){
-       print( STDIO, "\rFailed to create task \"volt\"" );
-    } // if
-    */
+    
     // Print Boot Greeting and Specs
     // Initialize the RTC
     timeInit();
@@ -457,6 +514,14 @@ int main( void )
     // Initialize the XModem Interface
     globalBootStatus = BOOT_CANCEL;
     xmodemInit( &XModem );
+
+    if( !taskInit() ){
+        print( STDIO, "\rFailed to initialize tasks" );
+    } // if
+    if( !taskNewSimple( "volt", 2000, (PYGMYFUNCPTR)taskVoltage ) ){
+       print( STDIO, "\rFailed to create task \"volt\"" );
+    } // if
+    
     // End Initialize the XModem Interface
 
     //fileFormat( (PYGMYMEMIO *)&SST25VF, TRUE, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
@@ -492,6 +557,155 @@ int main( void )
     while( 1 ){
         // Wait for commands
     }
+}
+
+u8 cmd_set( u8 *buffer )
+{
+    // set contains an entire subset of commands
+    // hand the buffer over to executeCmd and process against SETCOMMANDS
+    //u8 returnValue, setBuffer[128];
+
+    //returnValue = FALSE;
+    //if( len( buffer ) < 128 ){
+        //copyString( buffer, setBuffer );
+        //returnValue = executeCmd( setBuffer, (PYGMYCMD *)SETCOMMANDS );
+    //} 
+    //print( STDIO, "\nCalling set with: %s", buffer );
+    return( executeCmd( buffer, (PYGMYCMD *)SETCOMMANDS ) );
+}
+
+u8 cmd_set_com( u8 *buffer )
+{
+    // This is part of the subset of commands under set
+    // The format of this command is as follows:
+    // COMx PROTOCOL BAUD DATABITS PARITY STOPBITS FLOWCONTROL
+    // Example: COM1 rs232 9600 8 N 1 N
+    // COMx may be any COM Port (standard COM1 ... COM6)
+    // PROTOCOL may be rs232, rs422, rs485 (not case sensitive)
+    // BAUD may be any number, but only standard baudrates such as 1200 through 115200 are safe
+    // DATABITS must be 8 or 7
+    // PARITY must be N, 0, or 1. N and 0 are equivalent.
+    // STOPBITS must be 0 or 1
+    // FLOWCONTROL must be N, 0, 1, RTSCTS
+    // If parameters are dropped, they will default to BAUD=8, PARITY=0, STOPBITS=1, FLOWCONTROL=0
+    // If PROTOCOL is omitted, it defaults to RS232
+    // BAUD must be included. Parameters out of order or lack of BAUD may cause an error to be generated
+    // The parameters may be space or comma delimited
+    PYGMYPARAMLIST Parameters;
+    u32 baud;
+    u8 comport, param, protocol, databits, parity, stopbits, flowcontrol;
+
+    print( STDIO, "\nGetting parameters from: %s", buffer );
+    // get all parameters and verify that there is are least two parameters
+    if( getAllParameters( buffer, &Parameters ) ){
+        // check for a request for help
+        if( Parameters.SwitchCount && isStringSame( Parameters.Switches[ 0 ], "help" ) ){
+            // help has been requested, print help
+            print( STDIO, "\nThe format of this command is as follows:" );
+            print( STDIO, "\nCOMx PROTOCOL BAUD DATABITS PARITY STOPBITS FLOWCONTROL" );
+            print( STDIO, "\nExample: COM1 rs232 9600 8 N 1 N" );
+            freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+            return( TRUE );
+        } // if
+        if( Parameters.ParamCount < 2 ){
+            freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+            return( TRUE );
+        } // if
+        // set defaults
+        param = 0;
+        baud = 9600;
+        databits = 8;
+        parity = 0;
+        stopbits = 1;
+        flowcontrol = 0;
+        // determine the correct COM port
+        comport = convertStringToPort( Parameters.Params[ param++ ] );
+        if( comport == STDIO ){
+            // STDIO is returned if no valid COM port could be parsed
+            freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+            return( FALSE );
+        } // if
+        // determine protocol 
+        if( isStringSameIgnoreCase( Parameters.Params[ param ], "RS232" ) ){
+            ++param; 
+            protocol = RS232; // default
+        } else if( isStringSameIgnoreCase( Parameters.Params[ param ], "RS422" ) ){
+            ++param; 
+            protocol = RS422;
+        } else if( isStringSameIgnoreCase( Parameters.Params[ param ], "RS485" ) ){
+             ++param; 
+            protocol = RS485;
+        } else{
+            // no protocol detected, the default of RS232 will be used and param will not increment
+            protocol = RS232;
+        } // else
+        //Parameters.ParamCount -= param;
+        if( param < Parameters.ParamCount ){ // Verify there is another param to access
+            baud = convertStringToInt( Parameters.Params[ param++ ] );
+        } // if
+        if( param < Parameters.ParamCount ){ // Verify there is another param to access
+            databits = convertStringToInt( Parameters.Params[ param++ ] );
+            if( databits != 7 && databits != 8 ){
+                // invalid databits selection
+                freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+                return( FALSE );
+            } // if
+        } // if
+        if( param < Parameters.ParamCount ){ // Verify there is another param to access
+            if( isStringSameIgnoreCase( Parameters.Params[ param ], "N" ) || 
+                isStringSameIgnoreCase( Parameters.Params[ param ], "0" ) ){
+                parity = 0;
+            } else if( isStringSameIgnoreCase( Parameters.Params[ param ], "1" ) ){
+                parity = 1;
+            } else{
+                // invalid parity selection
+                freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+                return( FALSE );
+            } // else
+            ++param;
+        } // if
+        if( param < Parameters.ParamCount ){
+            if( isStringSameIgnoreCase( Parameters.Params[ param ], "0" ) ){
+                stopbits = 0;
+            } else if( isStringSameIgnoreCase( Parameters.Params[ param ], "1" ) ){
+                stopbits = 1;
+            } else{
+                // invalid parity selection
+                freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+                return( FALSE );
+            } // else
+            ++param;
+        } // if
+        if( param < Parameters.ParamCount ){
+            // FLOWCONTROL must be N, 0, 1, RTSCTS
+            if( isStringSameIgnoreCase( Parameters.Params[ param ], "N" ) || 
+                isStringSameIgnoreCase( Parameters.Params[ param ], "0" ) ){
+                flowcontrol = 0;
+            } else if( isStringSameIgnoreCase( Parameters.Params[ param ], "1" ) ||
+                isStringSameIgnoreCase( Parameters.Params[ param ], "RTSCTS" ) ){
+                flowcontrol = 1;
+            } else{
+                // invalid parity selection
+                freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+                return( FALSE );
+            } // else 
+        } // if
+        // Apply comport settings
+
+        freeParameterList( &Parameters ); // free before returning to prevent a memory leak
+        
+        if( comOpen( comport, baud, flowcontrol ? (RTS|CTS) : 0, 36000000 ) ){
+            return( TRUE );
+        } // if
+    } // if
+    
+    return( FALSE );
+}
+
+u8 cmd_set_pipe( u8 *buffer )
+{
+
+    return( FALSE );
 }
 
 u8 btConnect( void )
@@ -1841,13 +2055,14 @@ u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
     u8 *ucCommand;
     
     ucCommand = getNextSubString( ucBuffer, WHITESPACE | PUNCT );
-        
+    //print( STDIO, "\nProcessing command: %s", ucCommand );    
     for( i = 0; 1; i++ ){ 
         if( isStringSame( "", pygmyCommands[ i ].Name ) ){
             return( FALSE );
         } // if
         if( isStringSame( ucCommand, pygmyCommands[ i ].Name ) ){
-            if( pygmyCommands[ i ].Call( ucBuffer + len(ucCommand) ) ){
+            print( STDIO, "\nProcessing parameters: (%s)", ucBuffer + len(ucCommand) );
+            if( pygmyCommands[ i ].Call( ucBuffer + 1 + len(ucCommand) ) ){
                 return( TRUE );
             } else{
                 return( FALSE );

@@ -25,26 +25,26 @@
 #pragma once
 
 //#define __PYGMYNEBULA
-#define __PYGMYSTREAMS
+//#define __PYGMYSTREAMS
     //#define __PYGMYSTREAMCOM3
     //#define __PYGMYSTREAMCOM2
     //#define __PYGMYSTREAMCOM1
 //#define __PYGMYCOMMANDS
 //#define __PYGMYMESSAGES
-#define __PYGMYTASKS
+//#define __PYGMYTASKS
 //#define __PYGMYSOCKETS
     //#define __PYGMYSOCKETS_CONTROL
 //    #define __PYGMYSOCKETS_FILE
     //#define __PYGMYSOCKETS_CMDLINE
     //#define __PYGMYSOCKETS_AV
-#define __PYGMYFILES
+//#define __PYGMYFILES
 #define __PYGMYANALOG
 //#define __PYGMY_DEBUG_FILE
 //#include "profiles/nebula/pygmy_nebula_hp.h"
 //#include "profiles/gomex/gomex_v1.h"
 #include "incubator.h"
 
-//#include "pygmy_sys.h"
+#include "pygmy_sys.h"
 #include "pygmy_type.h"
 #include "eastrisingERC1602.h"
 #include "cpu/stm/stm32/stm32f100.h"
@@ -52,6 +52,7 @@
 #include "cpu/stm/stm32_watchdog.h"
 #include "cpu/stm/stm32_timers.h"
 #include "si7020.h"
+//#include "profiles/sensors/tsl2671x.h"
 #include "pygmy_port.h"
 #include "pygmy_com.h"
 //#include "pygmy_rf.h"

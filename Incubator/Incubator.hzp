@@ -1,7 +1,7 @@
 <!DOCTYPE CrossStudio_Project_File>
 <solution Name="Incubator" target="8" version="2">
   <project Name="Incubator">
-    <configuration Name="Common" Placement="Flash" Target="STM32F100R4" arm_architecture="v7M" arm_core_type="Cortex-M3" arm_fpu_type="None" arm_gcc_target="arm-unknown-eabi" arm_library_optimization="Small" arm_linker_heap_size="128" arm_linker_jtag_pad_pre_dr="1" arm_linker_jtag_pad_pre_ir="5" arm_linker_process_stack_size="0" arm_linker_stack_size="256" arm_simulator_memory_simulation_filename="$(TargetsDir)/STM32/STM32SimulatorMemory.dll" arm_simulator_memory_simulation_parameter="STM32F100R4;0x4000;0x1000" arm_target_connect_with_reset="Yes" arm_target_debug_interface_type="ADIv5" arm_target_interface_type="Default" arm_target_loader_applicable_loaders="Flash" arm_target_loader_default_loader="Flash" arm_target_restrict_memory_accesses="Yes" arm_use_gcc_libraries="Yes" c_user_include_directories="$(TargetsDir)/STM32/include;$(TargetsDir)/CMSIS_3/CMSIS/Include" gcc_optimization_level="Optimize For Size" link_include_standard_libraries="Yes" linker_memory_map_file="$(TargetsDir)/STM32/STM32F100R4_MemoryMap.xml" linker_printf_enabled="No" linker_printf_width_precision_supported="No" linker_scanf_enabled="No" linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml" project_directory="" project_type="Executable" property_groups_file_path="$(TargetsDir)/STM32/propertyGroups.xml" target_get_partname_script="GetPartName()" target_match_partname_script="MatchPartName(&quot;$(Target)&quot;)" target_reset_script="Reset()" target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)"/>
+    <configuration Name="Common" Placement="Flash" Target="STM32F100R4" arm_architecture="v7M" arm_core_type="Cortex-M3" arm_fpu_type="None" arm_gcc_target="arm-unknown-eabi" arm_library_optimization="Small" arm_linker_heap_size="2048" arm_linker_jtag_pad_pre_dr="1" arm_linker_jtag_pad_pre_ir="5" arm_linker_process_stack_size="128" arm_linker_stack_size="256" arm_simulator_memory_simulation_filename="$(TargetsDir)/STM32/STM32SimulatorMemory.dll" arm_simulator_memory_simulation_parameter="STM32F100R4;0x4000;0x1000" arm_target_connect_with_reset="Yes" arm_target_debug_interface_type="ADIv5" arm_target_interface_type="Default" arm_target_loader_applicable_loaders="Flash" arm_target_loader_default_loader="Flash" arm_target_restrict_memory_accesses="Yes" arm_use_gcc_libraries="Yes" c_user_include_directories="$(TargetsDir)/STM32/include;$(TargetsDir)/CMSIS_3/CMSIS/Include" gcc_optimization_level="Optimize For Size" link_include_standard_libraries="Yes" linker_memory_map_file="$(TargetsDir)/STM32/STM32F100R4_MemoryMap.xml" linker_printf_enabled="No" linker_printf_width_precision_supported="No" linker_scanf_enabled="No" linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml" project_directory="" project_type="Executable" property_groups_file_path="$(TargetsDir)/STM32/propertyGroups.xml" target_get_partname_script="GetPartName()" target_match_partname_script="MatchPartName(&quot;$(Target)&quot;)" target_reset_script="Reset()" target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)"/>
     <configuration Name="Flash" arm_target_flash_loader_file_path="$(TargetsDir)/STM32/Release/Loader_rpc.elf" arm_target_flash_loader_type="LIBMEM RPC Loader" arm_target_loader_can_erase_all="Yes" arm_target_loader_can_lock_all="No" arm_target_loader_can_lock_range="No" arm_target_loader_can_unlock_all="No" arm_target_loader_can_unlock_range="No" target_reset_script="FLASHReset()"/>
     <folder Name="Source Files" file_name="">
       <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc"/>
@@ -11,13 +11,15 @@
       <file file_name="pygmyos/core/pygmy_port.c"/>
       <file file_name="incubator.h"/>
       <file file_name="pygmyos/profiles/sensors/si7020.c"/>
-      <file file_name="pygmyos/profiles/sensors/tsl2671x.c"/>
       <file file_name="eastrisingERC1602.c"/>
       <file file_name="pygmyos/core/pygmy_rtc.c"/>
       <file file_name="pygmyos/core/pygmy_string.c"/>
       <file file_name="eastrisingERC1602.h"/>
       <file file_name="si7020.h"/>
       <file file_name="pygmyos/core/pygmy_sys.c"/>
+      <file file_name="pygmyos/profiles/sensors/tsl2671x.c">
+        <configuration Name="THUMB Debug" build_exclude_from_build="No"/>
+      </file>
     </folder>
     <folder Name="System Files">
       <file file_name="$(StudioDir)/source/thumb_crt0.s"/>
